@@ -3,17 +3,17 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  // background-image: url(../../assets/banners/rightBottomElipse.png),
-  //   url(../../assets/banners/rightTopElipse.png),
-  //   url(../../assets/banners/leftTopElipse.png),
-  //   url(../../assets/banners/leftCenterElipse2.png),
-  //   url(../../assets/banners/leftCenterElipse1.png),
-  //   linear-gradient(180deg, #00141d 0%, #000000 100%);
-  // background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-  //   no-repeat;
-  // background-position: right bottom, right top, left top, left center,
-  //   left bottom;
-  // background-size: 47rem, 11rem, 30rem, 12rem, 10rem, cover;
+  background-image: url(../../../public/assets/banners/rightBottomElipse.png),
+    url(../../../public/assets/banners/rightTopElipse.png),
+    url(../../../public/assets/banners/leftTopElipse.png),
+    url(../../../public/assets/banners/leftCenterElipse2.png),
+    url(../../../public/assets/banners/leftCenterElipse1.png),
+    linear-gradient(180deg, #00141d 0%, #000000 100%);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat;
+  background-position: right bottom, right top, left top, left center,
+    left bottom;
+  background-size: 47rem, 11rem, 30rem, 12rem, 10rem, cover;
 
   backdrop-filter: blur(2rem);
 
@@ -22,17 +22,17 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    // background-image: url(../../assets/banners/rightBottomElipse.png),
-    //   url(../../assets/banners/rightTopElipse.png),
-    //   url(../../assets/banners/leftTopElipse.png),
-    //   url(../../assets/banners/leftCenterElipse2.png),
-    //   url(../../assets/banners/leftCenterElipse1.png),
-    //   linear-gradient(180deg, #00141d 0%, #000000 100%);
-    // background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-    //   no-repeat;
-    // background-position: right bottom, right top, left top, left center,
-    //   left bottom;
-    // background-size: 47rem, 11rem, 30rem, 12rem, 10rem, cover;
+    background-image: url(../../../public/assets/banners/rightBottomElipse.png),
+      url(../../../public/assets/banners/rightTopElipse.png),
+      url(../../../public/assets/banners/leftTopElipse.png),
+      url(../../../public/assets/banners/leftCenterElipse2.png),
+      url(../../../public/assets/banners/leftCenterElipse1.png),
+      linear-gradient(180deg, #00141d 0%, #000000 100%);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+      no-repeat;
+    background-position: right bottom, right top, left top, left center,
+      left bottom;
+    background-size: 47rem, 11rem, 30rem, 12rem, 10rem, cover;
     overflow: hidden;
     -webkit-filter: blur(15px);
     -moz-filter: blur(15px);
@@ -107,8 +107,6 @@
     }
   }
 }
-
-
 
 @media (max-width: 800px) {
   .layout-container {

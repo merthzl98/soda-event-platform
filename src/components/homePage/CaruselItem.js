@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import "./CaruselItem.scss";
-import greenDot from "../../assets/icons/greenDot.png";
-import LayoutContext from "../../storage/layout-context";
+
 import { useTranslation } from "react-i18next";
+
+import styles from "./CaruselItem.module.scss";
+// import greenDot from "../../assets/icons/greenDot.png";
+import LayoutContext from "../../storage/layout-context";
 
 const CaruselItem = ({ item }) => {
   const lytCtx = useContext(LayoutContext);
@@ -17,30 +19,30 @@ const CaruselItem = ({ item }) => {
   };
 
   return (
-    <div className="carusel-item-container">
-      <div className="carusel-item-wrapper">
-        <div className="carusel-img" style={caruselImageUrl}></div>
-        <div className="sub-section">
-          <div className="type-section">
-            <div className="carusel-item-title">
+    <div className={styles["carusel-item-container"]}>
+      <div className={styles["carusel-item-wrapper"]}>
+        <div className={styles["carusel-img"]} style={caruselImageUrl}></div>
+        <div className={styles["sub-section"]}>
+          <div className={styles["type-section"]}>
+            <div className={styles["carusel-item-title"]}>
               <p>{item.genre}</p>
             </div>
-            <div className="carusel-item-condition">
-              <img src={greenDot} alt={`${Math.random()}`}></img>
+            <div className={styles["carusel-item-condition"]}>
+              {/* <img src={greenDot} alt={`${Math.random()}`}></img> */}
               <p>{item.condition}</p>
             </div>
           </div>
           {mobileVersion ? (
-            <div className="events-item-description">
+            <div className={styles["events-item-description"]}>
               <p>{item.description}</p>
             </div>
           ) : (
             ""
           )}
 
-          <div className="carusel-item-actions">
-            <button className="save">{t("save")}</button>
-            <button className="buy-now">{t("buy")}</button>
+          <div className={styles["carusel-item-actions"]}>
+            <button className={styles["save"]}>{t("save")}</button>
+            <button className={styles["buy-now"]}>{t("buy")}</button>
           </div>
         </div>
       </div>

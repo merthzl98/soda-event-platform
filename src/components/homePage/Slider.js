@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./Slider.scss";
-import leftButton from "../../assets/icons/leftButton.png";
-import rightButton from "../../assets/icons/rightButton.png";
-import redDot from "../../assets/icons/redDot.png";
-import dotContainer from "../../assets/icons/dotContainer.png";
-import blackDot from "../../assets/icons/blackDot.png";
-import greyDot from "../../assets/icons/greyDot.png";
-import { sliderData } from "../../api/mockData/mockData";
-import SliderItem from "./SliderItem";
+
 import { useTranslation } from "react-i18next";
+
+import styles from "./Slider.module.scss";
+// import leftButton from "../../assets/icons/leftButton.png";
+// import rightButton from "../../assets/icons/rightButton.png";
+// import redDot from "../../assets/icons/redDot.png";
+// import dotContainer from "../../assets/icons/dotContainer.png";
+// import blackDot from "../../assets/icons/blackDot.png";
+// import greyDot from "../../assets/icons/greyDot.png";
+import { sliderData } from "../../components/mockData/mockData";
+import SliderItem from "./SliderItem";
 import LayoutContext from "../../storage/layout-context";
 
 const Slider = (props) => {
@@ -49,12 +51,13 @@ const Slider = (props) => {
 
   const dots = sliderData.map((item, index) => {
     return (
-      <img
-        onClick={() => setsliderIndex(index)}
-        key={index}
-        src={index === sliderIndex ? blackDot : greyDot}
-        alt="dot"
-      ></img>
+      <div key={index}>dot</div>
+      // <img
+      //   onClick={() => setsliderIndex(index)}
+      //   key={index}
+      //   src={index === sliderIndex ? blackDot : greyDot}
+      //   alt="dot"
+      // ></img>
     );
   });
 
@@ -63,31 +66,37 @@ const Slider = (props) => {
   });
 
   return (
-    <div className="sliders-container">
-      <div className="sliders-wrapper">
-        <div className="slider-items">
-          <div key={Math.random()} className="upcoming-events">
+    <div className={styles["sliders-container"]}>
+      <div className={styles["sliders-wrapper"]}>
+        <div className={styles["slider-items"]}>
+          <div key={Math.random()} className={styles["upcoming-events"]}>
             <div>
-              <p className="up-article">{t("upComing")}</p>
+              <p className={styles["up-article"]}>{t("upComing")}</p>
             </div>
             <div>
-              <p className="down-article">{t("events").toUpperCase()}!</p>
+              <p className={styles["down-article"]}>
+                {t("events").toUpperCase()}!
+              </p>
             </div>
-            <div className="check-button">
+            <div className={styles["check-button"]}>
               <button>{t("check")}</button>
             </div>
           </div>
           {!mobileVersion && (
             <>
               {sliderIndex > 0 && (
-                <button key={sliderIndex} onClick={prev} className="left-arrow">
-                  <img src={leftButton} alt="left button"></img>
+                <button
+                  key={sliderIndex}
+                  onClick={prev}
+                  className={styles["left-arrow"]}
+                >
+                  {/* <img src={leftButton} alt="left button"></img> */}
                 </button>
               )}
             </>
           )}
           <div
-            className={`slider-content show-${show}`}
+            className={styles[`slider-content show-${show}`]}
             style={{
               transform: `translateX(-${sliderIndex * (100 / show)}%)`,
             }}
@@ -100,30 +109,30 @@ const Slider = (props) => {
                 <button
                   key={Math.random()}
                   onClick={next}
-                  className="right-arrow"
+                  className={styles["right-arrow"]}
                 >
-                  <img src={rightButton} alt="right button"></img>
+                  {/* <img src={rightButton} alt="right button"></img> */}
                 </button>
               )}
             </>
           )}
 
-          <div className="dot-section">
-            <div className="dot-title" key={Math.random()}>
-              <img src={redDot} alt="red dot"></img>
+          <div className={styles["dot-section"]}>
+            <div className={styles["dot-title"]} key={Math.random()}>
+              {/* <img src={redDot} alt="red dot"></img> */}
               <p>{sliderData[sliderIndex].type}</p>
             </div>
-            <div className="dot-date" key={Math.random()}>
+            <div className={styles["dot-date"]} key={Math.random()}>
               <p> {sliderData[sliderIndex].date}</p>
             </div>
 
-            <div className="dots">
-              <img
-                className="dot-container"
+            <div className={styles["dots"]}>
+              {/* <img
+                className={styles["dot-container"]}
                 src={dotContainer}
                 alt="dot container"
-              ></img>
-              <div className="dot">{dots}</div>
+              ></img> */}
+              <div className={styles["dot"]}>{dots}</div>
             </div>
           </div>
         </div>

@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Carusel.scss";
+
+import styles from "./Carusel.module.scss";
 // import orangeLine from "../../assets/icons/orangeLine.png";
 // import redLine from "../../assets/icons/redLine.png";
 // import blueLine from "../../assets/icons/blueLine.png";
 // import pinkLine from "../../assets/icons/pinkLine.png";
+// import rightButton from "../../assets/icons/rightButton.png";
+// import leftButton from "../../assets/icons/leftButton.png";
 import CaruselItem from "./CaruselItem";
-import rightButton from "../../assets/icons/rightButton.png";
 import LayoutContext from "../../storage/layout-context";
-import { caruselItemsData } from "../../api/mockData/mockData";
-import leftButton from "../../assets/icons/leftButton.png";
+import { caruselItemsData } from "../../components/mockData/mockData";
 
 const Carusel = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,8 +68,8 @@ const Carusel = (props) => {
   });
 
   return (
-    <div className="carusel-container">
-      <div className="carusel-wrapper">
+    <div className={styles["carusel-container"]}>
+      <div className={styles["carusel-wrapper"]}>
         {/* <div className="carusel-title">
           <div className="title-left">
             <div className="toggled-title-left">
@@ -90,22 +91,22 @@ const Carusel = (props) => {
         </div> */}
 
         <div
-          className="carusel-items"
+          className={styles["carusel-items"]}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
         >
           {!mobileVersion && (
             <>
               {currentIndex > 0 && (
-                <button onClick={prev} className="left-arrow">
-                  <img src={leftButton} alt="left button"></img>
+                <button onClick={prev} className={styles["left-arrow"]}>
+                  {/* <img src={leftButton} alt="left button"></img> */}
                 </button>
               )}
             </>
           )}
 
           <div
-            className={`carousel-content show-${show}`}
+            className={styles[`carousel-content show-${show}`]}
             style={{
               transform: `translateX(-${currentIndex * (100 / show)}%)`,
             }}
@@ -115,15 +116,19 @@ const Carusel = (props) => {
           {!mobileVersion && (
             <>
               {currentIndex < length - show && (
-                <button onClick={next} className="right-arrow">
-                  <img src={rightButton} alt="right button"></img>
+                <button onClick={next} className={styles["right-arrow"]}>
+                  {/* <img src={rightButton} alt="right button"></img> */}
                 </button>
               )}
             </>
           )}
 
           {!mobileVersion && (
-            <>{currentIndex < 5 && <div className="carusel-blur"></div>}</>
+            <>
+              {currentIndex < 5 && (
+                <div className={styles["carusel-blur"]}></div>
+              )}
+            </>
           )}
         </div>
       </div>

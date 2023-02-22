@@ -1,33 +1,35 @@
 import React, { useContext, useEffect } from "react";
+
+import { useRouter } from "next/router";
+
 import Carusel from "./Carusel";
-import "./HomePage.scss";
+import styles from "./HomePage.module.scss";
 import Slider from "./Slider";
 import LayoutContext from "../../storage/layout-context";
-import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const lytCtx = useContext(LayoutContext);
 
-  const location = useLocation();
+  const router = useRouter();
 
   const { setHideNextUp, mobileVersion } = lytCtx;
 
   useEffect(() => {
-    if (location.pathname === "/home") {
+    if (router.pathname === "/") {
       setHideNextUp(false);
     }
     // eslint-disable-next-line
-  }, [location.pathname]);
+  }, [router.pathname]);
 
   const displayItemCount = mobileVersion ? 2 : 6;
 
   return (
-    <div className="home-page-container">
-      <div className="home-page-wrapper">
-        <div className="slider-section">
+    <div className={styles["home-page-container"]}>
+      <div className={styles["home-page-wrapper"]}>
+        <div className={styles["slider-section"]}>
           <Slider show={1} />
         </div>
-        <div className="carusel-section">
+        <div className={styles["carusel-section"]}>
           <Carusel show={displayItemCount} />
         </div>
       </div>

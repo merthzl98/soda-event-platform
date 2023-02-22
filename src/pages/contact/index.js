@@ -7,7 +7,7 @@ const ContactUsPage = () => {
     <Fragment>
         <Head>
         <title>Meet us!</title>
-        <meta name="description" content={"meet us, ask a question"} />
+        <meta name="description" content="meet us, ask a question" />
       </Head>
       <ContactPage />
     </Fragment>

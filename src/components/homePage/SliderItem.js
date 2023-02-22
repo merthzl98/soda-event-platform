@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
+
 import LayoutContext from "../../storage/layout-context";
-import "./SliderItem.scss";
+import styles from "./SliderItem.module.scss";
 
 const SliderItem = (sliderItem) => {
   const lytCtx = useContext(LayoutContext);
@@ -20,7 +21,7 @@ const SliderItem = (sliderItem) => {
     border: "1px solid aqua",
   };
 
-  return <div className="slider-background" style={sliderUrl}></div>;
+  return <div className={styles["slider-background"]} style={sliderUrl}></div>;
 };
 
 export default SliderItem;
