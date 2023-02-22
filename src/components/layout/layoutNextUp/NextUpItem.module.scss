@@ -1,0 +1,172 @@
+.content-item {
+  height: 15%;
+  width: 94%;
+  display: flex;
+  flex-direction: row;
+  .artist-img {
+    width: 40%;
+    height: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+    img {
+      border-radius: 0.9rem;
+      width: 6.9rem;
+      height: 6.9rem;
+      // width: 100%;
+      // height: auto;
+    }
+  }
+  .artist-info {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 98%;
+    .artist-article {
+      .artist-name {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.15rem;
+        line-height: 2rem;
+        letter-spacing: 0.04rem;
+      }
+      .artist-location {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+  .nextup-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    .bilet-info {
+      width: 6.5rem;
+      button {
+        width: 85%;
+        background: #00abf2;
+        border-radius: 0.25rem;
+        border: none;
+        color: #ffffff;
+        padding: 0.4rem 0;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.75rem;
+      }
+    }
+    .buy-now {
+      width: 6.5rem;
+      button {
+        background: #008c16;
+        width: 90%;
+        border-radius: 0.25rem;
+        border: none;
+        color: #ffffff;
+        padding: 0.4rem 0;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1030px) {
+  .content-item {
+    .nextup-action {
+      button {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .content-item {
+    height: auto;
+    width: 94%;
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 0;
+    .artist-img {
+      width: 40%;
+      height: auto;
+      display: flex;
+      justify-content: left;
+      img {
+        border-radius: 0.9rem;
+        width: 8.9rem;
+        height: 8.9rem;
+      }
+    }
+    .artist-info {
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 70%;
+      .artist-article {
+        .artist-name {
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 1.55rem;
+          line-height: 2.9rem;
+          letter-spacing: 0.04rem;
+        }
+        .artist-location {
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+    .nextup-action {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 95%;
+      .bilet-info {
+        width: 8.5rem;
+        button {
+          width: 95%;
+          background: #00abf2;
+          border-radius: 0.25rem;
+          border: none;
+          color: #ffffff;
+          padding: 0.4rem 0;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.2rem;
+        }
+      }
+      .buy-now {
+        width: 8.5rem;
+        button {
+          background: #008c16;
+          width: 95%;
+          border-radius: 0.25rem;
+          border: none;
+          color: #ffffff;
+          padding: 0.4rem 0;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}

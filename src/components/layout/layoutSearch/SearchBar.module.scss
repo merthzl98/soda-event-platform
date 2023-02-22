@@ -1,0 +1,78 @@
+.searchbar-container {
+  width: 95%;
+  .searchbar-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    .searchbar-icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+    }
+
+    .search-input {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      input {
+        width: 90%;
+        margin-top: 0.15rem;
+        font-size: 0.8rem;
+        color: #ffffff;
+        border: none;
+        background-color: transparent;
+        resize: none;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          font-size: 0.8rem;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .searchbar-container {
+    
+    .searchbar-wrapper {
+      
+      .searchbar-icon {
+        
+        img {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+
+      .search-input {
+        
+        input {
+         
+          margin-top: 0.15rem;
+          font-size: 1.3rem;
+          
+          &:focus {
+            outline: none;
+          }
+          &::placeholder {
+            font-size: 1.2rem;
+            
+          }
+        }
+      }
+    }
+  }
+}

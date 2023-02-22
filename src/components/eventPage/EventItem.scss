@@ -1,0 +1,121 @@
+.events-item-container {
+  color: #ffffff;
+  width: 100%;
+  height: 23rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(31, 46, 52, 0.45);
+  box-shadow: -0.05rem 0.25rem 0.4rem 0.1rem rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(63, 103, 120, 0.45) 0%,
+    rgba(63, 103, 120, 0) 0.01%,
+    rgba(63, 103, 120, 0.42) 47.68%,
+    rgba(63, 103, 120, 0.5) 100%
+  );
+  border-radius: 0.35rem;
+  border: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.13),
+      rgba(39, 191, 255, 0.55)
+    )
+    1;
+
+  //   opacity: 0.53;
+  //   filter: blur(2px);
+  p {
+    margin: 0;
+  }
+
+  .events-img {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    // img {
+    //   max-width: 100%;
+    //   // height: 9rem;
+    //   height: auto;
+    //   border-radius: 0.2rem 0.2rem 0 0;
+    // }
+  }
+
+  .sub-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title-section {
+      .events-item-title {
+        margin-left: 0.8rem;
+        margin-bottom: 0.1rem;
+        margin-top: 0.2rem;
+
+        p {
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+      }
+
+      .events-item-condition {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 0.7rem;
+        margin-bottom: 1rem;
+        img {
+          width: 0.6rem;
+          height: 0.6rem;
+        }
+        p {
+          font-weight: 500;
+          font-size: 0.75rem;
+          margin-left: 0.3rem;
+        }
+      }
+    }
+
+    .events-item-description {
+      font-weight: 300;
+      font-size: 0.8rem;
+      margin-left: 0.9rem;
+      margin-bottom: 1rem;
+      width: 90%;
+    }
+
+    .events-item-actions {
+      width: 100%;
+      height: auto;
+      button {
+        width: 50%;
+        height: 2rem;
+        border: none;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 0.75rem;
+        font-family: "Poppins";
+        font-style: normal;
+      }
+      .buy-now {
+        background: #00b2fd;
+        border-radius: 0 0 0.2rem 0;
+      }
+
+      .save {
+        background: #008c16;
+        border-radius: 0 0 0 0.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1030px) {
+  .events-item-container {
+    .events-item-actions {
+      button {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}

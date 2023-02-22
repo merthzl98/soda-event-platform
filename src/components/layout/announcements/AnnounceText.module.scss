@@ -1,0 +1,16 @@
+.announce-flow {
+  display: flex;
+  flex-direction: row;
+
+  .band-name {
+    font-weight: 600;
+  }
+
+  .location-name {
+    font-weight: 400;
+  }
+
+  .condition-info {
+    font-weight: 400;
+  }
+}
