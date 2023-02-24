@@ -1,7 +1,9 @@
 import React from "react";
-import styles from "./Announcements.module.scss";
-// import announceIcon from "../../../assets/icons/announceIcon.png";
 import Marquee from "react-fast-marquee";
+import Image from "next/image";
+
+import styles from "./Announcements.module.scss";
+import announceIcon from "../../../../public/assets/icons/announceIcon.png";
 import { announceData } from "../../mockData/mockData";
 import AnnounceText from "./AnnounceText";
 
@@ -14,7 +16,7 @@ const Announcements = () => {
     <div className={styles["announce-container"]}>
       <div className={styles["announce-wrapper"]}>
         <div className={styles["announce-icon"]}>
-          {/* <img src={announceIcon} alt="announce-icon" /> */}
+          <Image src={announceIcon} alt="announce icon"  />
         </div>
         <div className={styles["left-blur"]}></div>
         <div className={styles["announce-article"]}>

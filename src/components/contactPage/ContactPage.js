@@ -2,10 +2,19 @@ import React, { useContext, useEffect } from "react";
 
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 import styles from "./ContactPage.module.scss";
 import LayoutContext from "../../storage/layout-context";
-
+import youtube from "../../../public/assets/icons/youtube.png";
+import mailIcon from "../../../public/assets/icons/mailIcon.png";
+import phoneIcon from "../../../public/assets/icons/phoneIcon.png";
+import locationIcon from "../../../public/assets/icons/locationIcon.png";
+import hor from "../../../public/assets/icons/hor.png";
+import spotify from "../../../public/assets/icons/spotify.png";
+import twitter from "../../../public/assets/icons/twitter.png";
+import insta from "../../../public/assets/icons/insta.png";
+import facebook from "../../../public/assets/icons/facebook.png";
 
 const ContactPage = () => {
   const lytCtx = useContext(LayoutContext);
@@ -61,15 +70,15 @@ const ContactPage = () => {
           <div className={styles["contact-info"]}>
             <p className={styles["contact-title"]}>{t("contactInfo")}</p>
             <div className={styles["info-item"]}>
-              {/* <img src={locationIcon} alt="location icon"></img> */}
+              <Image src={locationIcon} alt="location icon" />
               <p>447 Military DriveMaryville, TN 37803</p>
             </div>
             <div className={styles["info-item"]}>
-              {/* <img src={phoneIcon} alt="phone icon"></img> */}
+              <Image src={phoneIcon} alt="phone icon" />
               <p>530-737-2876</p>
             </div>
             <div className={styles["info-item"]}>
-              {/* <img src={mailIcon} alt="mail icon"></img> */}
+              <Image src={mailIcon} alt="mail icon" />
               <p>info@soda.com</p>
             </div>
           </div>
@@ -84,15 +93,15 @@ const ContactPage = () => {
           <div className={styles["contact-info"]}>
             <p className={styles["contact-title"]}>{t("contactInfo")} </p>
             <div className={styles["info-item"]}>
-              {/* <img src={locationIcon} alt="location icon"></img> */}
+              <Image src={locationIcon} alt="location icon" />
               <p>447 Military DriveMaryville, TN 37803</p>
             </div>
             <div className={styles["info-item"]}>
-              {/* <img src={phoneIcon} alt="phone icon"></img> */}
+              <Image src={phoneIcon} alt="phone icon" />
               <p>530-737-2876</p>
             </div>
             <div className={styles["info-item"]}>
-              {/* <img src={mailIcon} alt="mail icon"></img> */}
+              <Image src={mailIcon} alt="mail icon" />
               <p>info@soda.com</p>
             </div>
           </div>
@@ -102,15 +111,15 @@ const ContactPage = () => {
             <div className={styles["logo"]}>LOGO</div>
             <div className={styles["definition"]}>
               <p className={styles["p1"]}>INFLUENCER SOLUTIONS FACTORY</p>
-              {/* <img src={hor} alt="horizontal line"></img> */}
+              <Image src={hor} alt="horizontal line" />
               <p className={styles["follow-us"]}>{t("followUs")}</p>
             </div>
             <div className={styles["social-icons"]}>
-              {/* <img src={insta} alt="insta"></img>
-              <img src={facebook} alt="facebook"></img>
-              <img src={twitter} alt="twitter"></img> */}
-              <img src="/assets/icons/spotify.png" alt="spotify"></img>
-              {/* <img src={youtube} alt="youtube"></img> */}
+              <Image src={insta} alt="insta" />
+              <Image src={facebook} alt="facebook" />
+              <Image src={twitter} alt="twitter" />
+              <Image src={spotify} alt="spotify" />
+              <Image src={youtube} alt="youtube" />
             </div>
           </div>
         )}

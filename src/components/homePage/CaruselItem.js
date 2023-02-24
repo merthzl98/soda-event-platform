@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 import styles from "./CaruselItem.module.scss";
-// import greenDot from "../../assets/icons/greenDot.png";
+import greenDot from "../../../public/assets/icons/greenDot.png";
 import LayoutContext from "../../storage/layout-context";
 
 const CaruselItem = ({ item }) => {
@@ -28,7 +29,7 @@ const CaruselItem = ({ item }) => {
               <p>{item.genre}</p>
             </div>
             <div className={styles["carusel-item-condition"]}>
-              {/* <img src={greenDot} alt={`${Math.random()}`}></img> */}
+              <Image src={greenDot} alt={`${Math.random()}`} />
               <p>{item.condition}</p>
             </div>
           </div>

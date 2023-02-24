@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
+import Image from "next/image";
+
 import styles from "./MainNextUp.module.scss";
 import NextUpItem from "./NextUpItem";
-// import dotContainer from "../../../assets/icons/dotContainer.png";
-// import blackDot from "../../../assets/icons/blackDot.png";
-// import greyDot from "../../../assets/icons/greyDot.png";
+import dotContainer from "../../../../public/assets/icons/dotContainer.png";
+import blackDot from "../../../../public/assets/icons/blackDot.png";
+import greyDot from "../../../../public/assets/icons/greyDot.png";
 import LayoutContext from "../../../storage/layout-context";
 import { nextupMockData } from "../../mockData/mockData.js";
-import { useTranslation } from "react-i18next";
 
 const MainNextUp = () => {
   const lytCtx = useContext(LayoutContext);
@@ -30,17 +32,17 @@ const MainNextUp = () => {
         </div>
         {mobileVersion ? (
           <div className={styles["dots"]}>
-            {/* <img
+            <Image
               className={styles["dot-container"]}
               src={dotContainer}
               alt="dot container"
-            ></img> */}
+            />
             <div className={styles["dot"]}>
-              {/* <img src={blackDot} alt="black dot"></img>
-              <img src={greyDot} alt="grey dot"></img>
-              <img src={greyDot} alt="grey dot"></img>
-              <img src={greyDot} alt="grey dot"></img>
-              <img src={greyDot} alt="grey dot"></img> */}
+              <Image src={blackDot} alt="black dot" />
+              <Image src={greyDot} alt="grey dot" />
+              <Image src={greyDot} alt="grey dot" />
+              <Image src={greyDot} alt="grey dot" />
+              <Image src={greyDot} alt="grey dot" />
             </div>
           </div>
         ) : (

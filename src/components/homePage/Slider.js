@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 import styles from "./Slider.module.scss";
-// import leftButton from "../../assets/icons/leftButton.png";
-// import rightButton from "../../assets/icons/rightButton.png";
-// import redDot from "../../assets/icons/redDot.png";
-// import dotContainer from "../../assets/icons/dotContainer.png";
-// import blackDot from "../../assets/icons/blackDot.png";
-// import greyDot from "../../assets/icons/greyDot.png";
+import leftButton from "../../../public/assets/icons/leftButton.png";
+import rightButton from "../../../public/assets/icons/rightButton.png";
+import redDot from "../../../public/assets/icons/redDot.png";
+import dotContainer from "../../../public/assets/icons/dotContainer.png";
+import blackDot from "../../../public/assets/icons/blackDot.png";
+import greyDot from "../../../public/assets/icons/greyDot.png";
 import { sliderData } from "../../components/mockData/mockData";
 import SliderItem from "./SliderItem";
 import LayoutContext from "../../storage/layout-context";
@@ -16,7 +17,9 @@ import LayoutContext from "../../storage/layout-context";
 const Slider = (props) => {
   const [sliderIndex, setsliderIndex] = useState(0);
   const [slidersLength, setSlidersLength] = useState(sliderData.length);
+
   const lytCtx = useContext(LayoutContext);
+
   const { t } = useTranslation();
 
   const { mobileVersion } = lytCtx;
@@ -50,14 +53,14 @@ const Slider = (props) => {
   };
 
   const dots = sliderData.map((item, index) => {
+    let selectedDot = index === sliderIndex ? blackDot : greyDot;
     return (
-      <div key={index}>dot</div>
-      // <img
-      //   onClick={() => setsliderIndex(index)}
-      //   key={index}
-      //   src={index === sliderIndex ? blackDot : greyDot}
-      //   alt="dot"
-      // ></img>
+      <Image
+        onClick={() => setsliderIndex(index)}
+        key={index}
+        src={selectedDot}
+        alt={Math.random()}
+      />
     );
   });
 
@@ -90,7 +93,7 @@ const Slider = (props) => {
                   onClick={prev}
                   className={styles["left-arrow"]}
                 >
-                  {/* <img src={leftButton} alt="left button"></img> */}
+                  <Image src={leftButton} alt="left button" />
                 </button>
               )}
             </>
@@ -111,7 +114,7 @@ const Slider = (props) => {
                   onClick={next}
                   className={styles["right-arrow"]}
                 >
-                  {/* <img src={rightButton} alt="right button"></img> */}
+                  <Image src={rightButton} alt="right button" />
                 </button>
               )}
             </>
@@ -119,7 +122,7 @@ const Slider = (props) => {
 
           <div className={styles["dot-section"]}>
             <div className={styles["dot-title"]} key={Math.random()}>
-              {/* <img src={redDot} alt="red dot"></img> */}
+              <Image src={redDot} alt="red dot" />
               <p>{sliderData[sliderIndex].type}</p>
             </div>
             <div className={styles["dot-date"]} key={Math.random()}>
@@ -127,11 +130,11 @@ const Slider = (props) => {
             </div>
 
             <div className={styles["dots"]}>
-              {/* <img
+              <Image
                 className={styles["dot-container"]}
                 src={dotContainer}
                 alt="dot container"
-              ></img> */}
+              />
               <div className={styles["dot"]}>{dots}</div>
             </div>
           </div>

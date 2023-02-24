@@ -1,24 +1,25 @@
 import React, { useContext } from "react";
+import Image from "next/image";
 
 import styles from "./EventDetailPage.module.scss";
-// import detailBanner from "../../assets/banners/detailBanner.png";
-// import location from "../../assets/icons/location.png";
-// import clock from "../../assets/icons/clock.png";
-// import calendar from "../../assets/icons/calendar.png";
-// import greenDot from "../../assets/icons/greenDot.png";
-// import redDot from "../../assets/icons/redDot.png";
-// import downSymbol from "../../assets/icons/downSymbol.png";
+// import detailBanner from "../../../public/assets/banners/detailBanner.png";
+import location from "../../../public/assets/icons/location.png";
+import clock from "../../../public/assets/icons/clock.png";
+import calendar from "../../../public/assets/icons/calendar.png";
+import greenDot from "../../../public/assets/icons/greenDot.png";
+import redDot from "../../../public/assets/icons/redDot.png";
+import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
 
-export const EventDetailPage = () => {
+export const EventDetailPage = (props) => {
   const lytCtx = useContext(LayoutContext);
 
   const { mobileVersion } = lytCtx;
-  
+
   return (
     <div className={styles["detail-container"]}>
       <div className={styles["img-section"]}>
-        {/* <img src={detailBanner} alt="detail banner"></img> */}
+        <Image src={props.eventData.image} alt="detail banner" />
       </div>
       <div className={styles["descriptions"]}>
         <div className={styles["description-wrapper"]}>
@@ -26,15 +27,15 @@ export const EventDetailPage = () => {
           <div className={styles["info-container"]}>
             <div className={styles["infos"]}>
               <div className={styles["infos-item"]}>
-                {/* <img src={calendar} alt="calendar"></img> */}
+                <Image src={calendar} alt="calendar" />
                 <div>25 - 26 July, 2022</div>
               </div>
               <div className={styles["infos-item"]}>
-                {/* <img src={clock} alt="clock"></img> */}
+                <Image src={clock} alt="clock" />
                 <div>4pm - 12pm</div>
               </div>
               <div className={styles["infos-item"]}>
-                {/* <img src={location} alt="location"></img> */}
+                <Image src={location} alt="location" />
                 <div>Handelsbeurs, Gent</div>
               </div>
             </div>
@@ -45,11 +46,11 @@ export const EventDetailPage = () => {
           </div>
           <div className={styles["status"]}>
             <div className={styles["statu"]}>
-              {/* <img src={greenDot} alt="green dot"></img> */}
+              <Image src={greenDot} alt="green dot" />
               <div>Available</div>
             </div>
             <div className={styles["count-down"]}>
-              {/* <img src={redDot} alt="red dot"></img> */}
+              <Image src={redDot} alt="red dot" />
               <div>Last 4 Tickets!</div>
             </div>
           </div>
@@ -80,7 +81,7 @@ export const EventDetailPage = () => {
           </div>
           <div className={styles["expand-all"]}>
             <div className={styles["article"]}>Expand All</div>
-            {/* <img src={downSymbol} alt="down symbol"></img> */}
+            <Image src={downSymbol} alt="down symbol" />
           </div>
         </div>
       </div>

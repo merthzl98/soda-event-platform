@@ -96,10 +96,12 @@
             font-size: 1.15rem;
             border: none;
             cursor: pointer;
+            transition: all 400ms;
             &:hover {
               background-color: #00b2fd;
-              opacity: 0.6;
-              transition: all 400ms;
+              // opacity: 0.6;
+              filter: brightness(50%);
+              
             }
           }
         }

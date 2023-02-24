@@ -1,5 +1,6 @@
 export const eventsItemsData = [
   {
+    id: "354156",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -7,6 +8,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "35415656",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -14,6 +16,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "12354156",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -21,6 +24,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "412354156",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -28,6 +32,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "2354156",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -35,6 +40,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "6489787",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -42,6 +48,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "648987",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -49,6 +56,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "9489787",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -56,6 +64,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "0489787",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -63,6 +72,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "64897898",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",
@@ -70,6 +80,7 @@ export const eventsItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id: "7489787",
     genre: "Techno House",
     condition: "Available",
     image: "http://localhost:3000/eventBanner.png",

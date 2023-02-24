@@ -1,4 +1,5 @@
 import React from "react";
+
 import styles from  "./AnnounceText.module.scss";
 
 const AnnounceText = ({ bandInfos }) => {

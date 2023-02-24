@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
+import Image from "next/image";
 
 import styles from "./Carusel.module.scss";
 // import orangeLine from "../../assets/icons/orangeLine.png";
 // import redLine from "../../assets/icons/redLine.png";
 // import blueLine from "../../assets/icons/blueLine.png";
 // import pinkLine from "../../assets/icons/pinkLine.png";
-// import rightButton from "../../assets/icons/rightButton.png";
-// import leftButton from "../../assets/icons/leftButton.png";
+import rightButton from "../../../public/assets/icons/rightButton.png";
+import leftButton from "../../../public/assets/icons/leftButton.png";
 import CaruselItem from "./CaruselItem";
 import LayoutContext from "../../storage/layout-context";
 import { caruselItemsData } from "../../components/mockData/mockData";
@@ -99,7 +100,7 @@ const Carusel = (props) => {
             <>
               {currentIndex > 0 && (
                 <button onClick={prev} className={styles["left-arrow"]}>
-                  {/* <img src={leftButton} alt="left button"></img> */}
+                  <Image src={leftButton} alt="left button" />
                 </button>
               )}
             </>
@@ -117,7 +118,7 @@ const Carusel = (props) => {
             <>
               {currentIndex < length - show && (
                 <button onClick={next} className={styles["right-arrow"]}>
-                  {/* <img src={rightButton} alt="right button"></img> */}
+                  <Image src={rightButton} alt="right button" />
                 </button>
               )}
             </>

@@ -5,13 +5,12 @@ import { useRouter } from "next/router";
 import EventItem from "./EventItem";
 import styles from "./EventPage.module.scss";
 import LayoutContext from "../../storage/layout-context";
-import { eventsItemsData } from "../../components/mockData/mockData";
-// import orangeLine from "../../assets/icons/orangeLine.png";
-// import redLine from "../../assets/icons/redLine.png";
-// import blueLine from "../../assets/icons/blueLine.png";
-// import pinkLine from "../../assets/icons/pinkLine.png";
+// import orangeLine from "../../../public/assets/icons/orangeLine.png";
+// import redLine from "../../../public/assets/icons/redLine.png";
+// import blueLine from "../../../public/assets/icons/blueLine.png";
+// import pinkLine from "../../../public/assets/icons/pinkLine.png";
 
-const EventPage = () => {
+const EventPage = ({ events }) => {
   const lytCtx = useContext(LayoutContext);
 
   const router = useRouter();
@@ -27,7 +26,7 @@ const EventPage = () => {
     // eslint-disable-next-line
   }, [router.pathname, mobileVersion]);
 
-  const eventsItems = eventsItemsData.map((item) => {
+  const eventsItems = events.map((item) => {
     return <EventItem key={Math.random()} item={item} />;
   });
 
@@ -37,16 +36,16 @@ const EventPage = () => {
         {/* <div className="events-title">
           <div className="title-left">
             <div className="toggled-title-left">
-              <p>All Events</p> <img src={orangeLine} alt="orange line"></img>
+              <p>All Events</p> <Image src={orangeLine} alt="orange line"/>
             </div>
             <div className="title-left-item">
-              <img src={redLine} alt="redline"></img> <p>Highlights</p>
+              <Image src={redLine} alt="redline"/><p>Highlights</p>
             </div>
             <div className="title-left-item">
-              <img src={blueLine} alt="blue line"></img> <p>Concert</p>
+              <Image src={blueLine} alt="blue line"/> <p>Concert</p>
             </div>
             <div className="title-left-item">
-              <img src={pinkLine} alt="pink line"></img> <p>Performs</p>
+              <Image src={pinkLine} alt="pink line"/><p>Performs</p>
             </div>
           </div>
           {!mobileVersion && (
