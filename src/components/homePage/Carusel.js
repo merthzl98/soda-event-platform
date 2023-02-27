@@ -10,12 +10,12 @@ import rightButton from "../../../public/assets/icons/rightButton.png";
 import leftButton from "../../../public/assets/icons/leftButton.png";
 import CaruselItem from "./CaruselItem";
 import LayoutContext from "../../storage/layout-context";
-import { caruselItemsData } from "../../components/mockData/mockData";
 
 const Carusel = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [length, setLength] = useState(caruselItemsData.length);
+  const [length, setLength] = useState(props.homeData.caruoselData.length);
   const [touchPosition, setTouchPosition] = useState(null);
+
   const lytCtx = useContext(LayoutContext);
 
   const { mobileVersion } = lytCtx;
@@ -23,7 +23,7 @@ const Carusel = (props) => {
   const { show } = props;
 
   useEffect(() => {
-    setLength(caruselItemsData.length);
+    setLength(props.homeData.caruoselData.length);
   }, []);
 
   const next = () => {
@@ -64,9 +64,11 @@ const Carusel = (props) => {
     setTouchPosition(null);
   };
 
-  const caruselItems = caruselItemsData.map((item) => {
+  const caruselItems = props.homeData.caruoselData.map((item) => {
     return <CaruselItem key={Math.random()} item={item} />;
   });
+
+  // let caruselClass = `carousel-content show-${show}`;
 
   return (
     <div className={styles["carusel-container"]}>
@@ -107,9 +109,9 @@ const Carusel = (props) => {
           )}
 
           <div
-            className={styles[`carousel-content show-${show}`]}
+            className={styles[`carousel-content`]}
             style={{
-              transform: `translateX(-${currentIndex * (100 / show)}%)`,
+              transform: `translateX(-${currentIndex * (540 / show)}%)`,
             }}
           >
             {caruselItems}

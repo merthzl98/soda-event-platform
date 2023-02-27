@@ -12,7 +12,7 @@ const Layout = (props) => {
 
   const lytCtx = useContext(LayoutContext);
 
-  const { mobileVersion, setMobileVersion, hideNextUp, setHideNextUp } = lytCtx;
+  const { mobileVersion, setMobileVersion, hideNextUp, setHideNextUp, isWorked, setIsWorked } = lytCtx;
 
   const ref = useRef(null);
 
@@ -26,17 +26,25 @@ const Layout = (props) => {
     console.log(screenWidth);
     if (screenWidth < 800) {
       setMobileVersion(true);
+      // console.log("run mobile version SET func");
+      setIsWorked(true);
     } else {
       setMobileVersion(false);
       setHideNextUp(false);
     }
     window.addEventListener("resize", getwidth);
+
+    console.log(isWorked);
+
+    // console.log("hide next up-->", hideNextUp);
+
+    // console.log("mobile version-->", mobileVersion);
     // remove the event listener before the component gets unmounted
     return () => window.removeEventListener("resize", getwidth);
     // eslint-disable-next-line
-  }, [screenWidth]);
 
-  
+    
+  }, [screenWidth]);
 
   return (
     <React.Fragment>
@@ -68,7 +76,9 @@ const Layout = (props) => {
               )}
 
               <div className={styles["down-section"]}>
-                <div className={styles["changed-content"]}>{props.children}</div>
+                <div className={styles["changed-content"]}>
+                  {props.children}
+                </div>
               </div>
             </div>
             {!hideNextUp && (

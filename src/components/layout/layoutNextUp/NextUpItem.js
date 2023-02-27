@@ -9,12 +9,10 @@ const NextUpItem = (props) => {
   return (
     <div className={styles["content-item"]}>
       <div className={styles["artist-img"]}>
-        {
-          <img
-            src={`${props.artistProps.url}`}
-            alt={`${props.artistProps.artistName}`}
-          ></img>
-        }
+        <img
+          src={`${props.artistProps.url}`}
+          alt={`${props.artistProps.artistName}`}
+        ></img>
       </div>
       <div className={styles["artist-info"]}>
         <div className={styles["artist-article"]}>

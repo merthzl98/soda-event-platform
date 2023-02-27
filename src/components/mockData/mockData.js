@@ -99,7 +99,7 @@ export const announceData = [
   },
 ];
 
-export const sliderData = [
+export const sliderItems = [
   {
     url: "http://localhost:3000/bannerEx.png",
     date: "20 July 2022",
@@ -127,8 +127,9 @@ export const sliderData = [
   },
 ];
 
-export const caruselItemsData = [
+export const caruselItems = [
   {
+    id : "0564564456",
     genre: "Techno House1",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -136,6 +137,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "9564564456",
     genre: "Techno House2",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -143,6 +145,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "8564564456",
     genre: "Techno House3",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -150,6 +153,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "7564564456",
     genre: "Techno House4",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -157,6 +161,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "6564564456",
     genre: "Techno House5",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -164,6 +169,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "5564564456",
     genre: "Techno House6",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -171,6 +177,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "4564564456",
     genre: "Techno House7",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -178,6 +185,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "3564564456",
     genre: "Techno House8",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -185,6 +193,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "2564564456",
     genre: "Techno House9",
     condition: "Available",
     image: "http://localhost:3000/dj.png",
@@ -192,6 +201,7 @@ export const caruselItemsData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget magna in nibh sodales.",
   },
   {
+    id : "1564564456",
     genre: "Techno House10",
     condition: "Available",
     image: "http://localhost:3000/dj.png",

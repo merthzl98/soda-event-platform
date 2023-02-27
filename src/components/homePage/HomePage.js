@@ -7,7 +7,7 @@ import styles from "./HomePage.module.scss";
 import Slider from "./Slider";
 import LayoutContext from "../../storage/layout-context";
 
-const HomePage = () => {
+const HomePage = (props) => {
   const lytCtx = useContext(LayoutContext);
 
   const router = useRouter();
@@ -27,10 +27,10 @@ const HomePage = () => {
     <div className={styles["home-page-container"]}>
       <div className={styles["home-page-wrapper"]}>
         <div className={styles["slider-section"]}>
-          <Slider show={1} />
+          <Slider homeData={props.homeData} show={1} />
         </div>
         <div className={styles["carusel-section"]}>
-          <Carusel show={displayItemCount} />
+          <Carusel homeData={props.homeData} show={displayItemCount} />
         </div>
       </div>
     </div>

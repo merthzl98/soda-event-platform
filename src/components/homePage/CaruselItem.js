@@ -29,7 +29,7 @@ const CaruselItem = ({ item }) => {
               <p>{item.genre}</p>
             </div>
             <div className={styles["carusel-item-condition"]}>
-              <Image src={greenDot} alt={`${Math.random()}`} />
+              <Image src={greenDot} alt="green dot" />
               <p>{item.condition}</p>
             </div>
           </div>

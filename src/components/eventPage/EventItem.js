@@ -30,7 +30,7 @@ const EventItem = ({ item }) => {
             <p>{item.genre}</p>
           </div>
           <div className={styles["events-item-condition"]}>
-            <Image src={greenDot} alt={`${Math.random()}`} />
+            <Image src={greenDot} alt="green dot" />
             <p>{item.condition}</p>
           </div>
         </div>

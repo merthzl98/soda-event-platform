@@ -5,6 +5,8 @@ const LayoutContext = React.createContext({
   setMobileVersion: () => {},
   hideNextUp: false,
   setHideNextUp: () => {},
+  isWorked: "",
+  setIsWorked: () => {},
 });
 
 export default LayoutContext;

@@ -10,13 +10,12 @@ import redDot from "../../../public/assets/icons/redDot.png";
 import dotContainer from "../../../public/assets/icons/dotContainer.png";
 import blackDot from "../../../public/assets/icons/blackDot.png";
 import greyDot from "../../../public/assets/icons/greyDot.png";
-import { sliderData } from "../../components/mockData/mockData";
 import SliderItem from "./SliderItem";
 import LayoutContext from "../../storage/layout-context";
 
 const Slider = (props) => {
   const [sliderIndex, setsliderIndex] = useState(0);
-  const [slidersLength, setSlidersLength] = useState(sliderData.length);
+  const [slidersLength, setSlidersLength] = useState(props.homeData.sliderData.length);
 
   const lytCtx = useContext(LayoutContext);
 
@@ -27,7 +26,7 @@ const Slider = (props) => {
   const { show } = props;
 
   useEffect(() => {
-    setSlidersLength(sliderData.length);
+    setSlidersLength(props.homeData.sliderData.length);
   }, []);
 
   // useEffect(() => {
@@ -52,19 +51,19 @@ const Slider = (props) => {
     }
   };
 
-  const dots = sliderData.map((item, index) => {
+  const dots = props.homeData.sliderData.map((item, index) => {
     let selectedDot = index === sliderIndex ? blackDot : greyDot;
     return (
       <Image
         onClick={() => setsliderIndex(index)}
         key={index}
         src={selectedDot}
-        alt={Math.random()}
+        alt="dot"
       />
     );
   });
 
-  const allSlider = sliderData.map((item, index) => {
+  const allSlider = props.homeData.sliderData.map((item, index) => {
     return <SliderItem key={Math.random()} sliderItem={item} />;
   });
 
@@ -99,7 +98,7 @@ const Slider = (props) => {
             </>
           )}
           <div
-            className={styles[`slider-content show-${show}`]}
+            className={styles[`slider-content`]}
             style={{
               transform: `translateX(-${sliderIndex * (100 / show)}%)`,
             }}
@@ -123,10 +122,10 @@ const Slider = (props) => {
           <div className={styles["dot-section"]}>
             <div className={styles["dot-title"]} key={Math.random()}>
               <Image src={redDot} alt="red dot" />
-              <p>{sliderData[sliderIndex].type}</p>
+              <p>{props.homeData.sliderData[sliderIndex].type}</p>
             </div>
             <div className={styles["dot-date"]} key={Math.random()}>
-              <p> {sliderData[sliderIndex].date}</p>
+              <p> {props.homeData.sliderData[sliderIndex].date}</p>
             </div>
 
             <div className={styles["dots"]}>

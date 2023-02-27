@@ -44,6 +44,8 @@ const MainFooter = () => {
 
   const duStyle = language === "du" ? { color: "grey" } : {};
 
+  // console.log("footer mobile version-->", mobileVersion);
+
   return (
     <React.Fragment>
       {mobileVersion ? (
