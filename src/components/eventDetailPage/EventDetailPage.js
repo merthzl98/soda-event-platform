@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import styles from "./EventDetailPage.module.scss";
 // import detailBanner from "../../../public/assets/banners/detailBanner.png";
@@ -12,14 +13,23 @@ import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
 
 export const EventDetailPage = (props) => {
+  const router = useRouter();
+
   const lytCtx = useContext(LayoutContext);
 
   const { mobileVersion } = lytCtx;
 
+  useEffect(() => {
+    if (router.pathname === `/events/${props.eventData.id}`) {
+      setHideNextUp(false);
+    }
+    // eslint-disable-next-line
+  }, [router.pathname]);
+
   return (
     <div className={styles["detail-container"]}>
       <div className={styles["img-section"]}>
-        <Image src={props.eventData.image} alt="detail banner" />
+        <img src={props.eventData.image} alt="detail banner" />
       </div>
       <div className={styles["descriptions"]}>
         <div className={styles["description-wrapper"]}>
@@ -57,26 +67,16 @@ export const EventDetailPage = (props) => {
           <div className={styles["description-section"]}>
             <div className={styles["description-title"]}>Description</div>
             <div className={styles["description"]}>
-              {mobileVersion ? (
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  eget hendrerit dui. Quisque enim metus, tincidunt sed tortor
-                  ut, vulputate rutrum neque. Aenean porta sapien nec quam
-                  tincidunt,
-                </p>
-              ) : (
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  eget hendrerit dui. Quisque enim metus, tincidunt sed tortor
-                  ut, vulputate rutrum neque. Aenean porta sapien nec quam
-                  tincidunt, at fermentum nisi convallis. Duis tempor elit id
-                  nisi iaculis, vel lobortis purus lobortis. Duis et varius
-                  tellus, ut elementum eros. Donec sapien odio, tincidunt
-                  eget....culis, vel lobortis purus lobortis. Duis et varius
-                  tellus, ut elementum eros. Donec sapien odio, tincidunt
-                  eget....
-                </p>
-              )}
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                eget hendrerit dui. Quisque enim metus, tincidunt sed tortor ut,
+                vulputate rutrum neque. Aenean porta sapien nec quam tincidunt,
+                at fermentum nisi convallis. Duis tempor elit id nisi iaculis,
+                vel lobortis purus lobortis. Duis et varius tellus, ut elementum
+                eros. Donec sapien odio, tincidunt eget....culis, vel lobortis
+                purus lobortis. Duis et varius tellus, ut elementum eros. Donec
+                sapien odio, tincidunt eget....
+              </p>
             </div>
           </div>
           <div className={styles["expand-all"]}>

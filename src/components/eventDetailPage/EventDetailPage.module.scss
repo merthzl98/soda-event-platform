@@ -171,6 +171,8 @@
           font-size: 1.3rem;
 
           p {
+            overflow-y: hidden;
+            max-height: 6rem;
           }
         }
       }

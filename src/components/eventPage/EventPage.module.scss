@@ -177,6 +177,7 @@
           row-gap: 4rem;
           overflow: scroll;
           overflow-x: hidden;
+          overflow-y: auto;
           position: relative;
           align-items: center;
           &::-webkit-scrollbar-track {

@@ -99,9 +99,7 @@
       .nextup-content {
         height: 80%;
         margin-top: -0.5rem;
-        
       }
-     
     }
   }
 
@@ -111,22 +109,22 @@
     justify-content: center;
     .dot-container {
       z-index: -2;
-      width: 6.8rem;
+      width: 6rem;
       height: 1.7rem;
       backdrop-filter: blur(2px);
     }
     .dot {
       position: absolute;
-      width: 9%;
-      height: 100%;
+      width: 4rem;
+      height: 1rem;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
 
       img {
-        width: 0.5rem;
-        height: 0.5rem;
+        width: 0.6rem;
+        height: 0.6rem;
       }
     }
   }

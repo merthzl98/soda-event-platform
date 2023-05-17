@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import styles from "./MainFooter.module.scss";
 import LayoutContext from "../../../storage/layout-context";
@@ -19,8 +20,11 @@ import england from "../../../../public/assets/icons/england.png";
 import france from "../../../../public/assets/icons/france.png";
 import horizontalLine from "../../../../public/assets/icons/horizontalLine.png";
 
+
 const MainFooter = () => {
   const { i18n, t } = useTranslation();
+
+  const router = useRouter();
 
   const [language, setLanguage] = useState(i18n.language);
 
@@ -36,15 +40,24 @@ const MainFooter = () => {
     const newLanguage = language;
     setLanguage(newLanguage);
     i18n.changeLanguage(newLanguage);
+
+    // // Construct the new URL with the updated language prefix
+    // let newPathname = router.pathname;
+    // if (language !== i18n.options.fallbackLng[0]) {
+    //   newPathname = `/${language}${newPathname}`;
+    // }
+
+    // // Navigate to the new URL
+    // router.push(newPathname);
   };
+
+  console.log("language-->", language);
 
   const enStyle = language === "en" ? { color: "grey" } : {};
 
   const frStyle = language === "fr" ? { color: "grey" } : {};
 
   const duStyle = language === "du" ? { color: "grey" } : {};
-
-  // console.log("footer mobile version-->", mobileVersion);
 
   return (
     <React.Fragment>

@@ -70,6 +70,11 @@ const Carusel = (props) => {
 
   // let caruselClass = `carousel-content show-${show}`;
 
+  console.log("show --> ", show);
+
+  let carouselClass =
+    show === 2 ? "carousel-content-mobile" : "carousel-content";
+
   return (
     <div className={styles["carusel-container"]}>
       <div className={styles["carusel-wrapper"]}>
@@ -98,33 +103,33 @@ const Carusel = (props) => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
         >
-          {!mobileVersion && (
-            <>
-              {currentIndex > 0 && (
-                <button onClick={prev} className={styles["left-arrow"]}>
-                  <Image src={leftButton} alt="left button" />
-                </button>
-              )}
-            </>
-          )}
+          {/* {!mobileVersion && ( */}
+          <>
+            {currentIndex > 0 && (
+              <button onClick={prev} className={styles["left-arrow"]}>
+                <Image src={leftButton} alt="left button" />
+              </button>
+            )}
+          </>
+          {/* )} */}
 
           <div
-            className={styles[`carousel-content`]}
+            className={styles[carouselClass]}
             style={{
               transform: `translateX(-${currentIndex * (540 / show)}%)`,
             }}
           >
             {caruselItems}
           </div>
-          {!mobileVersion && (
-            <>
-              {currentIndex < length - show && (
-                <button onClick={next} className={styles["right-arrow"]}>
-                  <Image src={rightButton} alt="right button" />
-                </button>
-              )}
-            </>
-          )}
+          {/* {!mobileVersion && ( */}
+          <>
+            {currentIndex < length - show && (
+              <button onClick={next} className={styles["right-arrow"]}>
+                <Image src={rightButton} alt="right button" />
+              </button>
+            )}
+          </>
+          {/* )} */}
 
           {!mobileVersion && (
             <>

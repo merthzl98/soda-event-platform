@@ -34,10 +34,6 @@ const ContactPage = () => {
     // eslint-disable-next-line
   }, [router.pathname, mobileVersion]);
 
-  // console.log(router);
-
-  // console.log(mobileVersion);
-
   return (
     <div className={styles["contact-container"]}>
       <div className={styles["input-field"]}>
