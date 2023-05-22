@@ -1,0 +1,37 @@
+{
+  "contactTexts": [
+    {
+      "locale": "EN",
+      "getInTouch": "Get In Touch",
+      "submit": "Submit",
+      "ourOffice": "Our Office",
+      "name": "Name",
+      "email": "Email",
+      "yourMessage": "Your Message...",
+      "contactInfo": "Contact Information",
+      "followUs": "Follow Us!"
+    },
+    {
+      "locale": "FR",
+      "getInTouch": "Entrer en contact",
+      "submit": "Soumettre",
+      "ourOffice": "Nom",
+      "name": "Naam",
+      "email": "Email",
+      "yourMessage": "Votre Message...",
+      "contactInfo": "Informations de Contact",
+      "followUs": "Suivez nous!"
+    },
+    {
+      "locale": "NL",
+      "getInTouch": "Neem contact op",
+      "submit": "Indienen",
+      "ourOffice": "Ons kantoor",
+      "name": "Naam",
+      "email": "Email",
+      "yourMessage": "Jouw Bericht...",
+      "contactInfo": "Contact Informatie",
+      "followUs": "Volg ons!"
+    }
+  ]
+}

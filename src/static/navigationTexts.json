@@ -1,0 +1,28 @@
+{
+  "navigation": [
+    {
+      "locale": "EN",
+      "home": "Home",
+      "events": "Events",
+      "contactUs": "Contact Us",
+      "language": "Language",
+      "navigation": "Navigation"
+    },
+    {
+      "locale": "FR",
+      "home": "Domicile",
+      "events": "Événements",
+      "contactUs": "Nous contacter",
+      "language": "Langue",
+      "navigation": "La navigation"
+    },
+    {
+      "locale": "NL",
+      "home": "Thuise",
+      "events": "Evenementen",
+      "contactUs": "Neem contact op",
+      "language": "Taal",
+      "navigation": "Navigatie"
+    }
+  ]
+}

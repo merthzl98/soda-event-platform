@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+
 import LayoutContext from "../../storage/layout-context";
 import Announcements from "./announcements/Announcements";
 import styles from "./Layout.module.scss";
@@ -12,14 +13,7 @@ const Layout = (props) => {
 
   const lytCtx = useContext(LayoutContext);
 
-  const {
-    mobileVersion,
-    setMobileVersion,
-    hideNextUp,
-    setHideNextUp,
-    isWorked,
-    setIsWorked,
-  } = lytCtx;
+  const { mobileVersion, setMobileVersion, hideNextUp, setHideNextUp } = lytCtx;
 
   const ref = useRef(null);
 

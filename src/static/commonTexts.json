@@ -1,0 +1,41 @@
+{
+  "commonTexts": [
+    {
+      "locale": "EN",
+      "searchForEvent": "Search for event...",
+      "nextUp": "Next up",
+      "upComing": "UPCOMING",
+      "check": "Check",
+      "save": "Save",
+      "buy": "Buy Now",
+      "seeAll": "See all",
+      "biletsInfo": "Bilets & Info",
+      "events": "Events"
+    },
+    {
+      "locale": "FR",
+      "searchForEvent": "Rechercher un événement...",
+      "nextUp": "Suivant",
+      "upComing": "A VENIR",
+
+      "check": "Chèque",
+      "save": "Sauver",
+      "buy": "Acheter",
+      "seeAll": "Voir tout",
+      "biletsInfo": "Billets & Info",
+      "events": "Événements"
+    },
+    {
+      "locale": "NL",
+      "searchForEvent": "Evenement zoeken...",
+      "nextUp": "Volgende",
+      "upComing": "AANSTAAND",
+      "check": "Controleren",
+      "save": "Sparen",
+      "buy": "Koop nu",
+      "seeAll": "Alles zien",
+      "biletsInfo": "Bilets & Info",
+      "events": "Evenementen"
+    }
+  ]
+}

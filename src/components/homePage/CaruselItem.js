@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
-
-import { useTranslation } from "react-i18next";
+import React, { useContext, useId } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import styles from "./CaruselItem.module.scss";
 import greenDot from "../../../public/assets/icons/greenDot.png";
 import LayoutContext from "../../storage/layout-context";
+import commonTexts from "../../static/commonTexts.json";
 
 const CaruselItem = ({ item }) => {
-  const lytCtx = useContext(LayoutContext);
-  const { t } = useTranslation();
+  const { mobileVersion } = useContext(LayoutContext);
 
-  const { mobileVersion } = lytCtx;
+  const { locale } = useRouter();
+
+  const customId = useId();
 
   const caruselImageUrl = {
     background: `url(${item.image})`,
@@ -19,36 +20,43 @@ const CaruselItem = ({ item }) => {
     height: "100%",
   };
 
-  return (
-    <div className={styles["carusel-item-container"]}>
-      <div className={styles["carusel-item-wrapper"]}>
-        <div className={styles["carusel-img"]} style={caruselImageUrl}></div>
-        <div className={styles["sub-section"]}>
-          <div className={styles["type-section"]}>
-            <div className={styles["carusel-item-title"]}>
-              <p>{item.genre}</p>
-            </div>
-            <div className={styles["carusel-item-condition"]}>
-              <Image src={greenDot} alt="green dot" />
-              <p>{item.condition}</p>
-            </div>
-          </div>
-          {mobileVersion ? (
-            <div className={styles["events-item-description"]}>
-              <p>{item.description}</p>
-            </div>
-          ) : (
-            ""
-          )}
+  return commonTexts.commonTexts
+    .filter((language) => language.locale === locale)
+    .map((content) => {
+      return (
+        <div key={customId} className={styles["carusel-item-container"]}>
+          <div className={styles["carusel-item-wrapper"]}>
+            <div
+              className={styles["carusel-img"]}
+              style={caruselImageUrl}
+            ></div>
+            <div className={styles["sub-section"]}>
+              <div className={styles["type-section"]}>
+                <div className={styles["carusel-item-title"]}>
+                  <p>{item.genre}</p>
+                </div>
+                <div className={styles["carusel-item-condition"]}>
+                  <Image src={greenDot} alt="green dot" />
+                  <p>{item.condition}</p>
+                </div>
+              </div>
+              {mobileVersion ? (
+                <div className={styles["events-item-description"]}>
+                  <p>{item.description}</p>
+                </div>
+              ) : (
+                ""
+              )}
 
-          <div className={styles["carusel-item-actions"]}>
-            <button className={styles["save"]}>{t("save")}</button>
-            <button className={styles["buy-now"]}>{t("buy")}</button>
+              <div className={styles["carusel-item-actions"]}>
+                <button className={styles["save"]}>{content.save}</button>
+                <button className={styles["buy-now"]}>{content.buy}</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      );
+    });
 };
 
 export default CaruselItem;

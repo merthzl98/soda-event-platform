@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
+import axios from "axios";
 
 import HomePage from "@/components/homePage/HomePage";
 import { caruselItems } from "@/components/mockData/mockData";
@@ -18,8 +19,17 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps() {
-  //fetch data
+export async function getStaticProps({ locale }) {
+  const eventListUrl = "http://localhost/client-app/api/v1/events";
+  const response = await axios.get(eventListUrl, {
+    params: {
+      country: locale,
+    },
+  });
+
+  const events = response.data;
+
+  console.log({ events, locale });
 
   return {
     props: {

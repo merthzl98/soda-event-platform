@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-
 import { useRouter } from "next/router";
 
 import Carusel from "./Carusel";
@@ -22,6 +21,10 @@ const HomePage = (props) => {
   }, [router.pathname]);
 
   const displayItemCount = mobileVersion ? 2 : 6;
+
+  // console.log("announcesData-->", props.homeData.announcementsData);
+
+  console.log("langue data", router.asPath, router.locale, router.locales);
 
   return (
     <div className={styles["home-page-container"]}>
