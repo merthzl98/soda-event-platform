@@ -11,20 +11,18 @@ import LayoutContext from "../../storage/layout-context";
 // import pinkLine from "../../../public/assets/icons/pinkLine.png";
 
 const EventPage = ({ events }) => {
-  const lytCtx = useContext(LayoutContext);
+  const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
 
-  const router = useRouter();
-
-  const { mobileVersion, setHideNextUp } = lytCtx;
+  const {pathname} = useRouter();
 
   useEffect(() => {
-    if (router.pathname === "/events" && mobileVersion) {
+    if (pathname === "/events" && mobileVersion) {
       setHideNextUp(true);
     } else {
       setHideNextUp(false);
     }
     // eslint-disable-next-line
-  }, [router.pathname, mobileVersion]);
+  }, [pathname, mobileVersion]);
 
   const eventsItems = events.map((item) => {
     return <EventItem key={Math.random()} item={item} />;

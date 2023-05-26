@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useContext, useId } from "react";
+import React, { useState, useEffect, useContext, useId, useRef } from "react";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -9,144 +11,156 @@ import redDot from "../../../public/assets/icons/redDot.png";
 import dotContainer from "../../../public/assets/icons/dotContainer.png";
 import blackDot from "../../../public/assets/icons/blackDot.png";
 import greyDot from "../../../public/assets/icons/greyDot.png";
-import SliderItem from "./SliderItem";
 import LayoutContext from "../../storage/layout-context";
 import commonTexts from "../../static/commonTexts.json";
 
 const Slider = (props) => {
-  const [sliderIndex, setsliderIndex] = useState(0);
-  const [slidersLength, setSlidersLength] = useState(
-    props.homeData.sliderData.length
-  );
-
   const { mobileVersion } = useContext(LayoutContext);
 
-  const { locale } = useRouter();
+  const playRef = useRef();
+  const pauseRef = useRef();
 
   const customId = useId();
 
-  const { show } = props;
+  const handleHoverSlider = () => {
+    pauseRef.current.click();
+  };
+
+  const handleMoveOutSlider = () => {
+    playRef.current.click();
+  };
 
   useEffect(() => {
-    setSlidersLength(props.homeData.sliderData.length);
+    handleHoverSlider();
   }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     sliderIndex === sliderData.length - 1
-  //       ? setSliderIndex(0)
-  //       : setSliderIndex((prevState) => (prevState += 1));
-  //   }, 20000);
+  let backgroundSize = mobileVersion ? "cover" : "cover";
+  let backgroundPosition = mobileVersion ? "top" : "center center";
 
-  //   return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-  // }, []);
-
-  const next = () => {
-    if (sliderIndex < slidersLength - show) {
-      setsliderIndex((prevState) => prevState + 1);
-    }
+  const options = {
+    type: "loop",
+    speed: 1000,
+    drag: "free",
+    snap: true,
+    gap: "1rem",
+    autoplay: true,
+    interval: 15000,
+    pauseOnHover: false,
+    resetProgress: true,
+    height: "34rem",
+    width: "1500px",
   };
 
-  const prev = () => {
-    if (sliderIndex > 0) {
-      setsliderIndex((prevState) => prevState - 1);
-    }
-  };
+  const allSlider = props.homeData.sliderData.map((item, index) => {
+    const sliderUrl = {
+      width: "100%",
+      height: "100%",
+      background: `url(${item.url})`,
+      backgroundSize: backgroundSize,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: backgroundPosition,
+    };
 
-  const dots = props.homeData.sliderData.map((item, index) => {
-    let selectedDot = index === sliderIndex ? blackDot : greyDot;
     return (
-      <Image
-        onClick={() => setsliderIndex(index)}
-        key={index}
-        src={selectedDot}
-        alt="dot"
-      />
+      <SplideSlide key={Math.random()}>
+        <div
+          onMouseEnter={handleHoverSlider}
+          onMouseLeave={handleMoveOutSlider}
+          className={styles["slider-background"]}
+          style={sliderUrl}
+        ></div>
+      </SplideSlide>
     );
   });
 
-  const allSlider = props.homeData.sliderData.map((item, index) => {
-    return <SliderItem key={Math.random()} sliderItem={item} />;
-  });
-
-  return commonTexts.commonTexts
-    .filter((language) => language.locale === locale)
-    .map((content) => {
-      return (
-        <div key={customId} className={styles["sliders-container"]}>
-          <div className={styles["sliders-wrapper"]}>
-            <div className={styles["slider-items"]}>
-              <div key={Math.random()} className={styles["upcoming-events"]}>
-                <div>
-                  <p className={styles["up-article"]}>{content.upComing}</p>
-                </div>
-                <div>
-                  <p className={styles["down-article"]}>
-                    {content.events.toUpperCase()}!
-                  </p>
-                </div>
-                <div className={styles["check-button"]}>
-                  <button>{content.check}</button>
-                </div>
-              </div>
-              {!mobileVersion && (
-                <>
-                  {sliderIndex > 0 && (
-                    <button
-                      key={sliderIndex}
-                      onClick={prev}
-                      className={styles["left-arrow"]}
-                    >
-                      <Image src={leftButton} alt="left button" />
-                    </button>
-                  )}
-                </>
-              )}
-              <div
-                className={styles[`slider-content`]}
-                style={{
-                  transform: `translateX(-${sliderIndex * (100 / show)}%)`,
-                }}
-              >
-                {allSlider}
-              </div>
-              {!mobileVersion && (
-                <>
-                  {sliderIndex < slidersLength - show && (
-                    <button
-                      key={Math.random()}
-                      onClick={next}
-                      className={styles["right-arrow"]}
-                    >
-                      <Image src={rightButton} alt="right button" />
-                    </button>
-                  )}
-                </>
-              )}
-
-              <div className={styles["dot-section"]}>
-                <div className={styles["dot-title"]} key={Math.random()}>
-                  <Image src={redDot} alt="red dot" />
-                  <p>{props.homeData.sliderData[sliderIndex].type}</p>
-                </div>
-                <div className={styles["dot-date"]} key={Math.random()}>
-                  <p> {props.homeData.sliderData[sliderIndex].date}</p>
-                </div>
-
-                <div className={styles["dots"]}>
-                  <Image
-                    className={styles["dot-container"]}
-                    src={dotContainer}
-                    alt="dot container"
-                  />
-                  <div className={styles["dot"]}>{dots}</div>
-                </div>
-              </div>
+  return (
+    <div key={customId} className={styles["sliders-container"]}>
+      <div className={styles["sliders-wrapper"]}>
+        <div className="wrapper">
+          <Splide
+            className={`${styles.splide}`}
+            options={options}
+            aria-labelledby="autoplay-example-heading"
+            hasTrack={false}
+          >
+            <div style={{ position: "relative" }}>
+              <SplideTrack>{allSlider}</SplideTrack>
             </div>
-          </div>
+
+            <div
+              className="splide__progress"
+              style={{
+                position: "absolute",
+                bottom: "50px",
+                height: "10px",
+                width: "1000px",
+              }}
+            >
+              <div
+                className="splide__progress__bar"
+                style={{ margin: "1px", height: "3px", backgroundColor: "red" }}
+              />
+            </div>
+
+            <button className="splide__toggle" style={{ display: "none" }}>
+              <span ref={playRef} className="splide__toggle__play">
+                Play
+              </span>
+              <span ref={pauseRef} className="splide__toggle__pause">
+                Pause
+              </span>
+            </button>
+          </Splide>
         </div>
-      );
-    });
+      </div>
+    </div>
+  );
+
+  // return commonTexts.commonTexts
+  //   .filter((language) => language.locale === locale)
+  //   .map((content) => {
+  //     return (
+  //       <div key={customId} className={styles["sliders-container"]}>
+  //         <div className={styles["sliders-wrapper"]}>
+  //           <div className={styles["slider-items"]}>
+  //             <div key={Math.random()} className={styles["upcoming-events"]}>
+  //               <div>
+  //                 <p className={styles["up-article"]}>{content.upComing}</p>
+  //               </div>
+  //               <div>
+  //                 <p className={styles["down-article"]}>
+  //                   {content.events.toUpperCase()}!
+  //                 </p>
+  //               </div>
+  //               <div className={styles["check-button"]}>
+  //                 <button>{content.check}</button>
+  //               </div>
+  //             </div>
+  //
+
+  //             <div className={styles["dot-section"]}>
+  //               <div className={styles["dot-title"]} key={Math.random()}>
+  //                 <Image src={redDot} alt="red dot" />
+  //                 <p>{props.homeData.sliderData[sliderIndex].type}</p>
+  //               </div>
+  //               <div className={styles["dot-date"]} key={Math.random()}>
+  //                 <p> {props.homeData.sliderData[sliderIndex].date}</p>
+  //               </div>
+
+  //               <div className={styles["dots"]}>
+  //                 <Image
+  //                   className={styles["dot-container"]}
+  //                   src={dotContainer}
+  //                   alt="dot container"
+  //                 />
+  //                 <div className={styles["dot"]}>{dots}</div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   });
 };
 
 export default Slider;

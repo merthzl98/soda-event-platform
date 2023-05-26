@@ -65,11 +65,7 @@
       }
 
       .events-item-description {
-        font-weight: 300;
-        font-size: 0.8rem;
-        margin-left: 0.9rem;
-        margin-bottom: 1rem;
-        width: 90%;
+        display: none;
       }
 
       .carusel-item-actions {
@@ -194,6 +190,7 @@
         }
 
         .events-item-description {
+          display: flex;
           font-weight: 300;
           font-size: 1.2rem;
           margin-left: 0.9rem;

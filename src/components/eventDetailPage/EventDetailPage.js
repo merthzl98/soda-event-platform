@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import moment from "moment";
 
 import styles from "./EventDetailPage.module.scss";
 // import detailBanner from "../../../public/assets/banners/detailBanner.png";
@@ -13,18 +14,24 @@ import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
 
 export const EventDetailPage = (props) => {
-  const router = useRouter();
+  const { pathname } = useRouter();
 
-  const lytCtx = useContext(LayoutContext);
-
-  const { mobileVersion } = lytCtx;
+  const { mobileVersion } = useContext(LayoutContext);
 
   useEffect(() => {
-    if (router.pathname === `/events/${props.eventData.id}`) {
+    if (pathname === `/events/${props.eventData.id}`) {
       setHideNextUp(false);
     }
     // eslint-disable-next-line
-  }, [router.pathname]);
+  }, [pathname]);
+
+  console.log("event data-->", props.eventData);
+
+  const formattedDate = (dateString) => {
+    return moment(dateString).subtract(1, "year").format("DD MMMM, YYYY");
+  };
+
+  console.log(formattedDate(props.eventData.date));
 
   return (
     <div className={styles["detail-container"]}>
@@ -33,20 +40,24 @@ export const EventDetailPage = (props) => {
       </div>
       <div className={styles["descriptions"]}>
         <div className={styles["description-wrapper"]}>
-          <div className={styles["detail-title"]}>One Guy Show</div>
+          <div className={styles["detail-title"]}>{props.eventData.title}</div>
           <div className={styles["info-container"]}>
             <div className={styles["infos"]}>
               <div className={styles["infos-item"]}>
                 <Image src={calendar} alt="calendar" />
-                <div>25 - 26 July, 2022</div>
+                <div>{formattedDate(props.eventData.date)}</div>
               </div>
               <div className={styles["infos-item"]}>
                 <Image src={clock} alt="clock" />
-                <div>4pm - 12pm</div>
+                <div>
+                  {props.eventData.startHour} - {props.eventData.endHour}
+                </div>
               </div>
               <div className={styles["infos-item"]}>
                 <Image src={location} alt="location" />
-                <div>Handelsbeurs, Gent</div>
+                <div>
+                  {props.eventData.venue.city}, {props.eventData.venue.country}
+                </div>
               </div>
             </div>
             <div className={styles["actions"]}>
@@ -55,13 +66,13 @@ export const EventDetailPage = (props) => {
             </div>
           </div>
           <div className={styles["status"]}>
-            <div className={styles["statu"]}>
+            {/* <div className={styles["statu"]}>
               <Image src={greenDot} alt="green dot" />
               <div>Available</div>
-            </div>
+            </div> */}
             <div className={styles["count-down"]}>
               <Image src={redDot} alt="red dot" />
-              <div>Last 4 Tickets!</div>
+              <div>{props.eventData.clientStatus}</div>
             </div>
           </div>
           <div className={styles["description-section"]}>

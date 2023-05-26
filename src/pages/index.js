@@ -20,16 +20,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps({ locale }) {
-  const eventListUrl = "http://localhost/client-app/api/v1/events";
-  const response = await axios.get(eventListUrl, {
-    params: {
-      country: locale,
-    },
-  });
-
-  const events = response.data;
-
-  console.log({ events, locale });
+  // console.log({ locale });
 
   return {
     props: {

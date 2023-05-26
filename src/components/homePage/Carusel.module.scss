@@ -64,112 +64,16 @@
     //   }
     // }
 
-    .carusel-items {
-      width: 100%;
-      height: 83%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      position: relative;
-      align-items: center;
-      overflow: hidden;
-      .left-arrow,
-      .right-arrow {
-        position: absolute;
-        cursor: pointer;
-        z-index: 3;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 2rem;
-        height: 2.7rem;
-        border-radius: 0.4rem;
-        background: #00abf2;
-        border: none;
-        display: grid;
-        place-content: center;
-        &:hover {
-          background-color: #00b2fd;
-          opacity: 0.6;
-          scale: 0.9;
-          transition: all 400ms;
-        }
-        img {
-          width: 1.7rem;
-          height: 1.7rem;
-        }
-      }
-
-      .left-arrow {
-        left: 0.4rem;
-      }
-
-      .right-arrow {
-        right: 0.4rem;
-      }
-
-      .carousel-content {
-        display: flex;
-        height: 100%;
-        width: calc(100% / 5.45);
-        flex-direction: row;
-        justify-content: space-between;
-        transition: all 600ms ease-in;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      .carousel-content::-webkit-scrollbar,
-      .carousel-content::-webkit-scrollbar {
-        display: none;
-      }
-
-      .carousel-content > * {
-        width: 100%;
-        flex-shrink: 0;
-        flex-grow: 1;
-      }
-
-      .carousel-content-mobile {
-        display: flex;
-        height: 100%;
-        width: calc(100% / 2);
-        flex-direction: row;
-        justify-content: space-between;
-        transition: all 600ms ease-in;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      .carousel-content-mobile::-webkit-scrollbar,
-      .carousel-content-mobile::-webkit-scrollbar {
-        display: none;
-      }
-
-      .carousel-content-mobile > * {
-        width: 100%;
-        flex-shrink: 0;
-        flex-grow: 1;
-      }
-
-      // .carousel-content.show-2 > * {
-      //   width: calc(100% / 3);
-      // }
-
-      // .carousel-content.show-6 > * {
-      //   width: calc(100% / 5.45);
-      // }
-
-      .carusel-blur {
-        position: absolute;
-        width: calc(18.5% * 1.5);
-        height: 95%;
-        z-index: 2;
-        top: 2%;
-        right: -1%;
-        background-color: rgba($color: #000000, $alpha: 0.05);
-        backdrop-filter: blur(1.5px);
-        // border: 1px solid white;
-      }
+    .carusel-blur {
+      position: absolute;
+      width: calc(18.5% * 1.5);
+      height: 18rem;
+      z-index: 2;
+      top: 2%;
+      right: -1%;
+      background-color: rgba($color: #000000, $alpha: 0.05);
+      backdrop-filter: blur(1.5px);
+      // border: 1px solid white;
     }
   }
 }
@@ -179,6 +83,35 @@
 //       display: none;
 //   }
 // }
+
+.splide {
+  & > div > button {
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+    top: 40%;
+    transform: translateY(-40%);
+    width: 2rem;
+    height: 2.7rem;
+    border-radius: 0.4rem;
+    background: #00abf2;
+    border: none;
+    display: grid;
+    place-content: center;
+    &:hover {
+      background-color: #00b2fd;
+      opacity: 0.6;
+      // scale: 0.9;
+      transition: all 400ms;
+    }
+    & > svg {
+      width: 1.7rem;
+      height: 1.7rem;
+      // color: #fff !important;
+    }
+  }
+}
 
 @media (max-width: 800px) {
   .carusel-container {
@@ -246,90 +179,11 @@
       //     }
       //   }
       // }
-
-      .carusel-items {
-        width: 100%;
-        height: 95%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        position: relative;
-        align-items: center;
-        overflow: hidden;
-        .left-arrow,
-        .right-arrow {
-          position: absolute;
-          cursor: pointer;
-          z-index: 3;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 2rem;
-          height: 2.7rem;
-          border-radius: 0.4rem;
-          background: #00abf2;
-          border: none;
-          display: grid;
-          place-content: center;
-          &:hover {
-            background-color: #00b2fd;
-            opacity: 0.6;
-            scale: 0.9;
-            transition: all 400ms;
-          }
-          img {
-            width: 1.7rem;
-            height: 1.7rem;
-          }
-        }
-
-        .left-arrow {
-          left: 0.4rem;
-        }
-
-        .right-arrow {
-          right: 0.4rem;
-        }
-
-        .carousel-content {
-          display: flex;
-          height: 100%;
-          flex-direction: row;
-          justify-content: space-between;
-          transition: all 600ms ease-in;
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-
-        .carousel-content::-webkit-scrollbar,
-        .carousel-content::-webkit-scrollbar {
-          display: none;
-        }
-
-        .carousel-content > * {
-          width: 100%;
-          flex-shrink: 0;
-          flex-grow: 1;
-        }
-
-        .carousel-content.show-2 > * {
-          width: calc(100% / 3);
-        }
-
-        .carousel-content.show-6 > * {
-          width: calc(100% / 5.45);
-        }
-        .carusel-blur {
-          position: absolute;
-          width: calc(18.5% * 1.5);
-          height: 95%;
-          z-index: 2;
-          top: 2%;
-          right: -1%;
-          background-color: rgba($color: #000000, $alpha: 0.05);
-          backdrop-filter: blur(1.5px);
-          // border: 1px solid white;
-        }
-      }
+    }
+  }
+  .splide {
+    & > div > button {
+      display: none;
     }
   }
 }

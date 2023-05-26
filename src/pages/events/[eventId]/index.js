@@ -1,7 +1,9 @@
 import { Fragment } from "react";
 import Head from "next/head";
+import axios from "axios";
+
 import { EventDetailPage } from "@/components/eventDetailPage/EventDetailPage";
-import { eventsItemsData } from "@/components/mockData/mockData";
+// import { eventsItemsData } from "@/components/mockData/mockData";
 
 const EventDetailsPage = (props) => {
   return (
@@ -10,15 +12,20 @@ const EventDetailsPage = (props) => {
         <title>Meet us!</title>
         <meta name="description" content="meet us, ask a question" />
       </Head>
-      <EventDetailPage eventData = {props.eventData} />
+      <EventDetailPage eventData={props.eventData} />
     </Fragment>
   );
 };
 
 export async function getStaticPaths() {
+  const eventListUrl = "http://localhost/client-app/api/v1/events";
+  const response = await axios.get(eventListUrl);
+
+  const events = response.data;
+
   return {
     fallback: "blocking",
-    paths: eventsItemsData.map((event) => ({
+    paths: events.map((event) => ({
       params: { eventId: event.id },
     })),
   };
@@ -27,18 +34,32 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const eventId = context.params.eventId;
 
-  const selectedEvent = eventsItemsData.find((event) => event.id === eventId);
+  const eventUrl = `http://localhost/client-app/api/v1/event/${eventId}`;
+
+  const response = await axios.get(eventUrl);
+  const selectedEvent = response.data;
+
+  console.log({ selectedEvent });
 
   console.log(eventId);
 
   return {
     props: {
       eventData: {
+        // id: eventId,
+        // genre: selectedEvent.genre,
+        // condition: selectedEvent.condition,
+        // description: selectedEvent.description,
+        // image: selectedEvent.image,
         id: eventId,
-        genre: selectedEvent.genre,
-        condition: selectedEvent.condition,
+        title: selectedEvent.title,
+        date: selectedEvent.date,
         description: selectedEvent.description,
-        image: selectedEvent.image,
+        startHour: selectedEvent.startHour,
+        endHour: selectedEvent.endHour,
+        date: selectedEvent.date,
+        venue: selectedEvent.venue,
+        clientStatus: selectedEvent.clientStatus
       },
     },
   };

@@ -11,7 +11,8 @@ const EventItem = ({ item }) => {
   const { locale, push } = useRouter();
 
   const eventImage = {
-    background: `url(${item.image})`,
+    // background: `url(${item.image})`,
+    background: `url(${item.posterUrl})`,
     width: "100%",
     height: "100%",
   };
@@ -33,11 +34,13 @@ const EventItem = ({ item }) => {
           <div className={styles["sub-section"]}>
             <div className={styles["title-section"]}>
               <div className={styles["events-item-title"]}>
-                <p>{item.genre}</p>
+                {/* <p>{item.genre}</p> */}
+                <p>{item.title}</p>
               </div>
               <div className={styles["events-item-condition"]}>
                 <Image src={greenDot} alt="green dot" />
-                <p>{item.condition}</p>
+                {/* <p>{item.condition}</p> */}
+                <p>{item.status}</p> 
               </div>
             </div>
             <div className={styles["events-item-description"]}>

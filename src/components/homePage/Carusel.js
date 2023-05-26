@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
+import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 import styles from "./Carusel.module.scss";
 // import orangeLine from "../../assets/icons/orangeLine.png";
@@ -12,72 +14,61 @@ import CaruselItem from "./CaruselItem";
 import LayoutContext from "../../storage/layout-context";
 
 const Carusel = (props) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [length, setLength] = useState(props.homeData.caruoselData.length);
-  const [touchPosition, setTouchPosition] = useState(null);
+  const { mobileVersion } = useContext(LayoutContext);
 
-  const lytCtx = useContext(LayoutContext);
+  const options = {
+    type: "loop",
+    drag: "free",
+    snap: true,
+    perPage: 5.5,
+    perMove: 4,
+    width: "100%",
+    direction: "ltr", // left to right
+    height: "18rem", // adjust the height as needed
+    gap: "10px", // adjust the gap between slides as needed
+    pagination: false, // hide pagination
+    speed: 2000,
+    breakpoints: {
+      1340: {
+        perPage: 4.5,
+        perMove: 3,
+        gap: ".7rem",
+      },
+      1080: {
+        perPage: 3.5,
+        perMove: 2,
+        gap: ".7rem",
+      },
+      810: {
+        perPage: 3.5,
+        perMove: 2,
+        gap: ".7rem",
+        height: "22rem",
+      },
 
-  const { mobileVersion } = lytCtx;
-
-  const { show } = props;
-
-  useEffect(() => {
-    setLength(props.homeData.caruoselData.length);
-  }, []);
-
-  const next = () => {
-    if (currentIndex < length - show) {
-      setCurrentIndex((prevState) => prevState + 5);
-    }
-  };
-
-  const prev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 5);
-    }
-  };
-
-  const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
-  };
-
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
-
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
-
-    if (diff > 2) {
-      next();
-    }
-
-    if (diff < -2) {
-      prev();
-    }
-
-    setTouchPosition(null);
+      500: {
+        perPage: 2,
+        perMove: 1,
+        gap: ".7rem",
+        height: "28rem",
+      },
+    },
   };
 
   const caruselItems = props.homeData.caruoselData.map((item) => {
-    return <CaruselItem key={Math.random()} item={item} />;
+    return (
+      <SplideSlide key={Math.random()}>
+        <CaruselItem item={item} />
+      </SplideSlide>
+    );
   });
-
-  // let caruselClass = `carousel-content show-${show}`;
-
-  console.log("show --> ", show);
-
-  let carouselClass =
-    show === 2 ? "carousel-content-mobile" : "carousel-content";
 
   return (
     <div className={styles["carusel-container"]}>
       <div className={styles["carusel-wrapper"]}>
+        <Splide className={`${styles.splide}`} options={options}>
+          {caruselItems}
+        </Splide>
         {/* <div className="carusel-title">
           <div className="title-left">
             <div className="toggled-title-left">
@@ -97,48 +88,7 @@ const Carusel = (props) => {
             <div className="see-all">See All</div>
           </div>
         </div> */}
-
-        <div
-          className={styles["carusel-items"]}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-        >
-          {/* {!mobileVersion && ( */}
-          <>
-            {currentIndex > 0 && (
-              <button onClick={prev} className={styles["left-arrow"]}>
-                <Image src={leftButton} alt="left button" />
-              </button>
-            )}
-          </>
-          {/* )} */}
-
-          <div
-            className={styles[carouselClass]}
-            style={{
-              transform: `translateX(-${currentIndex * (540 / show)}%)`,
-            }}
-          >
-            {caruselItems}
-          </div>
-          {/* {!mobileVersion && ( */}
-          <>
-            {currentIndex < length - show && (
-              <button onClick={next} className={styles["right-arrow"]}>
-                <Image src={rightButton} alt="right button" />
-              </button>
-            )}
-          </>
-          {/* )} */}
-
-          {!mobileVersion && (
-            <>
-              {currentIndex < 5 && (
-                <div className={styles["carusel-blur"]}></div>
-              )}
-            </>
-          )}
-        </div>
+        {/* {!mobileVersion && <div className={styles["carusel-blur"]}></div>} */}
       </div>
     </div>
   );
