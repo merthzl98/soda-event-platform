@@ -1,5 +1,6 @@
 .announce-container {
   width: 100%;
+  height: auto;
   .announce-wrapper {
     width: 100%;
     display: flex;
@@ -9,37 +10,33 @@
     .announce-icon {
       display: grid;
       place-items: center;
-      margin-left: 0.5rem;
+      padding-left: 0.6rem;
       img {
-        width: 0.7rem;
-        height: 1.2rem;
+        max-width: 100%;
+        height: auto;
       }
     }
     .left-blur {
       position: absolute;
-      left: 1.3rem;
-      height: 2rem;
-      width: 2%;
+      left: 1.7rem;
+      height: 100%;
+      width: 1.5rem;
       z-index: 2;
       background: rgba(63, 103, 120, 0.02);
       backdrop-filter: blur(0.15rem);
-      border-radius: 0rem 0.2rem 3rem 0rem;
     }
     .right-blur {
       position: absolute;
       z-index: 2;
-      right: 0rem;
-      height: 2rem;
-      width: 2%;
+      right: 0;
+      height: 100%;
+      width: 1.5rem;
       background: rgba(63, 103, 120, 0.02);
       backdrop-filter: blur(0.15rem);
-      border-radius: 0rem 0.2rem 3rem 0rem;
     }
 
     .announce-article {
       width: 100%;
-      margin-left: 0.6rem;
-      
 
       p {
         font-size: 0.9rem;
@@ -50,27 +47,21 @@
 
 @media (max-width: 990px) {
   .announce-container {
-    
+    padding: 0.3rem 0.1rem;
     .announce-wrapper {
-     
       .announce-icon {
-        
         img {
-          width: 1.5rem;
-          height: 2rem;
+          
         }
       }
       .left-blur {
-        left: 2rem;
         
       }
       .right-blur {
-        
+        right: -0.1rem;
       }
 
       .announce-article {
-        width: 95%;
-
         p {
           font-size: 1.3rem;
         }

@@ -1,38 +1,22 @@
 .detail-container {
   width: 100%;
-  height: 92%;
+  height: auto;
   display: flex;
   flex-direction: column;
   color: #ffffff;
   .img-section {
     width: 100%;
-    height: 54%;
+    height: auto;
     border-radius: 0.2rem 0.2rem 0rem 0rem;
-    // background-image: url(../../../public/assets/banners/detailBanner.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-
-    // img {
-    //   width: 100%;
-    //   height: auto;
-    // }
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   .descriptions {
     width: 100%;
-    height: 52%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // border: 1px solid;
-    // border-image: linear-gradient(
-    //     to right,
-    //     rgba(255, 255, 255, 0),
-    //     rgba(39, 191, 255, 0.55),
-    //     rgba(224, 246, 255, 0.19),
-
-    //   )
-    //   1;
+    height: auto;
+    padding: 0 2rem;
     border-radius: 0.25rem;
     background: linear-gradient(
       180deg,
@@ -44,85 +28,82 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
     .description-wrapper {
-      width: 95%;
-      height: 95%;
+      width: 100%;
+      height: auto;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 1rem;
       .detail-title {
         width: 100%;
-        height: 100%;
+        height: auto;
         font-weight: 700;
-        margin-top: 0.5rem;
         font-size: 1.9rem;
       }
 
       .info-container {
-        width: 98%;
-        height: 100%;
+        width: 100%;
+        height: auto;
+        padding-right: 1rem;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
+        // gap: 1rem;
         .infos {
-          width: 55%;
-          height: 100%;
+          max-width: 100%;
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
+          gap: 3rem;
           .infos-item {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            gap: 0.5rem;
             img {
-              width: 1.5rem;
-              height: 1.5rem;
-              margin-right: 0.7rem;
+              max-width: 100%;
+              height: auto;
             }
 
             div {
               font-weight: 400;
-              font-size: 1rem;
+              font-size: 0.8rem;
             }
           }
         }
 
         .actions {
-          width: 35%;
+          width: 33%;
           display: flex;
           flex-direction: row;
           justify-content: right;
+          gap: 1rem;
           button {
             color: #ffffff;
-
-            height: 2.7rem;
+            max-width: 80%;
+            height: auto;
             font-weight: 400;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-family: "Poppins";
             font-style: normal;
             border: none;
+            box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
+            border-radius: 0.25rem;
+            padding: 0.5rem 0.75rem;
           }
 
           .buy-now {
-            width: 25%;
             background: #008c16;
-            box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
-            border-radius: 0.25rem;
           }
 
           .add-calendar {
-            width: 45%;
             background: rgba(39, 191, 255, 0.55);
-            box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
-            border-radius: 0.25rem;
-            margin-left: 2rem;
           }
         }
       }
       .status {
         width: 100%;
-        height: 100%;
+        height: auto;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -131,10 +112,10 @@
           display: flex;
           flex-direction: row;
           align-items: center;
+          gap: 1rem;
           img {
             width: 0.7rem;
             height: 0.7rem;
-            margin-right: 0.5rem;
           }
         }
 
@@ -158,40 +139,40 @@
       .description-section {
         display: flex;
         flex-direction: column;
-        margin-top: 0.7rem;
+        padding-top: 1rem;
         // overflow-y: scroll;
 
         .description-title {
           font-weight: 600;
           font-size: 1.3rem;
-          margin-bottom: 0.2rem;
+          padding-bottom: 0.3rem;
         }
         .description {
           font-weight: 200;
-          font-size: 1.3rem;
+          font-size: 1rem;
 
           p {
             overflow-y: hidden;
-            max-height: 6rem;
+            max-height: 100%;
           }
         }
       }
 
       .expand-all {
         width: 100%;
-        height: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0.5rem 0;
         .article {
-          margin-top: 0.5rem;
           font-weight: 300;
-          font-size: 1rem;
+          font-size: 0.8rem;
           line-height: 24px;
         }
         img {
-          width: 1.3rem;
-          height: 1.3rem;
+          max-width: 100%;
+          height: auto;
         }
       }
     }
@@ -200,122 +181,46 @@
 
 @media (max-width: 990px) {
   .detail-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-    .img-section {
-      width: 100%;
-      height: 46%;
-      border-radius: 0.2rem 0.2rem 0rem 0rem;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
     .descriptions {
-      width: 100%;
-      height: 53%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      // border: 1px solid;
-      // border-image: linear-gradient(
-      //     to right,
-      //     rgba(255, 255, 255, 0),
-      //     rgba(39, 191, 255, 0.55),
-      //     rgba(224, 246, 255, 0.19),
-
-      //   )
-      //   1;
-      border-radius: 0.25rem;
-      background: linear-gradient(
-        180deg,
-        rgba(63, 103, 120, 0) 0%,
-        rgba(63, 103, 120, 0) 0.01%,
-        rgba(63, 103, 120, 0.42) 47.68%,
-        rgba(63, 103, 120, 0.5) 100%
-      );
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
       .description-wrapper {
-        width: 95%;
-        height: 95%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        gap: 2rem;
         .detail-title {
-          width: 100%;
-          height: 100%;
-          font-weight: 700;
-          margin-top: 0.5rem;
-          font-size: 1.9rem;
         }
 
         .info-container {
-          width: 98%;
-          height: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
           .infos {
-            width: 55%;
-            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 1rem;
             .infos-item {
               display: flex;
               flex-direction: row;
               justify-content: left;
               align-items: center;
+              gap: 1.7rem;
               img {
-                width: 1.5rem;
-                height: 1.5rem;
-                margin-right: 0.7rem;
               }
 
               div {
                 font-weight: 400;
-                font-size: 1rem;
+                font-size: 1.3rem;
               }
             }
           }
 
           .actions {
-            width: 35%;
             display: flex;
             flex-direction: column;
             justify-content: right;
+            align-items: flex-end;
+            width: 40%;
             button {
-              color: #ffffff;
-
-              height: 2.7rem;
-              font-weight: 400;
-              font-size: 0.9rem;
-              font-family: "Poppins";
-              font-style: normal;
-              border: none;
-            }
-
-            .buy-now {
-              width: 75%;
-              background: #008c16;
-              box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
-              border-radius: 0.25rem;
-            }
-
-            .add-calendar {
-              width: 75%;
-              background: rgba(39, 191, 255, 0.55);
-              box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
-              border-radius: 0.25rem;
-              margin: 0;
+              font-size: 1.1rem;
+              width: 100%;
             }
           }
         }
+
         .status {
           width: 100%;
           height: 100%;
@@ -346,42 +251,24 @@
             }
             div {
               font-weight: 500;
-              font-size: 1rem;
+              font-size: 1.1rem;
             }
           }
         }
 
         .description-section {
-          display: flex;
-          flex-direction: column;
-          margin-top: 0.7rem;
-
           .description-title {
-            font-weight: 600;
-            font-size: 1.3rem;
-            margin-bottom: 0.2rem;
+            font-size: 1.8rem;
           }
           .description {
             font-weight: 200;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
           }
         }
 
         .expand-all {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
           .article {
-            margin-top: 0.5rem;
-            font-weight: 300;
-            font-size: 1rem;
-            line-height: 24px;
-          }
-          img {
-            width: 1.3rem;
-            height: 1.3rem;
+            font-size: 1.4rem;
           }
         }
       }

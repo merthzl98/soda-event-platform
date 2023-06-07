@@ -1,5 +1,5 @@
 .home-page-container {
-  height: 100%;
+  height: auto;
   width: 100%;
 
   .home-page-wrapper {
@@ -7,7 +7,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 1rem;
 
     .slider-section {
       width: 100%;
@@ -21,28 +21,18 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 990px) {
   .home-page-container {
-    height: 58rem;
-    width: 100%;
-
     .home-page-wrapper {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
+      gap: 2.5rem;
       .slider-section {
         width: 100%;
-        height: 25rem;
+        height: auto;
       }
 
       .carusel-section {
         width: 100%;
-        height: 32rem;
-        // padding-bottom: 25rem;
-        // padding-top: 2rem;
+        height: auto;
       }
     }
   }

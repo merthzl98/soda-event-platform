@@ -55,7 +55,6 @@ const EventPage = ({ events }) => {
 
         <div className={styles["items-wrapper"]}>
           <div className={styles["events-items"]}>{eventsItems}</div>
-          <div className={styles["blur"]}></div>
         </div>
       </div>
     </div>

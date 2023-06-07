@@ -14,6 +14,7 @@ import twitter from "../../../public/assets/icons/twitter.png";
 import insta from "../../../public/assets/icons/insta.png";
 import facebook from "../../../public/assets/icons/facebook.png";
 import contactTexts from "../../static/contactTexts.json";
+import map from "../../../public/assets/icons/map.png";
 
 const ContactPage = () => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
@@ -47,7 +48,7 @@ const ContactPage = () => {
               </p>
               <div className={styles["id-section"]}>
                 <input id="name" placeholder={content.name}></input>
-                <input id="e-mail" placeholder={content.mail}></input>
+                <input id="e-mail" placeholder={content.email}></input>
               </div>
 
               <textarea
@@ -84,10 +85,12 @@ const ContactPage = () => {
             <div className={styles["title"]}>
               <p>{content.ourOffice}</p>
             </div>
-            <div className={styles["map-img"]}></div>
+            <Image src={map} alt="map" className={styles["map-img"]} />
             {mobileVersion && (
               <div className={styles["contact-info"]}>
-                <p className={styles["contact-title"]}>{content.contactInfo} </p>
+                <p className={styles["contact-title"]}>
+                  {content.contactInfo}{" "}
+                </p>
                 <div className={styles["info-item"]}>
                   <Image src={locationIcon} alt="location icon" />
                   <p>447 Military DriveMaryville, TN 37803</p>

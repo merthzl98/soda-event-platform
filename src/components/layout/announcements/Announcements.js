@@ -42,7 +42,7 @@ const Announcements = () => {
         <div className={styles["left-blur"]}></div>
         <div className={styles["announce-article"]}>
           <Marquee
-            style={{ zIndex: "1", width: "96%", marginTop: "1px" }}
+            style={{ zIndex: "1", width: "100%" }}
             gradient={false}
             speed={50}
             direction={"right"}

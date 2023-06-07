@@ -3,7 +3,7 @@ import Image from "next/image";
 import moment from "moment";
 
 import styles from "./EventDetailPage.module.scss";
-// import detailBanner from "../../../public/assets/banners/detailBanner.png";
+import detailBanner from "../../../public/assets/banners/detailBanner.png";
 import location from "../../../public/assets/icons/location.png";
 import clock from "../../../public/assets/icons/clock.png";
 import calendar from "../../../public/assets/icons/calendar.png";
@@ -31,7 +31,7 @@ export const EventDetailPage = (props) => {
   return (
     <div className={styles["detail-container"]}>
       <div className={styles["img-section"]}>
-        <img src={props.eventData.image} alt="detail banner" />
+        <Image src={detailBanner} alt="detail banner" />
       </div>
       <div className={styles["descriptions"]}>
         <div className={styles["description-wrapper"]}>
