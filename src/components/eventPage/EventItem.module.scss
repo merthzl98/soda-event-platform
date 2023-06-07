@@ -1,7 +1,7 @@
 .events-item-container {
   color: #ffffff;
   width: 100%;
-  height: 23rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   background: rgba(31, 46, 52, 0.45);
@@ -81,7 +81,15 @@
       font-size: 0.8rem;
       margin-left: 0.9rem;
       margin-bottom: 1rem;
-      width: 90%;
+      max-width: 90%;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // p {
+      //   white-space: nowrap;
+      //   overflow: hidden;
+      //   text-overflow: ellipsis;
+      // }
     }
 
     .events-item-actions {
@@ -110,7 +118,7 @@
   }
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 990px) {
   .events-item-container {
     .events-item-actions {
       button {

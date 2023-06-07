@@ -63,19 +63,32 @@ const MainFooter = () => {
                         <div className={styles["language-title"]}>
                           {content.language}
                         </div>
+
                         <div className={styles["languages"]}>
-                          <div className={styles["language"]}>
-                            <div>English</div>
-                            <Image src={england} alt="england" />
-                          </div>
-                          <div className={styles["language"]}>
-                            <div>Français</div>
-                            <Image src={france} alt="france" />
-                          </div>
-                          <div className={styles["language"]}>
-                            <div>Dutch</div>
-                            <Image src={holland} alt="dutch" />
-                          </div>
+                          <Link href={asPath} locale="EN">
+                            <div className={styles["language"]}>
+                              <div>English</div>
+                              <Image src={england} alt="england" />
+                            </div>
+                          </Link>
+
+                          <Link href={asPath} locale="FR">
+                            <div className={styles["language"]}>
+                              <div>Français</div>
+                              <Image src={france} alt="france" />
+                            </div>
+                          </Link>
+
+                          <Link href={asPath} locale="NL">
+                            <div className={styles["language"]}>
+                              <div>Dutch</div>
+                              <Image
+                                className={styles["dutch"]}
+                                src={holland}
+                                alt="dutch"
+                              />
+                            </div>
+                          </Link>
                         </div>
                       </div>
 

@@ -1,8 +1,10 @@
 .content-item {
-  height: 15%;
-  width: 94%;
+  height: auto;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
   .artist-img {
     width: 40%;
     height: 100%;
@@ -11,70 +13,73 @@
     place-items: center;
     img {
       border-radius: 0.9rem;
-      width: 6.9rem;
-      height: 6.9rem;
-      // width: 100%;
-      // height: auto;
+      max-width: 100%;
+      height: auto;
     }
   }
   .artist-info {
-    margin-left: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 70%;
-    height: 98%;
+    width: 60%;
+    height: auto;
     .artist-article {
       .artist-name {
         font-family: "Poppins";
         font-style: normal;
         font-weight: 700;
-        font-size: 1.15rem;
-        line-height: 2rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
         letter-spacing: 0.04rem;
       }
       .artist-location {
         font-family: "Poppins";
         font-style: normal;
         font-weight: 400;
-        font-size: 0.9rem;
-        line-height: 1.5rem;
+        font-size: 0.8rem;
+        line-height: 1rem;
       }
     }
   }
   .nextup-action {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 95%;
+    width: calc(100% - 2rem);
+    gap: 0.5rem;
     .bilet-info {
       width: 6.5rem;
       button {
-        width: 85%;
+        width: 100%;
         background: #00abf2;
         border-radius: 0.25rem;
         border: none;
         color: #ffffff;
-        padding: 0.4rem 0;
+        padding: 0.4rem 0.6rem;
         font-family: "Poppins";
         font-style: normal;
         font-weight: 400;
         font-size: 0.75rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
     .buy-now {
       width: 6.5rem;
       button {
         background: #008c16;
-        width: 90%;
+        width: 100%;
         border-radius: 0.25rem;
         border: none;
         color: #ffffff;
-        padding: 0.4rem 0;
+        padding: 0.4rem 0.6rem;
         font-family: "Poppins";
         font-style: normal;
         font-weight: 400;
         font-size: 0.75rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
@@ -84,36 +89,36 @@
   .content-item {
     .nextup-action {
       button {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
       }
     }
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 990px) {
   .content-item {
     height: auto;
-    width: 94%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 2rem 0;
+    gap: 1rem;
+    margin: 30px 0;
     .artist-img {
-      width: 40%;
+      max-width: 100%;
       height: auto;
       display: flex;
       justify-content: left;
       img {
         border-radius: 0.9rem;
-        width: 8.9rem;
-        height: 8.9rem;
+        max-width: 100%;
+        height: auto;
       }
     }
     .artist-info {
-      margin-left: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 70%;
+      max-width: 100%;
       .artist-article {
         .artist-name {
           font-family: "Poppins";
@@ -135,19 +140,15 @@
     .nextup-action {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      width: 95%;
+      width: 100%;
+      gap: 1rem;
       .bilet-info {
         width: 8.5rem;
         button {
-          width: 95%;
+          width: 100%;
           background: #00abf2;
           border-radius: 0.25rem;
           border: none;
-          color: #ffffff;
-          padding: 0.4rem 0;
-          font-family: "Poppins";
-          font-style: normal;
           font-weight: 400;
           font-size: 1.2rem;
         }
@@ -156,13 +157,9 @@
         width: 8.5rem;
         button {
           background: #008c16;
-          width: 95%;
+          width: 100%;
           border-radius: 0.25rem;
           border: none;
-          color: #ffffff;
-          padding: 0.4rem 0;
-          font-family: "Poppins";
-          font-style: normal;
           font-weight: 400;
           font-size: 1.2rem;
         }

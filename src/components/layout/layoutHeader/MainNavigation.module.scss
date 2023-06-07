@@ -1,6 +1,5 @@
 .nav-header {
   width: 100%;
-  margin-bottom: 1.8rem;
   .nav {
     display: flex;
     flex-direction: row;
@@ -169,7 +168,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 990px) {
   .nav-header {
     margin-bottom: 0.9rem;
     .nav {

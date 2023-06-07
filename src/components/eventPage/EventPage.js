@@ -13,7 +13,7 @@ import LayoutContext from "../../storage/layout-context";
 const EventPage = ({ events }) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
 
-  const {pathname} = useRouter();
+  const { pathname } = useRouter();
 
   useEffect(() => {
     if (pathname === "/events" && mobileVersion) {
@@ -55,6 +55,7 @@ const EventPage = ({ events }) => {
 
         <div className={styles["items-wrapper"]}>
           <div className={styles["events-items"]}>{eventsItems}</div>
+          <div className={styles["blur"]}></div>
         </div>
       </div>
     </div>

@@ -78,12 +78,6 @@
   }
 }
 
-// @media (hover: none) and (pointer: coarse) {
-//   .left-arrow, .right-arrow {
-//       display: none;
-//   }
-// }
-
 .splide {
   & > div > button {
     display: flex;
@@ -113,13 +107,14 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 990px) {
   .carusel-container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    padding: 0 5px;
     .carusel-wrapper {
       display: flex;
       position: relative;

@@ -24,33 +24,27 @@ const Carusel = (props) => {
     perMove: 4,
     width: "100%",
     direction: "ltr", // left to right
-    height: "18rem", // adjust the height as needed
-    gap: "10px", // adjust the gap between slides as needed
+    height: "auto", // adjust the height as needed
+    gap: "1rem", // adjust the gap between slides as needed
     pagination: false, // hide pagination
     speed: 2000,
     breakpoints: {
       1340: {
         perPage: 4.5,
         perMove: 3,
-        gap: ".7rem",
+        gap: "1rem",
       },
-      1080: {
+
+      990: {
         perPage: 3.5,
         perMove: 2,
-        gap: ".7rem",
-      },
-      810: {
-        perPage: 3.5,
-        perMove: 2,
-        gap: ".7rem",
-        height: "22rem",
+        gap: "2.7rem",
       },
 
       500: {
         perPage: 2,
         perMove: 1,
-        gap: ".7rem",
-        height: "28rem",
+        gap: "2.7rem",
       },
     },
   };

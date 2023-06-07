@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import styles from "./CaruselItem.module.scss";
 import greenDot from "../../../public/assets/icons/greenDot.png";
+import dj from "../../../public/dj.png";
 import LayoutContext from "../../storage/layout-context";
 import commonTexts from "../../static/commonTexts.json";
 
@@ -14,22 +15,18 @@ const CaruselItem = ({ item }) => {
 
   const customId = useId();
 
-  const caruselImageUrl = {
-    background: `url(${item.image})`,
-    width: "100%",
-    height: "100%",
-  };
-
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
     .map((content) => {
       return (
         <div key={customId} className={styles["carusel-item-container"]}>
           <div className={styles["carusel-item-wrapper"]}>
-            <div
+            {/* <div style={caruselImageUrl}></div> */}
+            <Image
               className={styles["carusel-img"]}
-              style={caruselImageUrl}
-            ></div>
+              src={dj}
+              alt="event banner"
+            />
             <div className={styles["sub-section"]}>
               <div className={styles["type-section"]}>
                 <div className={styles["carusel-item-title"]}>

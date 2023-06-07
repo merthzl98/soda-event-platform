@@ -87,7 +87,7 @@ const ContactPage = () => {
             <div className={styles["map-img"]}></div>
             {mobileVersion && (
               <div className={styles["contact-info"]}>
-                <p className={styles["contact-title"]}>{t("contactInfo")} </p>
+                <p className={styles["contact-title"]}>{content.contactInfo} </p>
                 <div className={styles["info-item"]}>
                   <Image src={locationIcon} alt="location icon" />
                   <p>447 Military DriveMaryville, TN 37803</p>

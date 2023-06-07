@@ -1,4 +1,11 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useContext,
+  useReducer,
+} from "react";
+import { useRouter } from "next/router";
 
 import LayoutContext from "../../storage/layout-context";
 import Announcements from "./announcements/Announcements";
@@ -9,13 +16,20 @@ import MainNextUp from "./layoutNextUp/MainNextUp";
 import SearchBar from "./layoutSearch/SearchBar";
 
 const Layout = (props) => {
-  const [screenWidth, setScreenWidth] = useState();
-
-  const lytCtx = useContext(LayoutContext);
-
-  const { mobileVersion, setMobileVersion, hideNextUp, setHideNextUp } = lytCtx;
+  const {
+    mobileVersion,
+    setMobileVersion,
+    hideNextUp,
+    setHideNextUp,
+    screenWidth,
+    setScreenWidth,
+  } = useContext(LayoutContext);
 
   const ref = useRef(null);
+
+  const { pathname } = useRouter();
+
+  console.log(pathname);
 
   useEffect(() => {
     // when the component gets mounted
@@ -25,7 +39,7 @@ const Layout = (props) => {
       setScreenWidth(ref.current.offsetWidth);
     };
     console.log(screenWidth);
-    if (screenWidth < 800) {
+    if (screenWidth <= 990) {
       setMobileVersion(true);
       // console.log("run mobile version SET func");
     } else {
@@ -38,6 +52,12 @@ const Layout = (props) => {
     return () => window.removeEventListener("resize", getwidth);
     // eslint-disable-next-line
   }, [screenWidth]);
+
+  
+  const heightExpand =
+    mobileVersion && pathname.includes("/events", "contact")
+      ? { }
+      : {};
 
   return (
     <React.Fragment>
@@ -68,7 +88,7 @@ const Layout = (props) => {
                 </div>
               )}
 
-              <div className={styles["down-section"]}>
+              <div style={heightExpand} className={styles["down-section"]}>
                 <div className={styles["changed-content"]}>
                   {props.children}
                 </div>

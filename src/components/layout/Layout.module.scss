@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  padding: 0 10rem;
   background-image: url(../../../public/assets/banners/rightBottomElipse.png),
     url(../../../public/assets/banners/rightTopElipse.png),
     url(../../../public/assets/banners/leftTopElipse.png),
@@ -46,16 +47,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 1.2rem;
-    margin-bottom: 0.5rem;
-    width: 85%;
+    gap: 1.5rem;
+    padding: 2.5rem 0rem;
+    width: 100%;
     min-height: 100vh !important;
     .main-content {
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      height: 69%;
+      height: auto;
       .left-column {
         width: 74%;
         .up-section {
@@ -91,14 +92,16 @@
         }
 
         .down-section {
-          height: 58.1rem;
+          // height: 58.1rem;
+          height: auto;
           .changed-content {
             height: 100%;
           }
         }
       }
       .right-column {
-        height: 57rem;
+        // height: 57rem;
+        height: auto;
         width: 24%;
       }
     }
@@ -108,10 +111,10 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 990px) {
   .layout-container {
+    padding: 0 1.5rem;
     .layout-contents {
-      width: 96%;
       display: flex;
       flex-direction: column;
 
@@ -119,6 +122,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 2rem;
+        gap: 1rem;
         .left-column {
           width: 100%;
           .up-section {
@@ -139,12 +143,12 @@
           }
 
           .down-section {
-            height: 62rem;
+            // height: 88rem;
           }
         }
         .right-column {
           width: 100%;
-          height: 45rem;
+          height: auto;
         }
       }
       .main-footer {

@@ -15,15 +15,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  padding: 1.3rem 2rem;
   // border-color: linear-gradient(to right,rgba(255, 255, 255, 0.13), rgba(39, 191, 255, 0.55)  ) 1;
 
   .nextup-wrapper {
-    height: 96%;
-    width: 85%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .nextup-title {
       font-family: "Poppins";
       font-style: normal;
@@ -31,8 +32,9 @@
       font-size: 1.6rem;
     }
     .nextup-content {
-      height: 86%;
+      height: 100%;
       margin-top: 0.5rem;
+      padding: 1.5rem 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -75,18 +77,18 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 990px) {
   .nextup-container {
-    height: 100;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
     // border-color: linear-gradient(to right,rgba(255, 255, 255, 0.13), rgba(39, 191, 255, 0.55)  ) 1;
-
+    padding: 3rem 2rem;
     .nextup-wrapper {
-      height: 90%;
-      width: 85%;
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -97,35 +99,51 @@
         font-size: 1.9rem;
       }
       .nextup-content {
-        height: 80%;
-        margin-top: -0.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+        margin-top: -1.5rem;
+        .splide {
+          & > div > button {
+            display: none;
+          }
+        }
+        .splide > ul {
+          bottom: -5px;
+        }
+        .empty-nextup {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
+}
 
-  .dots {
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .dot-container {
+    z-index: -2;
+    width: 6rem;
+    height: 1.7rem;
+    backdrop-filter: blur(2px);
+  }
+  .dot {
+    position: absolute;
+    width: 4rem;
+    height: 1rem;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    .dot-container {
-      z-index: -2;
-      width: 6rem;
-      height: 1.7rem;
-      backdrop-filter: blur(2px);
-    }
-    .dot {
-      position: absolute;
-      width: 4rem;
-      height: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
 
-      img {
-        width: 0.6rem;
-        height: 0.6rem;
-      }
+    img {
+      width: 0.6rem;
+      height: 0.6rem;
     }
   }
 }

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import moment from "moment";
 
 import styles from "./EventDetailPage.module.scss";
@@ -14,16 +13,12 @@ import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
 
 export const EventDetailPage = (props) => {
-  const { pathname } = useRouter();
-
-  const { mobileVersion } = useContext(LayoutContext);
+  const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
 
   useEffect(() => {
-    if (pathname === `/events/${props.eventData.id}`) {
-      setHideNextUp(false);
-    }
+    setHideNextUp(false);
     // eslint-disable-next-line
-  }, [pathname]);
+  }, []);
 
   console.log("event data-->", props.eventData);
 

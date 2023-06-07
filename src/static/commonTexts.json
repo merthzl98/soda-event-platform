@@ -7,7 +7,7 @@
       "upComing": "UPCOMING",
       "check": "Check",
       "save": "Save",
-      "buy": "Buy Now",
+      "buy": "Buy",
       "seeAll": "See all",
       "biletsInfo": "Bilets & Info",
       "events": "Events"
@@ -17,7 +17,6 @@
       "searchForEvent": "Rechercher un événement...",
       "nextUp": "Suivant",
       "upComing": "A VENIR",
-
       "check": "Chèque",
       "save": "Sauver",
       "buy": "Acheter",
@@ -32,7 +31,7 @@
       "upComing": "AANSTAAND",
       "check": "Controleren",
       "save": "Sparen",
-      "buy": "Koop nu",
+      "buy": "Koop",
       "seeAll": "Alles zien",
       "biletsInfo": "Bilets & Info",
       "events": "Evenementen"

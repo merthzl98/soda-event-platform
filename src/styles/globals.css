@@ -37,19 +37,19 @@ code {
 
 @media (max-width: 1620px) {
   html {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 1350px) {
   html {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 1050px) {
   html {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 

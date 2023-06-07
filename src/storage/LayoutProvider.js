@@ -4,12 +4,15 @@ import LayoutContext from "./layout-context";
 const LayoutProvider = (props) => {
   const [mobileVersion, setMobileVersion] = useState();
   const [hideNextUp, setHideNextUp] = useState();
+  const [screenWidth, setScreenWidth] = useState();
 
   const templateContext = {
     mobileVersion,
     setMobileVersion,
     hideNextUp,
     setHideNextUp,
+    screenWidth,
+    setScreenWidth
   };
   return (
     <LayoutContext.Provider value={templateContext}>
