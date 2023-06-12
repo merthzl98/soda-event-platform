@@ -57,23 +57,6 @@
           font-size: 1.1rem;
         }
       }
-
-      .events-item-condition {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-left: 0.7rem;
-        margin-bottom: 1rem;
-        img {
-          width: 0.6rem;
-          height: 0.6rem;
-        }
-        p {
-          font-weight: 500;
-          font-size: 0.75rem;
-          margin-left: 0.3rem;
-        }
-      }
     }
 
     .events-item-description {
@@ -95,9 +78,74 @@
     .events-item-actions {
       width: 100%;
       height: auto;
+      .cancelled {
+        width: 100%;
+        background-color: #000000;
+        padding: 0.35rem 0.7rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          img {
+            position: absolute;
+            left: -1.5rem;
+            max-width: 1.2rem;
+            height: auto;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            font-size: 0.75rem;
+            font-family: "Poppins";
+            font-style: normal;
+          }
+        }
+      }
+      .sold-out {
+        width: 100%;
+        background-color: #c4161c;
+        padding: 0.35rem 0.7rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          img {
+            position: absolute;
+            left: -1.5rem;
+            max-width: 1.2rem;
+            height: auto;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            font-size: 0.75rem;
+            font-family: "Poppins";
+            font-style: normal;
+          }
+        }
+      }
       button {
         width: 50%;
-        height: 2rem;
+        height: auto;
+        padding: 0.35rem 0.7rem;
         border: none;
         color: #ffffff;
         font-weight: 500;

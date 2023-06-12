@@ -58,6 +58,7 @@ const Slider = (props) => {
             onMouseLeave={handleMoveOutSlider}
             className={styles["slider-background"]}
             src={bannerSlider}
+            alt = "mha"
           />
           <div className={styles["slider-info"]}>
             <div className={styles["dot-title"]} key={Math.random()}>

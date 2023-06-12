@@ -4,9 +4,11 @@ import { useRouter } from "next/router";
 
 import styles from "./CaruselItem.module.scss";
 import greenDot from "../../../public/assets/icons/greenDot.png";
+import redDot from "../../../public/assets/icons/redDot.png";
 import dj from "../../../public/dj.png";
 import LayoutContext from "../../storage/layout-context";
 import commonTexts from "../../static/commonTexts.json";
+import { statusConverter } from "@/configs/config";
 
 const CaruselItem = ({ item }) => {
   const { mobileVersion } = useContext(LayoutContext);
@@ -15,13 +17,14 @@ const CaruselItem = ({ item }) => {
 
   const customId = useId();
 
+  const status = item.status ? item.status : "Available";
+
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
     .map((content) => {
       return (
         <div key={customId} className={styles["carusel-item-container"]}>
           <div className={styles["carusel-item-wrapper"]}>
-            {/* <div style={caruselImageUrl}></div> */}
             <Image
               className={styles["carusel-img"]}
               src={dj}
@@ -30,20 +33,24 @@ const CaruselItem = ({ item }) => {
             <div className={styles["sub-section"]}>
               <div className={styles["type-section"]}>
                 <div className={styles["carusel-item-title"]}>
-                  <p>{item.genre}</p>
+                  <p>{item.title}</p>
                 </div>
                 <div className={styles["carusel-item-condition"]}>
-                  <Image src={greenDot} alt="green dot" />
-                  <p>{item.condition}</p>
+                  {status === "Available" ? (
+                    <Image src={greenDot} alt="available icon" />
+                  ) : (
+                    <Image src={redDot} alt="status icon" />
+                  )}
+                  <p>{statusConverter(status)}</p>
                 </div>
               </div>
-              {mobileVersion ? (
+              {/* {mobileVersion ? (
                 <div className={styles["events-item-description"]}>
                   <p>{item.description}</p>
                 </div>
               ) : (
                 ""
-              )}
+              )} */}
 
               <div className={styles["carusel-item-actions"]}>
                 <button className={styles["save"]}>{content.save}</button>

@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styles from "./MainNavigation.module.scss";
-import bagIcon from "../../../../public/assets/icons/bagIcon.png";
-import notifyRing from "../../../../public/assets/icons/notifyRing.png";
-import elipse from "../../../../public/assets/icons/ellipse.png";
-import avatar from "../../../../public/assets/icons/avatar.png";
+// import bagIcon from "../../../../public/assets/icons/bagIcon.png";
+// import notifyRing from "../../../../public/assets/icons/notifyRing.png";
+// import elipse from "../../../../public/assets/icons/ellipse.png";
+// import avatar from "../../../../public/assets/icons/avatar.png";
 import homeIcon from "../../../../public/assets/icons/homeIcon.png";
 import eventsIcon from "../../../../public/assets/icons/eventsIcon.png";
 import contactIcon from "../../../../public/assets/icons/contactIcon.png";
@@ -66,7 +66,7 @@ const MainNavigation = () => {
               </ul>
             </div>
 
-            <div className={styles["account-items"]}>
+            {/* <div className={styles["account-items"]}>
               <div className={styles["items-wrapper"]}>
                 <div className={styles["bag"]}>
                   <Image
@@ -93,7 +93,7 @@ const MainNavigation = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </nav>
         </header>
       );

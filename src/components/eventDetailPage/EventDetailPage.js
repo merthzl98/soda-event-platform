@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import Image from "next/image";
-import moment from "moment";
 
 import styles from "./EventDetailPage.module.scss";
 import detailBanner from "../../../public/assets/banners/detailBanner.png";
@@ -11,6 +10,7 @@ import greenDot from "../../../public/assets/icons/greenDot.png";
 import redDot from "../../../public/assets/icons/redDot.png";
 import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
+import { formattedDate, statusConverter } from "@/configs/config";
 
 export const EventDetailPage = (props) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
@@ -22,11 +22,13 @@ export const EventDetailPage = (props) => {
 
   console.log("event data-->", props.eventData);
 
-  const formattedDate = (dateString) => {
-    return moment(dateString).subtract(1, "year").format("DD MMMM, YYYY");
-  };
-
   console.log(formattedDate(props.eventData.date));
+
+  const clientStatus = props.eventData.clientStatus
+    ? props.eventData.clientStatus
+    : "Available";
+
+    console.log("props eventdata", props.eventData);
 
   return (
     <div className={styles["detail-container"]}>
@@ -51,7 +53,7 @@ export const EventDetailPage = (props) => {
               <div className={styles["infos-item"]}>
                 <Image src={location} alt="location" />
                 <div>
-                  {props.eventData.venue.city}, {props.eventData.venue.country}
+                  {props.eventData.venue.name}, {props.eventData.venue.city}
                 </div>
               </div>
             </div>
@@ -61,27 +63,19 @@ export const EventDetailPage = (props) => {
             </div>
           </div>
           <div className={styles["status"]}>
-            {/* <div className={styles["statu"]}>
-              <Image src={greenDot} alt="green dot" />
-              <div>Available</div>
-            </div> */}
-            <div className={styles["count-down"]}>
-              <Image src={redDot} alt="red dot" />
-              <div>{props.eventData.clientStatus}</div>
-            </div>
+            {clientStatus === "Available" ? (
+              <Image src={greenDot} alt="available icon" />
+            ) : (
+              <Image src={redDot} alt="status icon" />
+            )}
+
+            <p>{statusConverter(clientStatus)}</p>
           </div>
           <div className={styles["description-section"]}>
             <div className={styles["description-title"]}>Description</div>
             <div className={styles["description"]}>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                eget hendrerit dui. Quisque enim metus, tincidunt sed tortor ut,
-                vulputate rutrum neque. Aenean porta sapien nec quam tincidunt,
-                at fermentum nisi convallis. Duis tempor elit id nisi iaculis,
-                vel lobortis purus lobortis. Duis et varius tellus, ut elementum
-                eros. Donec sapien odio, tincidunt eget....culis, vel lobortis
-                purus lobortis. Duis et varius tellus, ut elementum eros. Donec
-                sapien odio, tincidunt eget....
+              {props.eventData.description}
               </p>
             </div>
           </div>

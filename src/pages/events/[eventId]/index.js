@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import axios from "axios";
 
 import { EventDetailPage } from "@/components/eventDetailPage/EventDetailPage";
-// import { eventsItemsData } from "@/components/mockData/mockData";
+import EventService from "@/pages/api/event-service";
 
 const EventDetailsPage = (props) => {
   return (
@@ -18,8 +17,7 @@ const EventDetailsPage = (props) => {
 };
 
 export async function getStaticPaths() {
-  const eventListUrl = "http://localhost/client-app/api/v1/events";
-  const response = await axios.get(eventListUrl);
+  const response = await EventService.getEvents();
 
   const events = response.data;
 
@@ -34,9 +32,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const eventId = context.params.eventId;
 
-  const eventUrl = `http://localhost/client-app/api/v1/event/${eventId}`;
-
-  const response = await axios.get(eventUrl);
+  const response = await EventService.getEventById(eventId);
   const selectedEvent = response.data;
 
   console.log({ selectedEvent });
@@ -46,20 +42,17 @@ export async function getStaticProps(context) {
   return {
     props: {
       eventData: {
-        // id: eventId,
-        // genre: selectedEvent.genre,
-        // condition: selectedEvent.condition,
-        // description: selectedEvent.description,
         // image: selectedEvent.image,
         id: eventId,
         title: selectedEvent.title,
+        description: selectedEvent.description,
         date: selectedEvent.date,
         description: selectedEvent.description,
         startHour: selectedEvent.startHour,
         endHour: selectedEvent.endHour,
         date: selectedEvent.date,
         venue: selectedEvent.venue,
-        clientStatus: selectedEvent.clientStatus
+        clientStatus: selectedEvent.clientStatus,
       },
     },
   };

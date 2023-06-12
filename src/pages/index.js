@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import axios from "axios";
 
 import HomePage from "@/components/homePage/HomePage";
-import { caruselItems } from "@/components/mockData/mockData";
 import { sliderItems } from "@/components/mockData/mockData";
+import EventService from "./api/event-service";
 
 export default function Home(props) {
   return (
@@ -20,17 +19,18 @@ export default function Home(props) {
 }
 
 export async function getStaticProps({ locale }) {
-  // console.log({ locale });
+  const response = await EventService.getHighlightedEvents(locale);
+
+  const highlightedEvents = response.data;
 
   return {
     props: {
       homeData: {
-        caruoselData: caruselItems.map((item) => ({
-          genre: item.genre,
-          image: item.image,
+        caruoselData: highlightedEvents.map((item) => ({
           id: item.id,
-          condition: item.condition,
-          description: item.description,
+          title: item.title,
+          posterUrl: item.posterUrl,
+          status: item.status,
         })),
         sliderData: sliderItems.map((item) => ({
           url: item.url,

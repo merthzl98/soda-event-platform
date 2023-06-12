@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { useCallback, useEffect, useId, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -6,10 +6,37 @@ import styles from "./SearchBar.module.scss";
 import searchIcon from "../../../../public/assets/icons/searchIcon.png";
 import arrangeIcon from "../../../../public/assets/icons/arrangeIcon.png";
 import commonTexts from "../../../static/commonTexts.json";
+import EventService from "@/pages/api/event-service";
 
 const SearchBar = () => {
+  const [enteredSearch, setEnteredSearch] = useState("");
+
   const { locale } = useRouter();
+
   const customId = useId();
+
+  const getEventsByQuery = useCallback(() => {
+    console.log("run callback");
+
+    // EventService.getEvents(locale, 0, enteredSearch)
+    //   .then((response) => {
+    //     console.log({ response });
+    //   });
+  }, [enteredSearch]);
+
+  // useEffect(() => {
+  //   getEventsByQuery;
+  // }, [getEventsByQuery]);
+
+  useEffect(() => {
+    EventService.getEvents(locale, 0, enteredSearch).then((response) => {
+      console.log({ response });
+    });
+  }, [enteredSearch]);
+
+  const handleChangeSearch = (e) => {
+    setEnteredSearch(e.target.value);
+  };
 
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
@@ -25,7 +52,11 @@ const SearchBar = () => {
               />
             </div>
             <div className={styles["search-input"]}>
-              <input placeholder={content.searchForEvent} />
+              <input
+                value={enteredSearch}
+                onChange={handleChangeSearch}
+                placeholder={content.searchForEvent}
+              />
             </div>
             <div className={styles["searchbar-icon"]}>
               <Image src={arrangeIcon} alt="arrange-icon" />

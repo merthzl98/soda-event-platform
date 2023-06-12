@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0 10rem;
+  padding: 0 5rem;
   background-image: url(../../../public/assets/banners/rightBottomElipse.png),
     url(../../../public/assets/banners/rightTopElipse.png),
     url(../../../public/assets/banners/leftTopElipse.png),
@@ -58,7 +58,7 @@
       justify-content: space-between;
       height: auto;
       .left-column {
-        width: 74%;
+        width: 73%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -69,6 +69,7 @@
           color: #ffffff;
           gap: 1rem;
           height: auto;
+          justify-content: space-between;
           .searchbar {
             width: 26%;
             height: auto;
@@ -104,7 +105,7 @@
       .right-column {
         // height: 57rem;
         height: auto;
-        width: 24%;
+        width: 26%;
       }
     }
     .main-footer {

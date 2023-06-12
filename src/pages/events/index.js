@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import Head from "next/head";
-import axios from "axios";
 
 import EventPage from "@/components/eventPage/EventPage";
-// import { eventsItemsData } from "@/components/mockData/mockData";
+import EventService from "../api/event-service";
 
 const EventsPage = (props) => {
   return (
@@ -17,14 +16,8 @@ const EventsPage = (props) => {
   );
 };
 
-export async function getStaticProps({locale}) {
-  //fetch data
-  const eventListUrl = "http://localhost/client-app/api/v1/events";
-  const response = await axios.get(eventListUrl, {
-    params: {
-      country: locale,
-    },
-  });
+export async function getStaticProps({ locale }) {
+  const response = await EventService.getEvents(locale, 0, "");
 
   const events = response.data;
 

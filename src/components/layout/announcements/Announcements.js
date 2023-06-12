@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useRouter } from "next/router";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 
 import styles from "./Announcements.module.scss";
 import announceIcon from "../../../../public/assets/icons/announceIcon.png";
-// import { announceData } from "../../mockData/mockData";
 import AnnounceText from "./AnnounceText";
+import EventService from "@/pages/api/event-service";
 
 const Announcements = () => {
   const [announceList, setAnnounceList] = useState([]);
 
-  const getAnnounceList = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost/client-app/api/v1/announcements"
-      );
+  const { locale } = useRouter();
 
-      setAnnounceList(response.data);
-    } catch (err) {
-      console.log(err);
-    }
+  const getAnnounceList = () => {
+    EventService.getAnnounces(locale)
+      .then((response) => {
+        console.log({response});
+        response.status === 200 && setAnnounceList(response.data);
+      })
+      .catch((err) => console.log({ err }));
   };
 
   useEffect(() => {
     getAnnounceList();
-  }, []);
-
-  console.log({ announceList });
+  }, [locale]);
 
   const allAnnounce = announceList.map((announce) => {
     return <AnnounceText key={announce.id} announce={announce} />;

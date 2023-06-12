@@ -2,25 +2,25 @@ import React, { useId } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import greenDot from "../../../public/assets/icons/greenDot.png";
+import cancelIcon from "../../../public/assets/icons/cancel.png";
+import lockIcon from "../../../public/assets/icons/lock.png";
 import styles from "./EventItem.module.scss";
 import commonTexts from "../../static/commonTexts.json";
 import banner from "../../../public/eventBanner.png";
+import { statusConverter } from "@/configs/config";
 
 const EventItem = ({ item }) => {
   const customId = useId();
-  const { locale, push } = useRouter();
 
-  const eventImage = {
-    background: `url(http://localhost:3000/eventBanner.png)`,
-    // background: `url(${item.posterUrl})`,
-    width: "100%",
-    height: "auto",
-  };
+  const { locale, push } = useRouter();
 
   const goToDetails = () => {
     push(`/events/${item.id}`);
   };
+
+  const unAvailable = item.status === "SOLD_OUT" || item.status === "CANCELLED";
+
+  const unAvailableStyle = unAvailable ? { filter: "brightness(50%)" } : {};
 
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
@@ -30,8 +30,8 @@ const EventItem = ({ item }) => {
           key={customId}
           onClick={goToDetails}
           className={styles["events-item-container"]}
+          style={unAvailableStyle}
         >
-          {/* <div className={styles["events-img"]} style={eventImage} /> */}
           <Image
             style={{ width: "100%", height: "auto" }}
             src={banner}
@@ -40,32 +40,37 @@ const EventItem = ({ item }) => {
           <div className={styles["sub-section"]}>
             <div className={styles["title-section"]}>
               <div className={styles["events-item-title"]}>
-                {/* <p>{item.genre}</p> */}
                 <p>{item.title}</p>
-              </div>
-              <div className={styles["events-item-condition"]}>
-                <Image src={greenDot} alt="green dot" />
-                {/* <p>{item.condition}</p> */}
-                <p>{item.status}</p>
               </div>
             </div>
             <div className={styles["events-item-description"]}>
-              {/* <p>{item.description}</p> */}
-              {/* <p>
-                LasdasdasdasdasdasdasdasdadasasdadasdasasdaLasdasda
-                sdasdasdasdasdasdadasasdadasdasasdasdLasdas
-                dasdasdasdasdasdasdadasasdadasdasasdasdLasdasd
-                asdasdasdasdasdasdadasasdadasdasasdasdLasdasdasdasdasd
-                asdasdasdadasasdadasdasasdasdLasdasdasdasdasdasdasdasdadasasdadasdasasdas
-                dLasdasdasdasdasdasdasdasdadasasdadasdasasdasdLasdasdasdasdasdasdasdasdadasasdad
-                asdasasdasdLasdasdasdasdasdasdasdasdadasasdadasdasasdasdLasdasdasdasdasdasdasdasdada
-                sasdadasdasasdasdLasdasdasdasdasdasdasdasdadasasdadasdasasdasdcvsd
-              </p> */}
-
+              <p>{item.description}</p>
             </div>
             <div className={styles["events-item-actions"]}>
-              <button className={styles["save"]}>{content.save}</button>
-              <button className={styles["buy-now"]}>{content.buy}</button>
+              {item.status === "CANCELLED" && (
+                <div className={styles["cancelled"]}>
+                  <div>
+                    <Image src={cancelIcon} alt="cancelled" />
+                    <p>{statusConverter(item.status)}</p>
+                  </div>
+                </div>
+              )}
+
+              {item.status === "SOLD_OUT" && (
+                <div className={styles["sold-out"]}>
+                  <div>
+                    <Image src={lockIcon} alt="sold out" />
+                    <p>{statusConverter(item.status)}</p>
+                  </div>
+                </div>
+              )}
+
+              {!unAvailable && (
+                <>
+                  <button className={styles["save"]}>{content.save}</button>
+                  <button className={styles["buy-now"]}>{content.buy}</button>
+                </>
+              )}
             </div>
           </div>
         </div>

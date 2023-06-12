@@ -29,8 +29,6 @@ const Layout = (props) => {
 
   const { pathname } = useRouter();
 
-  console.log(pathname);
-
   useEffect(() => {
     // when the component gets mounted
     setScreenWidth(ref.current.offsetWidth);
