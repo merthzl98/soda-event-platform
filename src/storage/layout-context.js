@@ -7,6 +7,8 @@ const LayoutContext = React.createContext({
   setHideNextUp: () => {},
   screenWidth: "",
   setScreenWidth: () => {},
+  screenHeight: "",
+  setScreenHeight: () => {},
 });
 
 export default LayoutContext;

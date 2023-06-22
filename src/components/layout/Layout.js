@@ -23,6 +23,7 @@ const Layout = (props) => {
     setHideNextUp,
     screenWidth,
     setScreenWidth,
+    setScreenHeight,
   } = useContext(LayoutContext);
 
   const ref = useRef(null);
@@ -32,9 +33,11 @@ const Layout = (props) => {
   useEffect(() => {
     // when the component gets mounted
     setScreenWidth(ref.current.offsetWidth);
+    setScreenHeight(ref.current.offsetHeight);
     // to handle page resize
-    const getwidth = () => {
+    const getSizes = () => {
       setScreenWidth(ref.current.offsetWidth);
+      setScreenHeight(ref.current.offsetHeight);
     };
     console.log(screenWidth);
     if (screenWidth <= 990) {
@@ -44,18 +47,15 @@ const Layout = (props) => {
       setMobileVersion(false);
       setHideNextUp(false);
     }
-    window.addEventListener("resize", getwidth);
+    window.addEventListener("resize", getSizes);
 
     // remove the event listener before the component gets unmounted
-    return () => window.removeEventListener("resize", getwidth);
+    return () => window.removeEventListener("resize", getSizes);
     // eslint-disable-next-line
   }, [screenWidth]);
 
-  
   const heightExpand =
-    mobileVersion && pathname.includes("/events", "contact")
-      ? { }
-      : {};
+    mobileVersion && pathname.includes("/events", "contact") ? {} : {};
 
   return (
     <React.Fragment>

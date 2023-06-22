@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 
 import styles from "./Slider.module.scss";
 import redDot from "../../../public/assets/icons/redDot.png";
-import dotContainer from "../../../public/assets/icons/dotContainer.png";
-import blackDot from "../../../public/assets/icons/blackDot.png";
 import greyDot from "../../../public/assets/icons/greyDot.png";
 import LayoutContext from "../../storage/layout-context";
 import commonTexts from "../../static/commonTexts.json";
@@ -35,16 +33,21 @@ const Slider = (props) => {
     handleHoverSlider();
   }, []);
 
+  const hasOneItem = props.homeData.sliderData.length < 2;
+
+  const oneSlider = { type: "slide", autoplay: false, arrows: false };
+
   const options = {
-    type: "loop",
+    type: hasOneItem ? oneSlider.type : "loop",
     speed: 2000,
     drag: "free",
     snap: true,
     gap: "1rem",
-    autoplay: true,
+    autoplay: hasOneItem ? oneSlider.autoplay : true,
     interval: 15000,
     pauseOnHover: false,
     resetProgress: true,
+    arrows: hasOneItem ? oneSlider.arrows : true,
     height: "auto",
     width: "100%",
   };
@@ -58,7 +61,7 @@ const Slider = (props) => {
             onMouseLeave={handleMoveOutSlider}
             className={styles["slider-background"]}
             src={bannerSlider}
-            alt = "mha"
+            alt="mha"
           />
           <div className={styles["slider-info"]}>
             <div className={styles["dot-title"]} key={Math.random()}>
@@ -76,10 +79,10 @@ const Slider = (props) => {
 
   const progressStyle = {
     position: "absolute",
-    bottom: "5px",
+    top: "0px",
     height: "1px",
     width: "100%",
-    padding: "0 0.3rem",
+    padding: "0 0.5rem",
   };
 
   return commonTexts.commonTexts

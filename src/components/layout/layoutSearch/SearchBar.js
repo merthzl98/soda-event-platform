@@ -8,10 +8,12 @@ import arrangeIcon from "../../../../public/assets/icons/arrangeIcon.png";
 import commonTexts from "../../../static/commonTexts.json";
 import EventService from "@/pages/api/event-service";
 
+let isInitial = true;
+
 const SearchBar = () => {
   const [enteredSearch, setEnteredSearch] = useState("");
 
-  const { locale } = useRouter();
+  const { locale, push, pathname } = useRouter();
 
   const customId = useId();
 
@@ -29,9 +31,14 @@ const SearchBar = () => {
   // }, [getEventsByQuery]);
 
   useEffect(() => {
-    EventService.getEvents(locale, 0, enteredSearch).then((response) => {
-      console.log({ response });
-    });
+    // EventService.getEvents(locale, 0, enteredSearch).then((response) => {
+    //   console.log({ response });
+    // });
+
+    enteredSearch.trim("").length > 0 &&
+      pathname !== "/events" &&
+      console.log("run");
+    // push("/events");
   }, [enteredSearch]);
 
   const handleChangeSearch = (e) => {

@@ -24,7 +24,7 @@ const Announcements = () => {
 
   useEffect(() => {
     getAnnounceList();
-  }, [locale]);
+  }, []);
 
   const allAnnounce = announceList.map((announce) => {
     return <AnnounceText key={announce.id} announce={announce} />;

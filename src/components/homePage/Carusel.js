@@ -8,8 +8,6 @@ import styles from "./Carusel.module.scss";
 // import redLine from "../../assets/icons/redLine.png";
 // import blueLine from "../../assets/icons/blueLine.png";
 // import pinkLine from "../../assets/icons/pinkLine.png";
-import rightButton from "../../../public/assets/icons/rightButton.png";
-import leftButton from "../../../public/assets/icons/leftButton.png";
 import CaruselItem from "./CaruselItem";
 import LayoutContext from "../../storage/layout-context";
 
@@ -17,24 +15,18 @@ const Carusel = (props) => {
   const { mobileVersion } = useContext(LayoutContext);
 
   const options = {
-    type: "loop",
+    // type: "loop",
     drag: "free",
     snap: true,
-    perPage: 5.5,
-    perMove: 4,
+    perPage: 4.5,
+    perMove: 3,
     width: "100%",
     direction: "ltr", // left to right
     height: "auto", // adjust the height as needed
-    gap: "1rem", // adjust the gap between slides as needed
+    gap: "1.3rem", // adjust the gap between slides as needed
     pagination: false, // hide pagination
     speed: 2000,
     breakpoints: {
-      1340: {
-        perPage: 4.5,
-        perMove: 3,
-        gap: "1rem",
-      },
-
       990: {
         perPage: 3.5,
         perMove: 2,
@@ -57,10 +49,14 @@ const Carusel = (props) => {
     );
   });
 
+  const hideButton = props.homeData.caruoselData.length < 5;
+
+  const splideStyle = hideButton ? styles["splide-hide-button"] : styles["splide"];
+
   return (
     <div className={styles["carusel-container"]}>
       <div className={styles["carusel-wrapper"]}>
-        <Splide className={`${styles.splide}`} options={options}>
+        <Splide className={splideStyle} options={options}>
           {caruselItems}
         </Splide>
         {/* <div className="carusel-title">

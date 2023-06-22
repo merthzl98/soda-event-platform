@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 
 import styles from "./EventDetailPage.module.scss";
@@ -15,20 +16,28 @@ import { formattedDate, statusConverter } from "@/configs/config";
 export const EventDetailPage = (props) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
 
+  const { locale } = useRouter();
+
   useEffect(() => {
     setHideNextUp(false);
     // eslint-disable-next-line
   }, []);
 
-  console.log("event data-->", props.eventData);
-
-  console.log(formattedDate(props.eventData.date));
-
   const clientStatus = props.eventData.clientStatus
     ? props.eventData.clientStatus
     : "Available";
 
-    console.log("props eventdata", props.eventData);
+  let title = props.eventData.title;
+  let description = props.eventData.description;
+
+  if (locale === "FR") {
+    title = props.eventData.titleFrench;
+    description = props.eventData.descriptionFrench;
+  }
+  if (locale === "NL") {
+    title = props.eventData.titleDutch;
+    description = props.eventData.descriptionDutch;
+  }
 
   return (
     <div className={styles["detail-container"]}>
@@ -37,7 +46,7 @@ export const EventDetailPage = (props) => {
       </div>
       <div className={styles["descriptions"]}>
         <div className={styles["description-wrapper"]}>
-          <div className={styles["detail-title"]}>{props.eventData.title}</div>
+          <div className={styles["detail-title"]}>{title}</div>
           <div className={styles["info-container"]}>
             <div className={styles["infos"]}>
               <div className={styles["infos-item"]}>
@@ -74,15 +83,13 @@ export const EventDetailPage = (props) => {
           <div className={styles["description-section"]}>
             <div className={styles["description-title"]}>Description</div>
             <div className={styles["description"]}>
-              <p>
-              {props.eventData.description}
-              </p>
+              <p>{description}</p>
             </div>
           </div>
-          <div className={styles["expand-all"]}>
+          {/* <div className={styles["expand-all"]}>
             <div className={styles["article"]}>Expand All</div>
             <Image src={downSymbol} alt="down symbol" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

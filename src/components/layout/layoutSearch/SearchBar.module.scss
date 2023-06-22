@@ -24,7 +24,7 @@
       justify-content: center;
       input {
         width: 100%;
-        padding: 0.25rem 0.65rem;
+        padding: 0.25rem 0.65rem 0 0.65rem;
         font-size: 0.8rem;
         color: #ffffff;
         border: none;
@@ -39,6 +39,8 @@
         &::placeholder {
           font-size: 0.8rem;
           color: #ffffff;
+          font-weight: 500;
+          opacity: 0.8;
         }
       }
     }
@@ -57,7 +59,7 @@
       .search-input {
         input {
           font-size: 1.3rem;
-          padding: 0.35rem 1.65rem;
+          padding: 0.35rem 1.65rem 0 1.65rem;
           &:focus {
             outline: none;
           }

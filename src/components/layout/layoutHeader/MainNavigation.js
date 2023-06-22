@@ -14,7 +14,7 @@ import contactIcon from "../../../../public/assets/icons/contactIcon.png";
 import navTexts from "../../../static/navigationTexts.json";
 
 const MainNavigation = () => {
-  const { locale } = useRouter();
+  const { locale, pathname } = useRouter();
 
   const customId = useId();
 
@@ -29,7 +29,13 @@ const MainNavigation = () => {
               <ul>
                 <li className={styles["nav-item"]}>
                   <Link href="/">
-                    <div className={styles["nav-item-button"]}>
+                    <div
+                      className={
+                        pathname === "/"
+                          ? styles["nav-active"]
+                          : styles["nav-button"]
+                      }
+                    >
                       <Image
                         className={styles["icon-img"]}
                         src={homeIcon}
@@ -41,7 +47,13 @@ const MainNavigation = () => {
                 </li>
                 <li className={styles["nav-item"]}>
                   <Link href="/events">
-                    <div className={styles["nav-item-button"]}>
+                    <div
+                      className={
+                        pathname === "/events"
+                          ? styles["nav-active"]
+                          : styles["nav-button"]
+                      }
+                    >
                       <Image
                         className={styles["icon-img"]}
                         src={eventsIcon}
@@ -53,7 +65,13 @@ const MainNavigation = () => {
                 </li>
                 <li className={styles["nav-item"]}>
                   <Link href="/contact">
-                    <div className={styles["nav-item-button"]}>
+                    <div
+                      className={
+                        pathname === "/contact"
+                          ? styles["nav-active"]
+                          : styles["nav-button"]
+                      }
+                    >
                       <Image
                         className={styles["icon-img"]}
                         src={contactIcon}

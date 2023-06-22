@@ -38,8 +38,9 @@
         cursor: pointer;
         button {
           color: #ffffff;
-          width: 7rem;
-          height: 2.5rem;
+          padding: 0.75rem 1.5rem;
+          max-width: 100%;
+          height: auto;
           background: #00b2fd;
           border-radius: 0.4rem;
           font-size: 1.15rem;
@@ -105,9 +106,9 @@
 
       .slider-info {
         position: absolute;
-        height: 8rem;
-        width: 10rem;
-        bottom: 0;
+        height: auto;
+        width: 100%;
+        bottom: 3rem;
         right: 4.5rem;
         .dot-title {
           display: flex;
@@ -169,15 +170,15 @@
         right: 2rem;
         top: 3rem;
         .up-article {
-          font-size: 1.2rem;
-          line-height: 1rem;
+          font-size: 1rem;
+          line-height: 0.8rem;
         }
         .down-article {
-          font-size: 2.2rem;
+          font-size: 2rem;
         }
         .check-button {
           button {
-            font-size: 1rem;
+            font-size: 0.95rem;
           }
         }
       }
@@ -185,9 +186,7 @@
         .slider-item {
           .slider-info {
             position: absolute;
-            height: 8rem;
-            width: 10rem;
-
+            bottom: 2rem;
             right: 2.5rem;
             .dot-title {
               display: flex;
@@ -232,7 +231,7 @@
       height: 2rem;
       backdrop-filter: blur(1px);
       left: calc(100% - 10.5rem) !important;
-      bottom: 1rem !important;
+      bottom: 0.5rem !important;
       & li button {
         width: 5px;
         height: 5px;

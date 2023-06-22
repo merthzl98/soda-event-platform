@@ -1,27 +1,25 @@
 import React, { useContext, useId } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 import styles from "./MainNextUp.module.scss";
 import NextUpItem from "./NextUpItem";
-import dotContainer from "../../../../public/assets/icons/dotContainer.png";
-import blackDot from "../../../../public/assets/icons/blackDot.png";
-import greyDot from "../../../../public/assets/icons/greyDot.png";
 import LayoutContext from "../../../storage/layout-context";
 import { nextupMockData } from "../../mockData/mockData.js";
 import commonTexts from "../../../static/commonTexts.json";
 
 const MainNextUp = () => {
-  const { mobileVersion, screenWidth } = useContext(LayoutContext);
+  const { mobileVersion, screenWidth, screenHeight } =
+    useContext(LayoutContext);
 
   const { locale } = useRouter();
 
   const customId = useId();
 
   const tabletStyle =
-    screenWidth > 499 && screenWidth < 991
+    (screenWidth > 499 && screenWidth < 991) ||
+    (screenHeight > screenWidth && screenWidth > 499)
       ? { display: "flex", flexDirection: "row", gap: "2rem" }
       : {};
 
@@ -30,6 +28,8 @@ const MainNextUp = () => {
   for (let i = 0; i < nextupMockData.length; i += 2) {
     pairs.push(nextupMockData.slice(i, i + 2));
   }
+
+  const hasArrows = screenHeight > screenWidth ? false : true;
 
   const options = {
     type: "loop",
@@ -41,6 +41,7 @@ const MainNextUp = () => {
     gap: "60px",
     height: "100%",
     width: "100%",
+    arrows: hasArrows,
   };
 
   const pairsNextup = pairs.map((pair, index) => {
@@ -74,7 +75,7 @@ const MainNextUp = () => {
           <div className={styles["nextup-wrapper"]}>
             <div className={styles["nextup-title"]}>{content.nextUp} </div>
             <div className={styles["nextup-content"]}>
-              {mobileVersion ? (
+              {mobileVersion || screenHeight > screenWidth ? (
                 <Splide className={`${styles.splide}`} options={options}>
                   {pairsNextup}
                 </Splide>
@@ -82,9 +83,10 @@ const MainNextUp = () => {
                 nextUpItems
               )}
             </div>
-            {!mobileVersion && (
-              <div className={styles["nextup-footer"]}>{content.seeAll}</div>
-            )}
+            {!mobileVersion ||
+              (screenHeight < screenWidth && (
+                <div className={styles["nextup-footer"]}>{content.seeAll}</div>
+              ))}
           </div>
         </div>
       );

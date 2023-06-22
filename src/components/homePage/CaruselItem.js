@@ -44,13 +44,6 @@ const CaruselItem = ({ item }) => {
                   <p>{statusConverter(status)}</p>
                 </div>
               </div>
-              {/* {mobileVersion ? (
-                <div className={styles["events-item-description"]}>
-                  <p>{item.description}</p>
-                </div>
-              ) : (
-                ""
-              )} */}
 
               <div className={styles["carusel-item-actions"]}>
                 <button className={styles["save"]}>{content.save}</button>

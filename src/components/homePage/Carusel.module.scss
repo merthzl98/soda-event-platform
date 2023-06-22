@@ -5,7 +5,7 @@
   flex-direction: column;
   overflow-x: hidden;
   .carusel-wrapper {
-    display: flex;
+    // display: flex;
     position: relative;
     width: 100%;
     height: 100%;
@@ -107,6 +107,16 @@
   }
 }
 
+.splide-hide-button {
+  & > div > button {
+    display: none;
+  }
+
+  & > div {
+    padding: 0.6rem 0.1rem !important;
+  }
+}
+
 @media (max-width: 990px) {
   .carusel-container {
     width: 100%;
@@ -116,7 +126,6 @@
     overflow-x: hidden;
     padding: 0 5px;
     .carusel-wrapper {
-      display: flex;
       position: relative;
       width: 100%;
       height: 100%;

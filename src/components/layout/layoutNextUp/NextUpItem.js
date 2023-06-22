@@ -9,9 +9,12 @@ import LayoutContext from "@/storage/layout-context";
 const NextUpItem = (props) => {
   const { locale } = useRouter();
 
-  const { screenWidth } = useContext(LayoutContext);
+  const { screenWidth, screenHeight } = useContext(LayoutContext);
 
   const customId = useId();
+
+  const imageStyle =
+    screenHeight > screenWidth ? { maxWidth: "100% !important" } : { width: "100%" };
 
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
@@ -22,6 +25,7 @@ const NextUpItem = (props) => {
             <img
               src={`${props.artistProps?.url}`}
               alt={`${props.artistProps?.artistName}`}
+              style={imageStyle}
             ></img>
           </div>
           <div className={styles["artist-info"]}>

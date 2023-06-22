@@ -5,6 +5,7 @@ const LayoutProvider = (props) => {
   const [mobileVersion, setMobileVersion] = useState();
   const [hideNextUp, setHideNextUp] = useState();
   const [screenWidth, setScreenWidth] = useState();
+  const [screenHeight, setScreenHeight] = useState();
 
   const templateContext = {
     mobileVersion,
@@ -12,7 +13,9 @@ const LayoutProvider = (props) => {
     hideNextUp,
     setHideNextUp,
     screenWidth,
-    setScreenWidth
+    setScreenWidth,
+    screenHeight,
+    setScreenHeight,
   };
   return (
     <LayoutContext.Provider value={templateContext}>

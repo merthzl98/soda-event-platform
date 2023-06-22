@@ -23,13 +23,15 @@ import footerText from "../../../static/navigationTexts.json";
 const MainFooter = () => {
   const customId = useId();
 
-  const { asPath, locale } = useRouter();
+  const { asPath, locale, pathname } = useRouter();
 
   const { mobileVersion } = useContext(LayoutContext);
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
+
+  console.log({ locale });
 
   return (
     <React.Fragment>
@@ -66,21 +68,39 @@ const MainFooter = () => {
 
                         <div className={styles["languages"]}>
                           <Link href={asPath} locale="EN">
-                            <div className={styles["language"]}>
+                            <div
+                              className={
+                                locale === "EN"
+                                  ? styles["language-active"]
+                                  : styles["language"]
+                              }
+                            >
                               <div>English</div>
                               <Image src={england} alt="england" />
                             </div>
                           </Link>
 
                           <Link href={asPath} locale="FR">
-                            <div className={styles["language"]}>
+                            <div
+                              className={
+                                locale === "FR"
+                                  ? styles["language-active"]
+                                  : styles["language"]
+                              }
+                            >
                               <div>Français</div>
                               <Image src={france} alt="france" />
                             </div>
                           </Link>
 
                           <Link href={asPath} locale="NL">
-                            <div className={styles["language"]}>
+                            <div
+                              className={
+                                locale === "NL"
+                                  ? styles["language-active"]
+                                  : styles["language"]
+                              }
+                            >
                               <div>Dutch</div>
                               <Image
                                 className={styles["dutch"]}
@@ -103,7 +123,13 @@ const MainFooter = () => {
                               onClick={handleScrollToTop}
                             >
                               <Link href="/">
-                                <div className={styles["footer-item-button"]}>
+                                <div
+                                  className={
+                                    pathname === "/"
+                                      ? styles["nav-active"]
+                                      : styles["nav-button"]
+                                  }
+                                >
                                   <Image src={homeIcon} alt="home icon" />
                                   <p className={styles["footer-type"]}>
                                     {content.home}
@@ -116,7 +142,13 @@ const MainFooter = () => {
                               onClick={handleScrollToTop}
                             >
                               <Link href="/events">
-                                <div className={styles["footer-item-button"]}>
+                                <div
+                                  className={
+                                    pathname === "/events"
+                                      ? styles["nav-active"]
+                                      : styles["nav-button"]
+                                  }
+                                >
                                   <Image src={eventsIcon} alt="bag icon" />
                                   <p className={styles["footer-type"]}>
                                     {content.events}
@@ -129,7 +161,13 @@ const MainFooter = () => {
                               onClick={handleScrollToTop}
                             >
                               <Link href="/contact">
-                                <div className={styles["footer-item-button"]}>
+                                <div
+                                  className={
+                                    pathname === "/contact"
+                                      ? styles["nav-active"]
+                                      : styles["nav-button"]
+                                  }
+                                >
                                   <Image src={contactIcon} alt="bag icon" />
                                   <p className={styles["footer-type"]}>
                                     {content.contactUs}
@@ -169,7 +207,13 @@ const MainFooter = () => {
                             onClick={handleScrollToTop}
                           >
                             <Link href="/">
-                              <div className={styles["footer-item-button"]}>
+                              <div
+                                className={
+                                  pathname === "/"
+                                    ? styles["nav-active"]
+                                    : styles["nav-button"]
+                                }
+                              >
                                 <Image src={homeIcon} alt="home icon" />
                                 <p className={styles["footer-type"]}>
                                   {content.home}
@@ -182,7 +226,13 @@ const MainFooter = () => {
                             onClick={handleScrollToTop}
                           >
                             <Link href="/events">
-                              <div className={styles["footer-item-button"]}>
+                              <div
+                                className={
+                                  pathname === "/events"
+                                    ? styles["nav-active"]
+                                    : styles["nav-button"]
+                                }
+                              >
                                 <Image src={eventsIcon} alt="bag icon" />
                                 <p className={styles["footer-type"]}>
                                   {content.events}
@@ -195,7 +245,13 @@ const MainFooter = () => {
                             onClick={handleScrollToTop}
                           >
                             <Link href="/contact">
-                              <div className={styles["footer-item-button"]}>
+                              <div
+                                className={
+                                  pathname === "/contact"
+                                    ? styles["nav-active"]
+                                    : styles["nav-button"]
+                                }
+                              >
                                 <Image src={contactIcon} alt="bag icon" />
                                 <p className={styles["footer-type"]}>
                                   {content.contactUs}
@@ -235,19 +291,37 @@ const MainFooter = () => {
                       </div>
                       <div className={styles["languages"]}>
                         <Link href={asPath} locale="EN">
-                          <div className={styles["language"]}>
+                          <div
+                            className={
+                              locale === "EN"
+                                ? styles["language-active"]
+                                : styles["language"]
+                            }
+                          >
                             <div>English</div>
                             <Image src={england} alt="england" />
                           </div>
                         </Link>
                         <Link href={asPath} locale="FR">
-                          <div className={styles["language"]}>
+                          <div
+                            className={
+                              locale === "FR"
+                                ? styles["language-active"]
+                                : styles["language"]
+                            }
+                          >
                             <div>Français</div>
                             <Image src={france} alt="france" />
                           </div>
                         </Link>
                         <Link href={asPath} locale="NL">
-                          <div className={styles["language"]}>
+                          <div
+                            className={
+                              locale === "NL"
+                                ? styles["language-active"]
+                                : styles["language"]
+                            }
+                          >
                             <div>Dutch</div>
                             <Image
                               className={styles["dutch"]}
