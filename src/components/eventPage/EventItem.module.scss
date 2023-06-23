@@ -79,6 +79,7 @@
       text-overflow: ellipsis;
       font-weight: 300;
       font-size: 0.8rem;
+      // font-size: 0.75vw;
       margin: 0.25rem 0.75rem 0.75rem 0.75rem;
       max-width: 100%;
       min-height: 2rem;
@@ -168,11 +169,33 @@
       .buy-now {
         background: #00b2fd;
         // border-radius: 0 0 0.2rem 0;
+        transition: background-color 0.4s ease-in-out;
+        position: relative;
+        cursor: pointer;
+        &:hover {
+          background: linear-gradient(to right, #0c4b78, #3d8ce7);
+          background-size: 200% auto;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: gradient 1s ease infinite;
+        }
       }
 
       .save {
         background: #008c16;
         // border-radius: 0 0 0 0.2rem;
+        transition: background-color 0.4s ease-in-out;
+        position: relative;
+        cursor: pointer;
+        &:hover {
+          background: linear-gradient(to right, #005a0e, #00af1a);
+          background-size: 200% auto;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: gradient 1s ease infinite;
+        }
       }
     }
   }
@@ -212,5 +235,17 @@
       rgba(255, 255, 255, 0.13),
       rgba(39, 191, 255, 0.55)
     );
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

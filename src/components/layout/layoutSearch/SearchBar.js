@@ -8,8 +8,6 @@ import arrangeIcon from "../../../../public/assets/icons/arrangeIcon.png";
 import commonTexts from "../../../static/commonTexts.json";
 import EventService from "@/pages/api/event-service";
 
-let isInitial = true;
-
 const SearchBar = () => {
   const [enteredSearch, setEnteredSearch] = useState("");
 
@@ -35,10 +33,9 @@ const SearchBar = () => {
     //   console.log({ response });
     // });
 
-    enteredSearch.trim("").length > 0 &&
+    enteredSearch.trim("").length === 1 &&
       pathname !== "/events" &&
-      console.log("run");
-    // push("/events");
+      push("/events");
   }, [enteredSearch]);
 
   const handleChangeSearch = (e) => {

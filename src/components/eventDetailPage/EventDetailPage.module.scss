@@ -97,10 +97,32 @@
 
           .buy-now {
             background: #008c16;
+            transition: background-color 0.4s ease-in-out;
+            position: relative;
+            cursor: pointer;
+            &:hover {
+              background: linear-gradient(to right, #005a0e, #00af1a);
+              background-size: 200% auto;
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              animation: gradient 1s ease infinite;
+            }
           }
 
           .add-calendar {
             background: rgba(39, 191, 255, 0.55);
+            transition: background-color 0.4s ease-in-out;
+            position: relative;
+            cursor: pointer;
+            &:hover {
+              background: linear-gradient(to right, #0c4b78, #3d8ce7);
+              background-size: 200% auto;
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              animation: gradient 1s ease infinite;
+            }
           }
         }
       }
@@ -258,5 +280,17 @@
         // }
       }
     }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
