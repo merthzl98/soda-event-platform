@@ -44,6 +44,7 @@
   }
 
   .layout-contents {
+    max-width: 1620px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -57,14 +58,13 @@
       justify-content: space-between;
       height: auto;
       .left-column {
-        width: 73%;
+        width: 72%;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
         .up-section {
           display: flex;
           flex-direction: row;
-          color: #ffffff;
           gap: 1rem;
           height: auto;
           justify-content: space-between;
@@ -103,7 +103,7 @@
       .right-column {
         // height: 57rem;
         height: auto;
-        width: 26%;
+        width: 27%;
       }
     }
     .main-footer {

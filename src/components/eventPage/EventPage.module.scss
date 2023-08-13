@@ -5,7 +5,6 @@
   .events-wrapper {
     width: 100%;
     height: 100%;
-    color: #ffffff;
     display: flex;
     flex-direction: column;
 
@@ -72,8 +71,8 @@
         width: 100%;
         max-height: 100%;
         display: grid;
-        grid-template-columns: repeat(4, calc(25% - 1.65rem));
-        column-gap: 2.2rem;
+        grid-template-columns: repeat(4, calc(25% - 2.1rem));
+        column-gap: 2.65rem;
         row-gap: 3rem;
         overflow-x: hidden;
         overflow-y: auto;
@@ -108,6 +107,7 @@
             li {
               button {
                 color: #ffffff;
+                font-family: inherit;
               }
               div {
                 color: #ffffff;
@@ -122,12 +122,39 @@
 
 @media (max-width: 990px) {
   .events-container {
+    .events-wrapper {
+      .items-wrapper {
+        width: 100%;
+        height: auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        .events-items {
+          display: grid;
+          grid-template-columns: repeat(3, calc(33% - 4.5rem));
+          column-gap: 7rem;
+          row-gap: 10rem;
+          overflow: auto;
+          position: relative;
+          // &::-webkit-scrollbar {
+          //   display: none;
+          // }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .events-container {
     width: 100%;
     height: 100%;
     .events-wrapper {
       width: 100%;
       height: 100%;
-      color: #ffffff;
       .events-title {
         width: 100%;
         height: auto;
@@ -135,51 +162,51 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        .title-left {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          .toggled-title-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: left;
+        // .title-left {
+        //   width: 100%;
+        //   display: flex;
+        //   flex-direction: row;
+        //   justify-content: space-between;
+        //   align-items: center;
+        //   .toggled-title-left {
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: left;
 
-            p {
-              margin: 0;
-              font-weight: 700;
-              font-size: 1.7rem;
-            }
-            img {
-              width: 5rem;
-            }
-          }
-          .title-left-item {
-            width: 20%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            p {
-              margin: 0 0 0 0.3rem;
-              font-weight: 500;
-              font-size: 1.3rem;
-            }
+        //     p {
+        //       margin: 0;
+        //       font-weight: 700;
+        //       font-size: 1.7rem;
+        //     }
+        //     img {
+        //       width: 5rem;
+        //     }
+        //   }
+        //   .title-left-item {
+        //     width: 20%;
+        //     display: flex;
+        //     flex-direction: row;
+        //     justify-content: center;
+        //     align-items: center;
+        //     p {
+        //       margin: 0 0 0 0.3rem;
+        //       font-weight: 500;
+        //       font-size: 1.3rem;
+        //     }
 
-            img {
-              height: 1.8rem;
-              width: 0.3rem;
-            }
-          }
-        }
-        .title-right {
-          .clear-filters {
-            color: rgba(0, 179, 255, 0.8);
-            font-weight: 600;
-            font-size: 1rem;
-          }
-        }
+        //     img {
+        //       height: 1.8rem;
+        //       width: 0.3rem;
+        //     }
+        //   }
+        // }
+        // .title-right {
+        //   .clear-filters {
+        //     color: rgba(0, 179, 255, 0.8);
+        //     font-weight: 600;
+        //     font-size: 1rem;
+        //   }
+        // }
       }
       .items-wrapper {
         width: 100%;

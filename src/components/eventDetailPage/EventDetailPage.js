@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
 
 import styles from "./EventDetailPage.module.scss";
@@ -11,33 +10,19 @@ import greenDot from "../../../public/assets/icons/greenDot.png";
 import redDot from "../../../public/assets/icons/redDot.png";
 import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
-import { formattedDate, statusConverter } from "@/configs/config";
+import { formattedDate, statusConverter } from "../../pages/api/utils-service";
 
 export const EventDetailPage = (props) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
-
-  const { locale } = useRouter();
 
   useEffect(() => {
     setHideNextUp(false);
     // eslint-disable-next-line
   }, []);
 
-  const clientStatus = props.eventData.clientStatus
-    ? props.eventData.clientStatus
-    : "Available";
-
+  let clientStatus = props.eventData.status;
   let title = props.eventData.title;
   let description = props.eventData.description;
-
-  if (locale === "FR") {
-    title = props.eventData.titleFrench;
-    description = props.eventData.descriptionFrench;
-  }
-  if (locale === "NL") {
-    title = props.eventData.titleDutch;
-    description = props.eventData.descriptionDutch;
-  }
 
   return (
     <div className={styles["detail-container"]}>
@@ -66,19 +51,29 @@ export const EventDetailPage = (props) => {
                 </div>
               </div>
             </div>
-            <div className={styles["actions"]}>
-              <button className={styles["buy-now"]}>Buy Now</button>
-              <button className={styles["add-calendar"]}>+ Add Calendar</button>
-            </div>
+            {!mobileVersion && clientStatus === "AVAILABLE" && (
+              <div className={styles["actions"]}>
+                <button className={styles["buy-now"]}>Buy Now</button>
+                {/* <button className={styles["add-calendar"]}>+ Add Calendar</button> */}
+              </div>
+            )}
           </div>
           <div className={styles["status"]}>
-            {clientStatus === "Available" ? (
-              <Image src={greenDot} alt="available icon" />
-            ) : (
-              <Image src={redDot} alt="status icon" />
-            )}
+            <div className={styles["status-section"]}>
+              {clientStatus === "AVAILABLE" ? (
+                <Image src={greenDot} alt="available icon" />
+              ) : (
+                <Image src={redDot} alt="status icon" />
+              )}
+              <p>{statusConverter(clientStatus)}</p>
+            </div>
 
-            <p>{statusConverter(clientStatus)}</p>
+            {mobileVersion && clientStatus === "AVAILABLE" && (
+              <div className={styles["actions"]}>
+                <button className={styles["buy-now"]}>Buy Now</button>
+                {/* <button className={styles["add-calendar"]}>+ Add Calendar</button> */}
+              </div>
+            )}
           </div>
           <div className={styles["description-section"]}>
             <div className={styles["description-title"]}>Description</div>

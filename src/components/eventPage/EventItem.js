@@ -6,8 +6,6 @@ import cancelIcon from "../../../public/assets/icons/cancel.png";
 import lockIcon from "../../../public/assets/icons/lock.png";
 import styles from "./EventItem.module.scss";
 import commonTexts from "../../static/commonTexts.json";
-import banner from "../../../public/eventBanner.png";
-import { statusConverter } from "@/configs/config";
 
 const EventItem = ({ item }) => {
   const customId = useId();
@@ -32,9 +30,9 @@ const EventItem = ({ item }) => {
           className={styles["events-item-container"]}
           style={unAvailableStyle}
         >
-          <Image
-            style={{ width: "100%", height: "auto" }}
-            src={banner}
+          <img
+            className={styles["item-image"]}
+            src={item.posterUrl}
             alt={"ada"}
           />
           <div className={styles["sub-section"]}>
@@ -51,7 +49,7 @@ const EventItem = ({ item }) => {
                 <div className={styles["cancelled"]}>
                   <div>
                     <Image src={cancelIcon} alt="cancelled" />
-                    <p>{statusConverter(item.status)}</p>
+                    <p>Cancelled</p>
                   </div>
                 </div>
               )}
@@ -60,7 +58,7 @@ const EventItem = ({ item }) => {
                 <div className={styles["sold-out"]}>
                   <div>
                     <Image src={lockIcon} alt="sold out" />
-                    <p>{statusConverter(item.status)}</p>
+                    <p>Sold Out</p>
                   </div>
                 </div>
               )}

@@ -217,18 +217,18 @@ export const nextupMockData = [
     url: "http://localhost:3000/nextUpPhoto.png",
   },
   {
-    artistName: "Emre Hizal",
+    artistName: "Emre Hizal hizal hixzal hd",
     location: "Ankara, Turkey",
     url: "http://localhost:3000/nextUpPhoto.png",
   },
   {
     artistName: "Eren Basaran",
-    location: "Berlin, Germany",
+    location: "Berlin, Germanyaaaaaaa",
     url: "http://localhost:3000/nextUpPhoto.png",
   },
   {
     artistName: "Emre Hizal",
-    location: "Ankara, Turkey",
+    location: "Ankara, Turkey asd as das d asdasas",
     url: "http://localhost:3000/nextUpPhoto.png",
   },
   {

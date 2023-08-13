@@ -3,7 +3,6 @@
   flex-direction: row;
   width: 100%;
   height: auto;
-  color: #ffffff;
   gap: 2.5rem;
   padding: 1rem 0 0rem 0;
   .input-field {
@@ -39,13 +38,10 @@
         height: auto;
         gap: 1rem;
         input {
-          color: #ffffff;
-          font-family: "Poppins";
-          font-style: normal;
           border: none;
           width: 100%;
           height: auto;
-          font-weight: 500;
+          font-weight: 400;
           font-size: 1rem;
           padding: 0.65rem 1rem;
           background: rgba(63, 103, 120, 0.45);
@@ -56,20 +52,14 @@
           &:focus {
             outline: none;
           }
-          &::placeholder {
-            color: #ffffff;
-          }
         }
       }
 
       textarea {
         resize: none;
-        color: #ffffff;
-        font-family: "Poppins";
-        font-style: normal;
         width: 100%;
         height: auto;
-        font-weight: 500;
+        font-weight: 400;
         border: none;
         font-size: 1rem;
         background: rgba(63, 103, 120, 0.45);
@@ -79,9 +69,6 @@
         padding: 1.3rem 2rem;
         &:focus {
           outline: none;
-        }
-        &::placeholder {
-          color: #ffffff;
         }
       }
       .action {
@@ -93,8 +80,6 @@
           padding: 0.4rem 0;
           background: #d9d9d9;
           border-radius: 0.25rem;
-          font-family: "Poppins";
-          font-style: normal;
           font-weight: 400;
           font-size: 1.3rem;
           color: #000000;
@@ -223,7 +208,6 @@
       .mid-section {
         .description {
           margin: 0;
-          font-weight: 400;
           font-size: 1.1rem;
         }
         .id-section {

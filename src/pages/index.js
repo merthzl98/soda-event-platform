@@ -21,7 +21,7 @@ export default function Home(props) {
 export async function getStaticProps({ locale }) {
   const response = await EventService.getHighlightedEvents(locale);
 
-  const highlightedEvents = response.data;
+  const highlightedEvents = response.data.events;
 
   return {
     props: {
@@ -29,8 +29,8 @@ export async function getStaticProps({ locale }) {
         caruoselData: highlightedEvents.map((item) => ({
           id: item.id,
           title: item.title,
-          posterUrl: item.posterUrl,
           status: item.status,
+          posterUrl: item.posterUrl,
         })),
         sliderData: sliderItems.map((item) => ({
           url: item.url,

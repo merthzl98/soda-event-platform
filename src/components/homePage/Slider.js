@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useId, useRef } from "react";
+import React, { useEffect, useId, useRef } from "react";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from "next/image";
@@ -6,14 +6,11 @@ import { useRouter } from "next/router";
 
 import styles from "./Slider.module.scss";
 import redDot from "../../../public/assets/icons/redDot.png";
-import greyDot from "../../../public/assets/icons/greyDot.png";
-import LayoutContext from "../../storage/layout-context";
+// import greyDot from "../../../public/assets/icons/greyDot.png";
 import commonTexts from "../../static/commonTexts.json";
 import bannerSlider from "../../../public/bannerEx.png";
 
 const Slider = (props) => {
-  const { mobileVersion } = useContext(LayoutContext);
-
   const { locale } = useRouter();
 
   const playRef = useRef();

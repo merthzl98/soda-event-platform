@@ -26,19 +26,15 @@
         width: 100%;
         padding: 0.25rem 0.65rem 0 0.65rem;
         font-size: 0.8rem;
-        color: #ffffff;
         border: none;
         background-color: transparent;
         resize: none;
-        font-family: "Poppins";
-        font-style: normal;
         font-weight: 500;
         &:focus {
           outline: none;
         }
         &::placeholder {
           font-size: 0.8rem;
-          color: #ffffff;
           font-weight: 500;
           opacity: 0.8;
         }

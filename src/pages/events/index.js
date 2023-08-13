@@ -11,34 +11,44 @@ const EventsPage = (props) => {
         <title>All Events</title>
         <meta name="description" content="Search and find event" />
       </Head>
-      <EventPage events={props.events} />
+      <EventPage props={props} />
     </Fragment>
   );
 };
 
-export async function getStaticProps({ locale }) {
-  const response = await EventService.getEvents(locale, 0, "");
+export async function getServerSideProps(context) {
+  const locale = context.locale;
+  const query = context.query["query"];
+  const page = context.query["page"];
 
-  const events = response.data;
+  const queryParams = {
+    country: locale,
+    itemCount: 1,
+    page: page ? page - 1 : 0,
+    query: query ?? "",
+  };
 
-  console.log({ events, locale });
+  const response = await EventService.getEvents(queryParams);
+
+  const eventsPage = response.data.eventsPage;
+
+  console.log({ page, query });
 
   return {
     props: {
-      events: events.map((event) => ({
-        // genre: event.genre,
-        // image: event.image,
-        // id: event.id,
-        // condition: event.condition,
-        // description: event.description,
-        title: event.title,
-        posterUrl: event.posterUrl,
+      events: eventsPage.content.map((event) => ({
         id: event.id,
-        status: event.status,
+        title: event.title,
         description: event.description,
+        status: event.status,
+        ticketUrl: event.ticketUrl,
+        posterUrl: event.posterUrl,
       })),
+      data: {
+        totalPages: eventsPage.totalPages,
+        totalElements: eventsPage.totalElements,
+      },
     },
-    revalidate: 1,
   };
 }
 

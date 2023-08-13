@@ -1,4 +1,4 @@
-import React, { useContext, useId } from "react";
+import React, { useState, useEffect, useContext, useId } from "react";
 import { useRouter } from "next/router";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
@@ -6,16 +6,24 @@ import "@splidejs/react-splide/css";
 import styles from "./MainNextUp.module.scss";
 import NextUpItem from "./NextUpItem";
 import LayoutContext from "../../../storage/layout-context";
-import { nextupMockData } from "../../mockData/mockData.js";
 import commonTexts from "../../../static/commonTexts.json";
+import EventService from "@/pages/api/event-service";
 
 const MainNextUp = () => {
+  const [nextUpList, setNextUpList] = useState([]);
+
   const { mobileVersion, screenWidth, screenHeight } =
     useContext(LayoutContext);
 
   const { locale } = useRouter();
 
   const customId = useId();
+
+  useEffect(() => {
+    EventService.getNextUpEvents().then((response) => {
+      response.status === 200 && setNextUpList([...response.data.events]);
+    });
+  }, []);
 
   const tabletStyle =
     (screenWidth > 499 && screenWidth < 991) ||
@@ -25,8 +33,8 @@ const MainNextUp = () => {
 
   const pairs = [];
 
-  for (let i = 0; i < nextupMockData.length; i += 2) {
-    pairs.push(nextupMockData.slice(i, i + 2));
+  for (let i = 0; i < nextUpList.length; i += 2) {
+    pairs.push(nextUpList.slice(i, i + 2));
   }
 
   const hasArrows = screenHeight > screenWidth ? false : true;
@@ -63,7 +71,7 @@ const MainNextUp = () => {
     );
   });
 
-  const nextUpItems = nextupMockData.map((item) => {
+  const nextUpItems = nextUpList.map((item) => {
     return <NextUpItem key={Math.random()} artistProps={item} />;
   });
 

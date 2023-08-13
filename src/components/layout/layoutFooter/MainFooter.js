@@ -31,7 +31,7 @@ const MainFooter = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
-  console.log({ locale });
+  // console.log({ locale });
 
   return (
     <React.Fragment>

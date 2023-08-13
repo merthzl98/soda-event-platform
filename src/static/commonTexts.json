@@ -9,7 +9,7 @@
       "save": "Save",
       "buy": "Buy",
       "seeAll": "See all",
-      "biletsInfo": "Bilets & Info",
+      "biletsInfo": "Info",
       "events": "Events"
     },
     {
@@ -21,7 +21,7 @@
       "save": "Sauver",
       "buy": "Acheter",
       "seeAll": "Voir tout",
-      "biletsInfo": "Billets & Info",
+      "biletsInfo": "Info",
       "events": "Événements"
     },
     {
@@ -33,7 +33,7 @@
       "save": "Sparen",
       "buy": "Koop",
       "seeAll": "Alles zien",
-      "biletsInfo": "Bilets & Info",
+      "biletsInfo": "Info",
       "events": "Evenementen"
     }
   ]

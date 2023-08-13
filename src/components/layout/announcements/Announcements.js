@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
@@ -13,18 +13,17 @@ const Announcements = () => {
 
   const { locale } = useRouter();
 
-  const getAnnounceList = () => {
+  const getAnnounceList = useCallback(() => {
     EventService.getAnnounces(locale)
       .then((response) => {
-        console.log({response});
-        response.status === 200 && setAnnounceList(response.data);
+        response.status === 200 && setAnnounceList(response.data.announcements);
       })
       .catch((err) => console.log({ err }));
-  };
+  }, [locale]);
 
   useEffect(() => {
     getAnnounceList();
-  }, []);
+  }, [getAnnounceList]);
 
   const allAnnounce = announceList.map((announce) => {
     return <AnnounceText key={announce.id} announce={announce} />;

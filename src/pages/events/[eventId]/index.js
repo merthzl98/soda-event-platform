@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import { EventDetailPage } from "@/components/eventDetailPage/EventDetailPage";
 import EventService from "@/pages/api/event-service";
@@ -19,7 +20,7 @@ const EventDetailsPage = (props) => {
 export async function getStaticPaths() {
   const response = await EventService.getEvents();
 
-  const events = response.data;
+  const events = response.data.eventsPage.content;
 
   return {
     fallback: "blocking",
@@ -31,32 +32,26 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const eventId = context.params.eventId;
+  const locale = context.locale;
 
-  const response = await EventService.getEventById(eventId);
-  const selectedEvent = response.data;
-
-  console.log({ selectedEvent });
-
-  console.log(eventId);
+  const response = await EventService.getEventById(locale, eventId);
+  const selectedEvent = response.data.event;
 
   return {
     props: {
       eventData: {
-        // image: selectedEvent.image,
         id: eventId,
         title: selectedEvent.title,
-        titleFrench: selectedEvent.titleFrench,
-        titleDutch: selectedEvent.titleDutch,
         description: selectedEvent.description,
-        descriptionFrench: selectedEvent.descriptionFrench,
-        descriptionDutch: selectedEvent.descriptionDutch,
+        status: selectedEvent.status,
+        ticketUrl: selectedEvent.ticketUrl,
         date: selectedEvent.date,
-        description: selectedEvent.description,
         startHour: selectedEvent.startHour,
         endHour: selectedEvent.endHour,
-        date: selectedEvent.date,
+        // durationInMunite: selectedEvent.durationInMunite,
+        posterUrl: selectedEvent.posterUrl,
+        artist: selectedEvent.artist,
         venue: selectedEvent.venue,
-        clientStatus: selectedEvent.clientStatus,
       },
     },
   };

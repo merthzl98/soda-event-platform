@@ -1,33 +1,38 @@
 import http from "./http-common";
 
 const getAnnounces = (selectedLanguage) => {
-  return http.get("/announcements", {
+  return http.get("/fetch-announcements", {
     params: {
       country: selectedLanguage,
     },
   });
 };
 
-const getEvents = (selectedLanguage, page, searchQuery) => {
-  return http.get("/events", {
+const getEventById = (selectedLanguage, eventId) => {
+  return http.get(`/fetch-event-by-id`, {
     params: {
       country: selectedLanguage,
-      page: page,
-      query: searchQuery,
+      eventId: eventId,
     },
   });
 };
 
-const getEventById = (eventId) => {
-  return http.get(`/event/${eventId}`);
+const getEvents = (queryParams) => {
+  return http.get("/fetch-events", {
+    params: queryParams,
+  });
 };
 
-const getHighlightedEvents = (selectedLanguage) => {
-  return http.get("/highlightedevents", {
-    params: {
-      country: selectedLanguage,
-    },
-  });
+const getHighlightedEvents = () => {
+  return http.get("/fetch-highlighted-events");
+};
+
+const getMHAContents = () => {
+  return http.get("/fetch-mha-contents");
+};
+
+const getNextUpEvents = () => {
+  return http.get("/fetch-next-up-events");
 };
 
 const EventService = {
@@ -35,6 +40,8 @@ const EventService = {
   getEvents,
   getEventById,
   getHighlightedEvents,
+  getMHAContents,
+  getNextUpEvents,
 };
 
 export default EventService;

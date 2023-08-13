@@ -18,12 +18,12 @@ const StyledPagination = styled(Pagination)(({ theme }) => ({
   },
 }));
 
-const EventPage = ({ events }) => {
+const EventPage = ({ props }) => {
   const [page, setPage] = useState(1);
 
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
 
-  const { pathname } = useRouter();
+  const { pathname, push, query } = useRouter();
 
   useEffect(() => {
     if (pathname === "/events" && mobileVersion) {
@@ -34,13 +34,24 @@ const EventPage = ({ events }) => {
     // eslint-disable-next-line
   }, [pathname, mobileVersion]);
 
-  const eventsItems = events.map((item) => {
-    return <EventItem key={Math.random()} item={item} />;
-  });
+  useEffect(() => {
+    let searchQuery = query["query"] ? `&query=${query["query"]}` : "";
+    push(`/events?page=${page}${searchQuery}`);
+  }, [page]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [query["query"]]);
 
   const handleChange = (event, value) => {
     setPage(value);
   };
+
+  const eventsItems = props.events.map((item) => {
+    return <EventItem key={Math.random()} item={item} />;
+  });
+
+  let content = props.events.length > 0 ? eventsItems : "Event not found!";
 
   return (
     <div className={styles["events-container"]}>
@@ -68,25 +79,16 @@ const EventPage = ({ events }) => {
         </div> */}
 
         <div className={styles["items-wrapper"]}>
-          <div className={styles["events-items"]}>
-            {eventsItems}
-            {eventsItems}
-            {eventsItems}
-            {eventsItems}
-            {/* {eventsItems}
-            {eventsItems}
-            {eventsItems}
-            {eventsItems}
-            {eventsItems}
-            {eventsItems} */}
-          </div>
+          <div className={styles["events-items"]}>{content}</div>
           <div className={styles["pagination"]}>
-            <StyledPagination
-              size={mobileVersion ? "small" : "large"}
-              count={13}
-              page={page}
-              onChange={handleChange}
-            />
+            {props.data.totalPages > 1 && (
+              <StyledPagination
+                size={mobileVersion ? "small" : "large"}
+                count={props.data.totalPages}
+                page={page}
+                onChange={handleChange}
+              />
+            )}
           </div>
         </div>
       </div>

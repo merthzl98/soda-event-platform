@@ -3,7 +3,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  color: #ffffff;
   .img-section {
     width: 100%;
     height: auto;
@@ -33,13 +32,12 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding-bottom: 3rem;
+      padding-bottom: 2.5rem;
       .detail-title {
         width: 100%;
         height: auto;
         font-weight: 700;
         font-size: 1.9rem;
-        overflow-y: auto;
         word-wrap: break-word;
       }
 
@@ -49,7 +47,6 @@
         padding-right: 1rem;
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
         // gap: 1rem;
         .infos {
@@ -61,38 +58,32 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.5rem;
+            min-width: 10rem;
             img {
               max-width: 1.7rem;
+              min-width: 1.7rem;
               height: auto;
-            }
-
-            p {
-              font-weight: 400;
-              font-size: 0.9rem;
             }
           }
         }
 
         .actions {
-          width: 33%;
+          width: 27%;
           display: flex;
           flex-direction: row;
           justify-content: right;
           gap: 1rem;
           button {
-            color: #ffffff;
-            max-width: 80%;
-            height: auto;
+            max-width: 100%;
+            height: 2rem;
             font-weight: 400;
             font-size: 0.8rem;
-            font-family: "Poppins";
-            font-style: normal;
             border: none;
             box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
             border-radius: 0.25rem;
-            padding: 0.5rem 0.75rem;
+            padding: 0.5rem 1.5rem;
           }
 
           .buy-now {
@@ -110,43 +101,42 @@
             }
           }
 
-          .add-calendar {
-            background: rgba(39, 191, 255, 0.55);
-            transition: background-color 0.4s ease-in-out;
-            position: relative;
-            cursor: pointer;
-            &:hover {
-              background: linear-gradient(to right, #0c4b78, #3d8ce7);
-              background-size: 200% auto;
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              animation: gradient 1s ease infinite;
-            }
-          }
+          // .add-calendar {
+          //   background: rgba(39, 191, 255, 0.55);
+          //   transition: background-color 0.4s ease-in-out;
+          //   position: relative;
+          //   cursor: pointer;
+          //   &:hover {
+          //     background: linear-gradient(to right, #0c4b78, #3d8ce7);
+          //     background-size: 200% auto;
+          //     background-clip: text;
+          //     -webkit-background-clip: text;
+          //     -webkit-text-fill-color: transparent;
+          //     animation: gradient 1s ease infinite;
+          //   }
+          // }
         }
       }
       .status {
         width: 100%;
         height: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-        img {
-          max-width: 1rem;
-          height: auto;
-        }
-        div {
-          font-weight: 500;
-          font-size: 1rem;
+
+        font-size: 1rem;
+        .status-section {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.5rem;
+          img {
+            max-width: 1rem;
+            height: auto;
+          }
         }
       }
 
       .description-section {
         display: flex;
         flex-direction: column;
-        padding-top: 1rem;
 
         .description-title {
           font-weight: 600;
@@ -155,7 +145,7 @@
         }
         .description {
           max-width: 100%;
-          max-height: 12rem;
+          max-height: 10.5rem;
           font-size: 1.1rem;
           font-weight: 200;
           line-height: 2rem;
@@ -209,6 +199,7 @@
     .descriptions {
       .description-wrapper {
         gap: 2rem;
+
         .detail-title {
         }
 
@@ -216,32 +207,15 @@
           .infos {
             display: flex;
             flex-direction: column;
+
             gap: 1rem;
             .infos-item {
               display: flex;
               flex-direction: row;
               justify-content: left;
-              align-items: center;
+              align-items: flex-start;
               gap: 1.7rem;
-              img {
-              }
-
-              p {
-                font-weight: 400;
-                font-size: 1.3rem;
-              }
-            }
-          }
-
-          .actions {
-            display: flex;
-            flex-direction: column;
-            justify-content: right;
-            align-items: flex-end;
-            width: 40%;
-            button {
-              font-size: 1.1rem;
-              width: 100%;
+              font-size: 1.2rem;
             }
           }
         }
@@ -252,14 +226,32 @@
           display: flex;
           flex-direction: row;
           align-items: center;
-
+          font-size: 1.15rem;
+          justify-content: space-between;
           img {
             width: 0.7rem;
             height: 0.7rem;
           }
-          div {
-            font-weight: 500;
-            font-size: 1.1rem;
+          .actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: flex-end;
+            width: 10rem;
+            button {
+              font-size: 1.1rem;
+              width: 100%;
+              border: none;
+              box-shadow: -0.1rem 0.25rem 0.5rem -0.2rem rgba(0, 0, 0, 0.25);
+              border-radius: 0.25rem;
+              padding: 0.5rem 1.5rem;
+            }
+            .buy-now {
+              background: #008c16;
+
+              position: relative;
+              cursor: pointer;
+            }
           }
         }
 
@@ -270,6 +262,7 @@
           .description {
             font-weight: 200;
             font-size: 1.5rem;
+            line-height: 2.5rem;
           }
         }
 

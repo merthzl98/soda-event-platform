@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useContext,
-  useReducer,
-} from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 
 import LayoutContext from "../../storage/layout-context";
@@ -39,7 +33,7 @@ const Layout = (props) => {
       setScreenWidth(ref.current.offsetWidth);
       setScreenHeight(ref.current.offsetHeight);
     };
-    console.log(screenWidth);
+    // console.log(screenWidth);
     if (screenWidth <= 990) {
       setMobileVersion(true);
       // console.log("run mobile version SET func");

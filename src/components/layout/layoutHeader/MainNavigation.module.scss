@@ -3,13 +3,11 @@
   .nav {
     display: flex;
     flex-direction: row;
-    color: #ffffff;
     justify-content: space-between;
     height: auto;
     .logo {
       padding: 0.5rem;
       width: 14%;
-      font-style: normal;
       font-weight: 500;
       font-size: 2rem;
       line-height: 3rem;
@@ -53,7 +51,6 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-end;
-            color: #ffffff;
             justify-content: space-between;
             opacity: 0.3;
             gap: 0.5rem;
@@ -70,7 +67,6 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-end;
-            color: #ffffff;
             justify-content: space-between;
             gap: 0.5rem;
             &:hover {
@@ -200,7 +196,6 @@
       border-radius: 4px;
       display: flex;
       flex-direction: row;
-      color: #ffffff;
       justify-content: center;
       align-items: center;
       border: 1px solid rgba(63, 103, 120, 0.45);
