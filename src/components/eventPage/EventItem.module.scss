@@ -1,3 +1,33 @@
+@mixin status-button($bgColor, $fontSize) {
+  width: 100%;
+  background-color: $bgColor;
+  padding: 0.35rem 0.7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+      position: absolute;
+      left: -1.5rem;
+      max-width: 1.2rem;
+      height: auto;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      font-weight: 500;
+      font-size: $fontSize;
+    }
+  }
+}
+
 .events-item-container {
   width: 100%;
   height: auto;
@@ -85,98 +115,34 @@
     .events-item-actions {
       width: 100%;
       height: auto;
+
       .cancelled {
-        width: 100%;
-        background-color: #000000;
-        padding: 0.35rem 0.7rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        div {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-
-          img {
-            position: absolute;
-            left: -1.5rem;
-            max-width: 1.2rem;
-            height: auto;
-          }
-          p {
-            margin: 0;
-            padding: 0;
-            font-weight: 500;
-            font-size: 0.75rem;
-          }
-        }
+        @include status-button(#000000, 0.7vw);
       }
+
       .sold-out {
-        width: 100%;
-        background-color: #c4161c;
-        padding: 0.35rem 0.7rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        div {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-
-          img {
-            position: absolute;
-            left: -1.5rem;
-            max-width: 1.2rem;
-            height: auto;
-          }
-          p {
-            margin: 0;
-            padding: 0;
-            font-weight: 500;
-            font-size: 0.75rem;
-          }
-        }
+        @include status-button(#c4161c, 0.7vw);
       }
+
       button {
-        width: 50%;
+        // width: 50%;
+        width: 100%;
         height: auto;
         padding: 0.35rem 0.7rem;
         border: none;
         font-weight: 500;
-        font-size: 0.75rem;
+        // font-size: 0.75rem;
+        font-size: 0.7vw;
         cursor: pointer;
       }
       .buy-now {
-        background: #00b2fd;
+        background: #008c16;
         // border-radius: 0 0 0.2rem 0;
         transition: background-color 0.4s ease-in-out;
         position: relative;
         cursor: pointer;
         &:hover {
-          background: linear-gradient(to right, #0c4b78, #3d8ce7);
-          background-size: 200% auto;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: gradient 1s ease infinite;
-        }
-      }
-
-      .save {
-        background: #008c16;
-        // border-radius: 0 0 0 0.2rem;
-        transition: background-color 0.4s ease-in-out;
-        position: relative;
-        cursor: pointer;
-        &:hover {
+          // background: linear-gradient(to right, #0c4b78, #3d8ce7);
           background: linear-gradient(to right, #005a0e, #00af1a);
           background-size: 200% auto;
           background-clip: text;
@@ -185,6 +151,22 @@
           animation: gradient 1s ease infinite;
         }
       }
+
+      // .save {
+      //   background: #008c16;
+      //   // border-radius: 0 0 0 0.2rem;
+      //   transition: background-color 0.4s ease-in-out;
+      //   position: relative;
+      //   cursor: pointer;
+      //   &:hover {
+      //     background: linear-gradient(to right, #005a0e, #00af1a);
+      //     background-size: 200% auto;
+      //     background-clip: text;
+      //     -webkit-background-clip: text;
+      //     -webkit-text-fill-color: transparent;
+      //     animation: gradient 1s ease infinite;
+      //   }
+      // }
     }
   }
 }
@@ -203,6 +185,20 @@
       .events-item-description {
         font-size: 1.25vw;
       }
+
+      .events-item-actions {
+        .cancelled {
+          @include status-button(#000000, 1vw);
+        }
+
+        .sold-out {
+          @include status-button(#c4161c, 1vw);
+        }
+
+        button {
+          font-size: 1vw;
+        }
+      }
     }
   }
 }
@@ -220,6 +216,20 @@
 
       .events-item-description {
         font-size: 2.25vw;
+      }
+
+      .events-item-actions {
+        .cancelled {
+          @include status-button(#000000, 2vw);
+        }
+
+        .sold-out {
+          @include status-button(#c4161c, 2vw);
+        }
+
+        button {
+          font-size: 2vw;
+        }
       }
     }
   }

@@ -6,18 +6,26 @@ import styles from "./CaruselItem.module.scss";
 import greenDot from "../../../public/assets/icons/greenDot.png";
 import redDot from "../../../public/assets/icons/redDot.png";
 import commonTexts from "../../static/commonTexts.json";
-import { statusConverter } from "../../pages/api/utils-service";
+import { openTicketUrl, statusConverter } from "../../pages/api/utils-service";
 
 const CaruselItem = ({ item }) => {
-  const { locale } = useRouter();
+  const { locale, push } = useRouter();
 
   const customId = useId();
+
+  const goToDetails = () => {
+    push(`/events/${item.id}`);
+  };
 
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
     .map((content) => {
       return (
-        <div key={customId} className={styles["carusel-item-container"]}>
+        <div
+          onClick={goToDetails}
+          key={customId}
+          className={styles["carusel-item-container"]}
+        >
           <div className={styles["carusel-item-wrapper"]}>
             <img
               className={styles["carusel-img"]}
@@ -40,8 +48,13 @@ const CaruselItem = ({ item }) => {
               </div>
 
               <div className={styles["carusel-item-actions"]}>
-                <button className={styles["save"]}>{content.save}</button>
-                <button className={styles["buy-now"]}>{content.buy}</button>
+                {/* <button className={styles["save"]}>{content.save}</button> */}
+                <button
+                  onClick={(e) => openTicketUrl(e, item?.ticketUrl)}
+                  className={styles["buy-now"]}
+                >
+                  {content.buy}
+                </button>
               </div>
             </div>
           </div>

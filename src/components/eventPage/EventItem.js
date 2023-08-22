@@ -6,6 +6,7 @@ import cancelIcon from "../../../public/assets/icons/cancel.png";
 import lockIcon from "../../../public/assets/icons/lock.png";
 import styles from "./EventItem.module.scss";
 import commonTexts from "../../static/commonTexts.json";
+import { openTicketUrl } from "@/pages/api/utils-service";
 
 const EventItem = ({ item }) => {
   const customId = useId();
@@ -65,8 +66,13 @@ const EventItem = ({ item }) => {
 
               {!unAvailable && (
                 <>
-                  <button className={styles["save"]}>{content.save}</button>
-                  <button className={styles["buy-now"]}>{content.buy}</button>
+                  {/* <button className={styles["save"]}>{content.save}</button> */}
+                  <button
+                    onClick={(e) => openTicketUrl(e, item?.ticketUrl)}
+                    className={styles["buy-now"]}
+                  >
+                    {content.buy}
+                  </button>
                 </>
               )}
             </div>

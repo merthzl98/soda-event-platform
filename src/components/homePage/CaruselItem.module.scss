@@ -77,31 +77,16 @@
         width: 100%;
         height: auto;
         button {
-          width: 50%;
-          height: 1.7rem;
+          // width: 50%;
+          width: 100%;
+          height: 1.5rem;
           border: none;
           font-weight: 500;
-          font-size: 0.75rem;
+          font-size: 0.65vw;
         }
         .buy-now {
-          background-color: #00b2fd;
-          border-radius: 0 0 0.4rem 0;
-          transition: background-color 0.4s ease-in-out;
-          position: relative;
-          cursor: pointer;
-          &:hover {
-            background: linear-gradient(to right, #0c4b78, #3d8ce7);
-            background-size: 200% auto;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 1s ease infinite;
-          }
-        }
-
-        .save {
-          background: #008c16;
-          border-radius: 0 0 0 0.4rem;
+          background-color: #008c16;
+          border-radius: 0 0 0.4rem 0.4rem;
           transition: background-color 0.4s ease-in-out;
           position: relative;
           cursor: pointer;
@@ -114,6 +99,22 @@
             animation: gradient 1s ease infinite;
           }
         }
+
+        // .save {
+        //   background: #008c16;
+        //   border-radius: 0 0 0 0.4rem;
+        //   transition: background-color 0.4s ease-in-out;
+        //   position: relative;
+        //   cursor: pointer;
+        //   &:hover {
+        //     background: linear-gradient(to right, #005a0e, #00af1a);
+        //     background-size: 200% auto;
+        //     background-clip: text;
+        //     -webkit-background-clip: text;
+        //     -webkit-text-fill-color: transparent;
+        //     animation: gradient 1s ease infinite;
+        //   }
+        // }
       }
     }
   }
@@ -138,6 +139,11 @@
             p {
               font-size: 1vw;
             }
+          }
+        }
+        .carusel-item-actions {
+          button {
+            font-size: 1vw;
           }
         }
       }
@@ -191,21 +197,22 @@
           width: 100%;
           height: auto;
           button {
-            width: 50%;
+            // width: 50%;
+            width: 100%;
             height: 2rem;
             border: none;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 2vw;
           }
           .buy-now {
-            background: #00b2fd;
-            border-radius: 0 0 0.5rem 0;
+            background: #008c16;
+            border-radius: 0 0 0.5rem 0.5;
           }
 
-          .save {
-            background: #008c16;
-            border-radius: 0 0 0 0.5rem;
-          }
+          // .save {
+          //   background: #008c16;
+          //   border-radius: 0 0 0 0.5rem;
+          // }
         }
       }
     }

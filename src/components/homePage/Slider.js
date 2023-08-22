@@ -8,7 +8,7 @@ import styles from "./Slider.module.scss";
 import redDot from "../../../public/assets/icons/redDot.png";
 // import greyDot from "../../../public/assets/icons/greyDot.png";
 import commonTexts from "../../static/commonTexts.json";
-import bannerSlider from "../../../public/bannerEx.png";
+import { openTicketUrl } from "@/pages/api/utils-service";
 
 const Slider = (props) => {
   const { locale } = useRouter();
@@ -53,22 +53,26 @@ const Slider = (props) => {
     return (
       <SplideSlide key={Math.random()}>
         <div className={styles["slider-item"]}>
-          <Image
+          <img
             onMouseEnter={handleHoverSlider}
             onMouseLeave={handleMoveOutSlider}
             className={styles["slider-background"]}
-            src={bannerSlider}
+            style={{ cursor: item.targetUrl ? "pointer" : "initial" }}
+            src={item.url}
             alt="mha"
+            onClick={(e) => openTicketUrl(e, item?.targetUrl)}
           />
-          <div className={styles["slider-info"]}>
+          {/* <div className={styles["slider-info"]}>
             <div className={styles["dot-title"]} key={Math.random()}>
               <Image src={redDot} alt="red dot" />
               <p>{item.type}</p>
+              <p>{item.contentType}</p>
             </div>
             <div className={styles["dot-date"]} key={Math.random()}>
               <p> {item.date}</p>
+              <p>{item.contentType}</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </SplideSlide>
     );
@@ -79,7 +83,6 @@ const Slider = (props) => {
     top: "0px",
     height: "1px",
     width: "100%",
-    padding: "0 0.5rem",
   };
 
   return commonTexts.commonTexts
@@ -89,7 +92,7 @@ const Slider = (props) => {
         <div key={customId} className={styles["sliders-container"]}>
           <div className={styles["sliders-wrapper"]}>
             <div className="wrapper">
-              <div className={styles["upcoming-events"]}>
+              {/* <div className={styles["upcoming-events"]}>
                 <div>
                   <p className={styles["up-article"]}>{content.upComing}</p>
                 </div>
@@ -101,7 +104,7 @@ const Slider = (props) => {
                 <div className={styles["check-button"]}>
                   <button>{content.check}</button>
                 </div>
-              </div>
+              </div> */}
               <Splide
                 className={`${styles.splide}`}
                 options={options}

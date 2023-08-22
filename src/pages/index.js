@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Fragment } from "react";
 
 import HomePage from "@/components/homePage/HomePage";
-import { sliderItems } from "@/components/mockData/mockData";
 import EventService from "./api/event-service";
 
 export default function Home(props) {
@@ -21,7 +20,11 @@ export default function Home(props) {
 export async function getStaticProps({ locale }) {
   const response = await EventService.getHighlightedEvents(locale);
 
+  const mhaResponse = await EventService.getMHAContents();
+
   const highlightedEvents = response.data.events;
+
+  const mhaList = mhaResponse.data.contents;
 
   return {
     props: {
@@ -32,10 +35,12 @@ export async function getStaticProps({ locale }) {
           status: item.status,
           posterUrl: item.posterUrl,
         })),
-        sliderData: sliderItems.map((item) => ({
+        sliderData: mhaList.map((item) => ({
+          id: item.id,
+          contentType: item.contentType,
           url: item.url,
-          date: item.date,
-          type: item.type,
+          targetUrl: item.targetUrl,
+          // date: item.date,
         })),
       },
     },

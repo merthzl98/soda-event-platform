@@ -10,7 +10,11 @@ import greenDot from "../../../public/assets/icons/greenDot.png";
 import redDot from "../../../public/assets/icons/redDot.png";
 import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
-import { formattedDate, statusConverter } from "../../pages/api/utils-service";
+import {
+  formattedDate,
+  openTicketUrl,
+  statusConverter,
+} from "../../pages/api/utils-service";
 
 export const EventDetailPage = (props) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
@@ -20,9 +24,9 @@ export const EventDetailPage = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  let clientStatus = props.eventData.status;
-  let title = props.eventData.title;
-  let description = props.eventData.description;
+  let clientStatus = props.eventData?.status;
+  let title = props.eventData?.title;
+  let description = props.eventData?.description;
 
   return (
     <div className={styles["detail-container"]}>
@@ -36,24 +40,29 @@ export const EventDetailPage = (props) => {
             <div className={styles["infos"]}>
               <div className={styles["infos-item"]}>
                 <Image src={calendar} alt="calendar" />
-                <div>{formattedDate(props.eventData.date)}</div>
+                <div>{formattedDate(props.eventData?.date)}</div>
               </div>
               <div className={styles["infos-item"]}>
                 <Image src={clock} alt="clock" />
                 <div>
-                  {props.eventData.startHour} - {props.eventData.endHour}
+                  {props.eventData?.startHour} - {props.eventData?.endHour}
                 </div>
               </div>
               <div className={styles["infos-item"]}>
                 <Image src={location} alt="location" />
                 <div>
-                  {props.eventData.venue.name}, {props.eventData.venue.city}
+                  {props.eventData?.venue?.name}, {props.eventData?.venue?.city}
                 </div>
               </div>
             </div>
             {!mobileVersion && clientStatus === "AVAILABLE" && (
               <div className={styles["actions"]}>
-                <button className={styles["buy-now"]}>Buy Now</button>
+                <button
+                  onClick={(e) => openTicketUrl(e, props.eventData?.ticketUrl)}
+                  className={styles["buy-now"]}
+                >
+                  Buy Now
+                </button>
                 {/* <button className={styles["add-calendar"]}>+ Add Calendar</button> */}
               </div>
             )}
@@ -70,13 +79,18 @@ export const EventDetailPage = (props) => {
 
             {mobileVersion && clientStatus === "AVAILABLE" && (
               <div className={styles["actions"]}>
-                <button className={styles["buy-now"]}>Buy Now</button>
+                <button
+                  onClick={(e) => openTicketUrl(e, props.eventData?.ticketUrl)}
+                  className={styles["buy-now"]}
+                >
+                  Buy Now
+                </button>
                 {/* <button className={styles["add-calendar"]}>+ Add Calendar</button> */}
               </div>
             )}
           </div>
           <div className={styles["description-section"]}>
-            <div className={styles["description-title"]}>Description</div>
+            {/* <div className={styles["description-title"]}>Description</div> */}
             <div className={styles["description"]}>
               <p>{description}</p>
             </div>

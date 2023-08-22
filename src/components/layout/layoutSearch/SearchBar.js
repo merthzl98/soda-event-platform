@@ -9,8 +9,6 @@ import arrangeIcon from "../../../../public/assets/icons/arrangeIcon.png";
 import commonTexts from "../../../static/commonTexts.json";
 import Spinner from "@/components/ui/Spinner/Spinner";
 
-const raleway = Raleway({ subsets: ["latin"] });
-
 const SearchBar = () => {
   const { pathname, locale, query, push } = useRouter();
 
@@ -23,40 +21,40 @@ const SearchBar = () => {
     pathname !== "/events" && setEnteredSearch("");
   }, [pathname]);
 
-  useEffect(() => {
-    if (enteredSearch !== "") {
-      const searchDelay = setTimeout(() => {
-        push(`/events?page=${query["page"] ?? 1}&query=${enteredSearch}`);
-        setIsLoading(false);
-        console.log("Delayed action after 0.5 seconds:", enteredSearch);
-      }, 500);
+  // useEffect(() => {
+  //   if (enteredSearch !== "") {
+  //     const searchDelay = setTimeout(() => {
+  //       push(`/events?page=${query["page"] ?? 1}&query=${enteredSearch}`);
+  //       setIsLoading(false);
+  //       console.log("Delayed action after 0.5 seconds:", enteredSearch);
+  //     }, 500);
 
-      return () => {
-        clearTimeout(searchDelay);
-      };
-    } else if (enteredSearch === "" && pathname === "/events") {
-      const searchDelay = setTimeout(() => {
-        setIsLoading(false);
-        push(`/events?page=${query["page"] ?? 1}`);
-        console.log("Delayed action after 0.5 seconds:", enteredSearch);
-      }, 500);
+  //     return () => {
+  //       clearTimeout(searchDelay);
+  //     };
+  //   } else if (enteredSearch === "" && pathname === "/events") {
+  //     const searchDelay = setTimeout(() => {
+  //       setIsLoading(false);
+  //       push(`/events?page=${query["page"] ?? 1}`);
+  //       console.log("Delayed action after 0.5 seconds:", enteredSearch);
+  //     }, 500);
 
-      return () => {
-        clearTimeout(searchDelay);
-      };
-    }
-  }, [enteredSearch]);
+  //     return () => {
+  //       clearTimeout(searchDelay);
+  //     };
+  //   }
+  // }, [enteredSearch]);
 
   const handleChangeSearch = (e) => {
     setEnteredSearch(e.target.value);
     !isLoading && setIsLoading(true);
   };
 
-  // const handlePressEnter = (e) => {
-  //   e.key === "Enter" &&
-  //     enteredSearch.length > 0 &&
-  //     push(`/events?page=${query["page"] ?? 1}&query=${enteredSearch}`);
-  // };
+  const handlePressEnter = (e) => {
+    e.key === "Enter" &&
+      enteredSearch.length > 0 &&
+      push(`/events?page=${query["page"] ?? 1}&query=${enteredSearch}`);
+  };
 
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
@@ -76,16 +74,16 @@ const SearchBar = () => {
                 value={enteredSearch}
                 onChange={handleChangeSearch}
                 placeholder={content.searchForEvent}
-                // onKeyDown={handlePressEnter}
+                onKeyDown={handlePressEnter}
               />
             </div>
 
             <div className={styles["searchbar-icon"]}>
-              {isLoading ? (
+              {/* {isLoading ? (
                 <Spinner />
               ) : (
                 <Image src={arrangeIcon} alt="arrange-icon" />
-              )}
+              )} */}
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@ const MainNextUp = () => {
 
   useEffect(() => {
     EventService.getNextUpEvents().then((response) => {
+      // console.log({response});
       response.status === 200 && setNextUpList([...response.data.events]);
     });
   }, []);

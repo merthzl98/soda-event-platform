@@ -4,9 +4,14 @@ import { useRouter } from "next/router";
 
 import styles from "./NextUpItem.module.scss";
 import commonTexts from "../../../static/commonTexts.json";
+import { openTicketUrl } from "@/pages/api/utils-service";
 
 const NextUpItem = (props) => {
-  const { locale } = useRouter();
+  const { locale, push } = useRouter();
+
+  const goToDetails = () => {
+    push(`/events/${props.artistProps?.id}`);
+  };
 
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
@@ -28,15 +33,20 @@ const NextUpItem = (props) => {
                 {props.artistProps?.artist?.fullName}
               </div>
               <div className={styles["artist-location"]}>
-                {props.artistProps?.venue?.name}, {props.artistProps?.venue?.city}
+                {props.artistProps?.venue?.name},{" "}
+                {props.artistProps?.venue?.city}
               </div>
             </div>
             <div className={styles["nextup-action"]}>
               <div className={styles["bilet-info"]}>
-                <button>{content.biletsInfo}</button>
+                <button onClick={goToDetails}>{content.biletsInfo}</button>
               </div>
               <div className={styles["buy-now"]}>
-                <button>{content.buy}</button>
+                <button
+                  onClick={(e) => openTicketUrl(e, props.artistProps?.ticketUrl)}
+                >
+                  {content.buy}
+                </button>
               </div>
             </div>
           </div>
