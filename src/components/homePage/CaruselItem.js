@@ -17,6 +17,8 @@ const CaruselItem = ({ item }) => {
     push(`/events/${item.id}`);
   };
 
+  console.log(item.ticketUrl);
+
   return commonTexts.commonTexts
     .filter((language) => language.locale === locale)
     .map((content) => {

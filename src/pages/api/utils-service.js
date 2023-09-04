@@ -7,6 +7,16 @@ export const formattedDate = (dateString) => {
   return;
 };
 
+export const getFormattedHour = (time) => {
+  console.log(time);
+  const date = new Date(time);
+
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+
+  return `${hour}:${minute}`;
+};
+
 export const statusConverter = (originalString) => {
   if (originalString) {
     const convertedString = originalString

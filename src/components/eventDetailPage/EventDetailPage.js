@@ -14,10 +14,13 @@ import {
   formattedDate,
   openTicketUrl,
   statusConverter,
+  getFormattedHour,
 } from "../../pages/api/utils-service";
 
 export const EventDetailPage = (props) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
+
+  console.log("props.eventData", props.eventData);
 
   useEffect(() => {
     setHideNextUp(false);
@@ -40,12 +43,13 @@ export const EventDetailPage = (props) => {
             <div className={styles["infos"]}>
               <div className={styles["infos-item"]}>
                 <Image src={calendar} alt="calendar" />
-                <div>{formattedDate(props.eventData?.date)}</div>
+                <div>{formattedDate(props.eventData?.startTime)}</div>
               </div>
               <div className={styles["infos-item"]}>
                 <Image src={clock} alt="clock" />
                 <div>
-                  {props.eventData?.startHour} - {props.eventData?.endHour}
+                  {getFormattedHour(props.eventData?.startTime)} -
+                  {getFormattedHour(props.eventData?.endTime)}
                 </div>
               </div>
               <div className={styles["infos-item"]}>
