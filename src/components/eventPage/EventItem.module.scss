@@ -90,8 +90,7 @@
         word-wrap: break-word;
         p {
           font-weight: 700;
-          // font-size: 1.1rem;
-          font-size: 1vw;
+          font-size: 1.25rem;
         }
       }
     }
@@ -103,8 +102,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-weight: 300;
-      // font-size: 0.8rem;
-      font-size: 0.75vw;
+      font-size: 1rem;
       margin: 0.25rem 0.75rem 0.75rem 0.75rem;
       max-width: 100%;
       min-height: 5rem;
@@ -131,8 +129,7 @@
         padding: 0.35rem 0.7rem;
         border: none;
         font-weight: 500;
-        // font-size: 0.75rem;
-        font-size: 0.7vw;
+        font-size: 0.9rem;
         cursor: pointer;
       }
       .buy-now {

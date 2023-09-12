@@ -39,6 +39,13 @@ const Carusel = (props) => {
         arrows: false,
       },
 
+      750: {
+        perPage: 3.5,
+        perMove: 2,
+        gap: "2.3rem",
+        arrows: false,
+      },
+
       500: {
         perPage: 2.5,
         perMove: 1,

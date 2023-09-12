@@ -80,9 +80,10 @@ const Slider = (props) => {
 
   const progressStyle = {
     position: "absolute",
-    top: "0px",
+    top: "0",
+    left: "2px",
     height: "1px",
-    width: "100%",
+    width: "calc(100% - 2px)",
   };
 
   return commonTexts.commonTexts
@@ -121,6 +122,7 @@ const Slider = (props) => {
                     style={{
                       height: "2px",
                       backgroundColor: "#00b2fd",
+                      borderRadius: "5px",
                     }}
                   />
                 </div>

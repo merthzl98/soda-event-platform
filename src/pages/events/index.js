@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
 
   const queryParams = {
     country: locale,
-    itemCount: 1,
+    itemCount: 8,
     page: page ? page - 1 : 0,
     query: query ?? "",
   };

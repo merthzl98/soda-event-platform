@@ -48,7 +48,7 @@
           word-wrap: break-word;
           p {
             font-weight: 700;
-            font-size: 0.8vw;
+            font-size: 1.1rem;
           }
         }
 
@@ -58,12 +58,12 @@
           align-items: center;
           padding: 0 0.5rem 0.5rem 0.75rem;
           img {
-            width: 0.5vw;
+            width: 0.6rem;
             height: auto;
           }
           p {
             font-weight: 400;
-            font-size: 0.65vw;
+            font-size: 0.8rem;
             margin-left: 0.4rem;
           }
         }
@@ -82,7 +82,7 @@
           height: 1.5rem;
           border: none;
           font-weight: 500;
-          font-size: 0.65vw;
+          font-size: 0.8rem;
         }
         .buy-now {
           background-color: #008c16;
@@ -120,6 +120,37 @@
   }
 }
 
+@media (max-width: 1650px) {
+  .carusel-item-container {
+    .carusel-item-wrapper {
+      .sub-section {
+        .type-section {
+          .carusel-item-title {
+            p {
+              font-size: 1rem;
+            }
+          }
+
+          .carusel-item-condition {
+            img {
+              width: 0.8rem;
+              height: auto;
+            }
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+        .carusel-item-actions {
+          button {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 990px) {
   .carusel-item-container {
     .carusel-item-wrapper {
@@ -137,13 +168,13 @@
               height: auto;
             }
             p {
-              font-size: 1vw;
+              font-size: 1.2vw;
             }
           }
         }
         .carusel-item-actions {
           button {
-            font-size: 1vw;
+            font-size: 1.2vw;
           }
         }
       }

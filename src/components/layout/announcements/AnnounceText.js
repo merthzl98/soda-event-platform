@@ -6,7 +6,9 @@ const AnnounceText = ({ announce }) => {
   return (
     <div className={styles["announce-flow"]}>
       <p className={styles["band-name"]}>
-        &emsp;<b>• </b> &ensp; {announce?.highlightedText},&nbsp;
+        &emsp; &emsp; &emsp; &emsp;<b>• </b> &ensp;{" "}
+        {announce?.highlightedText}
+        &nbsp;
       </p>
       <p className={styles["location-name"]}> {announce?.text}</p>
 

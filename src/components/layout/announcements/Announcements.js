@@ -32,15 +32,13 @@ const Announcements = () => {
   return (
     <div className={styles["announce-container"]}>
       <div className={styles["announce-wrapper"]}>
-        <div className={styles["announce-icon"]}>
-          <Image src={announceIcon} alt="announce icon" />
-        </div>
-        <div className={styles["left-blur"]}></div>
+        <Image src={announceIcon} alt="announce icon" />
+        <div className={styles["left-blur"]} />
         <div className={styles["announce-article"]}>
           <Marquee
             style={{ zIndex: "1", width: "100%" }}
             gradient={false}
-            speed={50}
+            speed={15}
             direction={"right"}
           >
             {allAnnounce}

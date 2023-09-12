@@ -7,15 +7,16 @@
     flex-direction: row;
     align-items: center;
     position: relative;
-    .announce-icon {
-      display: grid;
-      place-items: center;
-      padding-left: 0.6rem;
-      img {
-        max-width: 100%;
-        height: auto;
-      }
+
+    img {
+      position: absolute;
+      left: 0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 100%;
+      height: auto;
     }
+
     .left-blur {
       position: absolute;
       left: 1.7rem;
@@ -37,6 +38,7 @@
 
     .announce-article {
       width: 100%;
+      padding-left: 2.3rem;
 
       p {
         font-size: 0.9rem;
@@ -51,11 +53,9 @@
     .announce-wrapper {
       .announce-icon {
         img {
-          
         }
       }
       .left-blur {
-        
       }
       .right-blur {
         right: -0.1rem;

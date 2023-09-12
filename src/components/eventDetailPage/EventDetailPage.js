@@ -8,7 +8,6 @@ import clock from "../../../public/assets/icons/clock.png";
 import calendar from "../../../public/assets/icons/calendar.png";
 import greenDot from "../../../public/assets/icons/greenDot.png";
 import redDot from "../../../public/assets/icons/redDot.png";
-import downSymbol from "../../../public/assets/icons/downSymbol.png";
 import LayoutContext from "../../storage/layout-context";
 import {
   formattedDate,
@@ -19,8 +18,6 @@ import {
 
 export const EventDetailPage = (props) => {
   const { mobileVersion, setHideNextUp } = useContext(LayoutContext);
-
-  console.log("props.eventData", props.eventData);
 
   useEffect(() => {
     setHideNextUp(false);
