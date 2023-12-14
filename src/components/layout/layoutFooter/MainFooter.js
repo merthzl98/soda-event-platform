@@ -184,7 +184,7 @@ const MainFooter = () => {
                     </div>
                     <div className={styles["disclaimer-section"]}>
                       <div>Disclamimer, Privacy & Cookies</div>
-                      <div>Copyright © 2022 SODA. All Rights Reserved.</div>
+                      <div>Copyright © 2024 SODA. All Rights Reserved.</div>
                     </div>
                   </div>
                 </div>
@@ -280,7 +280,7 @@ const MainFooter = () => {
                         <Image src={youtube} alt="youtube" />
                       </div>
                       <div>Disclamimer, Privacy & Cookies</div>
-                      <div>Copyright © 2022 SODA. All Rights Reserved.</div>
+                      <div>Copyright © 2024 SODA. All Rights Reserved.</div>
                     </div>
                     <div className={styles["right-line"]}>
                       <Image src={line} alt="line" />
