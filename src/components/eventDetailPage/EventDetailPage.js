@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 
 import styles from "./EventDetailPage.module.scss";
-import detailBanner from "../../../public/assets/banners/detailBanner.png";
 import location from "../../../public/assets/icons/location.png";
 import clock from "../../../public/assets/icons/clock.png";
 import calendar from "../../../public/assets/icons/calendar.png";
@@ -27,11 +26,12 @@ export const EventDetailPage = (props) => {
   let clientStatus = props.eventData?.status;
   let title = props.eventData?.title;
   let description = props.eventData?.description;
+  let detailBanner = props?.eventData?.posterUrl;
 
   return (
     <div className={styles["detail-container"]}>
       <div className={styles["img-section"]}>
-        <Image src={detailBanner} alt="detail banner" />
+        <img src={detailBanner} alt="detail banner" />
       </div>
       <div className={styles["descriptions"]}>
         <div className={styles["description-wrapper"]}>
